@@ -1,0 +1,131 @@
+import find from 'lodash/find'
+import includes from 'lodash/includes'
+import uniqueId from 'lodash/uniqueId'
+import omit from 'lodash/omit'
+import without from 'lodash/without'
+import mapValues from 'lodash/mapValues'
+
+const initialState = {
+  '1': {
+    id: '1',
+    title: 'one',
+    children: ['2', '3']
+  },
+  '2': {
+    id: '2',
+    title: 'two',
+    children: []
+  },
+  '3': {
+    id: '3',
+    title: 'three',
+    children: ['4', '5']
+  },
+  '4': {
+    id: '4',
+    title: 'four',
+    children: []
+  },
+  '5': {
+    id: '5',
+    title: 'five',
+    children: []
+  },
+}
+
+function findParent(items, id) {
+  return find(items, i => includes(i.children, id))
+}
+
+function updateTitle(state, action) {
+  const {id, newTitle} = action
+  if (state[id]) {
+    const newItem = Object.assign({}, state[id], {title: newTitle})
+    return Object.assign({}, state, {[id]: newItem})
+  }
+  return state
+}
+
+function newItemAfter(state, action) {
+  const {afterId} = action
+  const parent = findParent(state, afterId)
+  const nItem = action.item
+  const idIndex = parent.children.indexOf(afterId)
+  const nChildren = [
+    ...parent.children.slice(0, idIndex + 1),
+    nItem.id,
+    ...parent.children.slice(idIndex + 1),
+  ]
+  const nParent = Object.assign({}, parent, {children: nChildren})
+  return Object.assign({}, state, {[nItem.id]: nItem, [parent.id]: nParent})
+}
+
+function removeItem(state, action) {
+  const {id} = action
+  return mapValues(omit(state, [id]), item => Object.assign({}, item, {children: without(item.children, id)}))
+}
+
+function moveItem(state, {id, afterId, parent}) {
+  return mapValues(state, item => {
+    const withoutId = without(item.children, id);
+    if (item.id === parent) {
+      const afterIndex = withoutId.indexOf(afterId)
+      const firstSlice = withoutId.slice(0, afterIndex + 1);
+      const secondSlice = withoutId.slice(afterIndex + 1);
+      return {...item, children: [...firstSlice, id, ...secondSlice]}
+    }
+    return {...item, children: withoutId}
+  })
+}
+
+function indentItem(state, {id}) {
+  const {children} = findParent(state, id)
+  if(!children) {
+    return state
+  }
+  const index = children.indexOf(id)
+  if (index !== 0) {
+    const parent = children[index - 1]
+    const afterId = state[parent].children.slice(-1)[0]
+    return moveItem(state, {id, afterId, parent})
+  }
+  return state
+}
+
+function unindentItem(state, {id}) {
+  const parent = findParent(state, id)
+  const {children} = parent
+  const indexId = children.indexOf(id)
+  const obj = state[id];
+  const newState = {
+    ...state,
+    [parent.id]: {...parent, children: children.slice(0, indexId)},
+    [id]: {...obj, children: [...obj.children, ...children.slice(indexId + 1)]}
+  }
+  return moveItem(newState, {
+    id,
+    afterId: parent.id,
+    parent: findParent(state, parent.id).id
+  })
+}
+
+
+
+export default function reducer(state = initialState, action = {}) {
+  switch (action.type) {
+    case 'INDENT_ITEM':
+      return indentItem(state, action)
+    case 'UNINDENT_ITEM':
+      return unindentItem(state, action)
+    case 'UPDATE_TITLE':
+      return updateTitle(state, action)
+    case 'NEW_ITEM':
+      return newItemAfter(state, action)
+    case 'REMOVE_ITEM':
+      return removeItem(state, action)
+    case 'MOVE_ITEM':
+      return moveItem(state, action)
+    default:
+      return state;
+  }
+}
