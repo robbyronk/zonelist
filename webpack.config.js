@@ -8,7 +8,7 @@ var webpack = require('webpack');
 // e.g. join("web/static") => "/full/disk/path/to/hello/web/static"
 function join(dest) { return path.resolve(__dirname, dest); }
 
-function web(dest) { return join('web/static/' + dest); }
+function web(dest) { return join(dest); }
 
 var config = module.exports = {
 
