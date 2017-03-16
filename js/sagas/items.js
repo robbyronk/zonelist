@@ -1,10 +1,6 @@
-import {takeLatest, takeEvery} from "redux-saga";
-import {push} from "react-router-redux";
+import {takeEvery} from "redux-saga";
 import {fork, put} from "redux-saga/effects";
-import {Socket} from "phoenix";
-import uniqueId from 'lodash/uniqueId'
-import Actions from "../actions/sessions";
-import {httpPost, httpGet, httpDelete} from "../utils";
+import uniqueId from "lodash/uniqueId";
 
 
 function *createNewItem(action) {
