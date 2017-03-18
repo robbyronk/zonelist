@@ -1,8 +1,16 @@
 # ZoneList
 
-This initial commit is the WIP React app removed from the Elixir app
-it was living in. It ~~probably doesn't compile~~ technically compiles
-but isn't useful yet.
-
 The goal for this repo is to demonstrate the 
 To Do Tree + Kanban board mashup.
+
+It's pretty featureless right now.
+You can drag things around by clicking on "drag" and
+rename the tasks. Everything *should* save to your browser's
+localstorage.
+
+To try it:
+```
+$ npm i
+$ npm run build
+$ npm run serve
+```
