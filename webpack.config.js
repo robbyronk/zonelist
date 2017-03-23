@@ -28,6 +28,10 @@ const baseConfig = {
           presets: ['react', 'es2015', 'stage-2', 'stage-0'],
         },
       },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
     ]
   }
 };

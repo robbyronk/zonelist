@@ -7,6 +7,8 @@ import configureStore, {sagaMiddleware} from "./store";
 import Root from "./containers/root";
 import rootSaga from "./sagas";
 
+import '../css/application.scss'
+
 const store = configureStore(browserHistory);
 const history = syncHistoryWithStore(browserHistory, store);
 sagaMiddleware.run(rootSaga)
