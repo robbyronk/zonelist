@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {get} from "lodash"
-import {updateTitle} from "../actions";
+import {newItemAfter, updateTitle} from "../actions";
 
 class ItemTitle extends React.Component {
   constructor(props) {
@@ -21,8 +21,7 @@ class ItemTitle extends React.Component {
   }
 
   _handleChange({target: {value}}) {
-    // todo mapDispatchToProps
-    this.props.dispatch(updateTitle(this.props.id, value))
+    this.props.updateTitle(this.props.id, value)
   }
 
   _onBackspace(e) {
@@ -43,7 +42,7 @@ class ItemTitle extends React.Component {
 
   _onEnter(e) {
     if (this.props.newItemAfter) {
-      this.props.newItemAfter()
+      this.props.newItemAfter(this.props.id)
     }
   }
 
@@ -111,14 +110,17 @@ class ItemTitle extends React.Component {
 ItemTitle.propTypes = {
   unindentItem: React.PropTypes.func.isRequired,
   indentItem: React.PropTypes.func.isRequired,
-  newItemAfter: React.PropTypes.func.isRequired,
   newItemBefore: React.PropTypes.func,
   removeItem: React.PropTypes.func.isRequired,
-  title: React.PropTypes.string.isRequired,
 }
 
 const mapStateToProps = (state, ownProps) => ({
   title: get(state, `items.${ownProps.id}.title`)
 })
 
-export default connect(mapStateToProps)(ItemTitle)
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  newItemAfter: (id) => dispatch(newItemAfter(id)),
+  updateTitle: (id, newTitle) => dispatch(updateTitle(id, newTitle))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemTitle)
