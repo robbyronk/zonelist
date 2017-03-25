@@ -104,7 +104,8 @@ ItemTitle.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  title: get(state, `items.${ownProps.id}.title`)
+  focus: state.focus,
+  title: get(state, `items.${ownProps.id}.title`),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -123,14 +123,12 @@ class ZoneList extends React.Component {
 
   render() {
     const {tree} = this.state
-    const {focus} = this.props
 
     return (
       <div className='view-container list'>
         <Tree
           parent={null}
           items={tree}
-          focus={focus}
           move={this.moveItem.bind(this)}
           find={this.findItem.bind(this)}
           finalMove={this.finalMove}
@@ -143,7 +141,6 @@ class ZoneList extends React.Component {
 const mapStateToProps = (state) => (
   {
     items: state.items,
-    focus: state.focus,
   }
 );
 

@@ -48,13 +48,12 @@ export default class Item extends Component {
     item: PropTypes.object,
     move: PropTypes.func.isRequired,
     find: PropTypes.func.isRequired,
-    focus: PropTypes.string,
   };
 
   render() {
     const {
       connectDropTarget, connectDragPreview, connectDragSource, isDragging,
-      item: {id, title, children}, parent, move, find, focus
+      item: {id, title, children}, parent, move, find
     } = this.props
 
     const style = {
@@ -74,7 +73,6 @@ export default class Item extends Component {
         {connectDragSource(<span className="drag-source">&#x21D5;</span>)}
           <ItemTitle
             id={id}
-            focus={focus}
           />
         </div>
 
@@ -84,7 +82,6 @@ export default class Item extends Component {
           move={move}
           finalMove={this.props.finalMove}
           find={find}
-          focus={focus}
         />
       </div>
     ))
