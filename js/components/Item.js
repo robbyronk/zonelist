@@ -49,7 +49,6 @@ export default class Item extends Component {
     move: PropTypes.func.isRequired,
     find: PropTypes.func.isRequired,
     focus: PropTypes.string,
-    removeItem: PropTypes.func.isRequired,
   };
 
   render() {
@@ -75,9 +74,7 @@ export default class Item extends Component {
         {connectDragSource(<span className="drag-source">&#x21D5;</span>)}
           <ItemTitle
             id={id}
-            title={title}
             focus={focus}
-            removeItem={() => this.props.removeItem(id)}
           />
         </div>
 
@@ -88,7 +85,6 @@ export default class Item extends Component {
           finalMove={this.props.finalMove}
           find={find}
           focus={focus}
-          removeItem={this.props.removeItem}
         />
       </div>
     ))

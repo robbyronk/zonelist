@@ -6,8 +6,6 @@ import Tree from '../../components/Tree'
 import {DragDropContext}    from 'react-dnd';
 import HTML5Backend         from 'react-dnd-html5-backend';
 
-import {removeItem, updateTitle} from '../../actions'
-
 // basic actions:
 // change the title,
 // move an item (to parent, sibling above),
@@ -32,7 +30,6 @@ class ZoneList extends React.Component {
   constructor(props) {
     super(props)
 
-    this._removeItem = this._removeItem.bind(this)
     this.finalMove = this.finalMove.bind(this)
     this.moveItem = this.moveItem.bind(this)
   }
@@ -49,10 +46,6 @@ class ZoneList extends React.Component {
       }
     )
 
-  }
-
-  _removeItem(id) {
-    this.props.dispatch(removeItem(id))
   }
 
   finalMove(id, parentId, newIndex) {
@@ -138,7 +131,6 @@ class ZoneList extends React.Component {
           parent={null}
           items={tree}
           focus={focus}
-          removeItem={this._removeItem}
           move={this.moveItem.bind(this)}
           find={this.findItem.bind(this)}
           finalMove={this.finalMove}

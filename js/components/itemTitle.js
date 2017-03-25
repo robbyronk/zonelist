@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {get} from "lodash"
-import {indentItem, newItemAfter, unindentItem, updateTitle} from '../actions'
+import {indentItem, newItemAfter, removeItem, unindentItem, updateTitle} from '../actions'
 
 class ItemTitle extends React.Component {
   constructor(props) {
@@ -26,10 +26,7 @@ class ItemTitle extends React.Component {
 
   _onBackspace(e) {
     if (this.props.title === '') {
-      console.log('removing item')
-      if (this.props.removeItem) {
-        this.props.removeItem()
-      }
+      this.props.removeItem(this.props.id)
     }
   }
 
@@ -104,7 +101,6 @@ class ItemTitle extends React.Component {
 
 ItemTitle.propTypes = {
   newItemBefore: React.PropTypes.func,
-  removeItem: React.PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state, ownProps) => ({
@@ -114,6 +110,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   indentItem: (id) => dispatch(indentItem(id)),
   newItemAfter: (id) => dispatch(newItemAfter(id)),
+  removeItem: (id) => dispatch(removeItem(id)),
   updateTitle: (id, newTitle) => dispatch(updateTitle(id, newTitle)),
   unindentItem: (id) => dispatch(unindentItem(id)),
 })
