@@ -6,7 +6,7 @@ import Tree from '../../components/Tree'
 import {DragDropContext}    from 'react-dnd';
 import HTML5Backend         from 'react-dnd-html5-backend';
 
-import {indentItem, newItemAfter, removeItem, unindentItem, updateTitle} from '../../actions'
+import {indentItem, removeItem, unindentItem, updateTitle} from '../../actions'
 
 // basic actions:
 // change the title,
@@ -32,7 +32,6 @@ class ZoneList extends React.Component {
   constructor(props) {
     super(props)
 
-    this._newItemAfter = this._newItemAfter.bind(this)
     this._removeItem = this._removeItem.bind(this)
     this.finalMove = this.finalMove.bind(this)
     this.moveItem = this.moveItem.bind(this)
@@ -50,10 +49,6 @@ class ZoneList extends React.Component {
       }
     )
 
-  }
-
-  _newItemAfter(id) {
-    this.props.dispatch(newItemAfter(id))
   }
 
   _removeItem(id) {
@@ -153,7 +148,6 @@ class ZoneList extends React.Component {
           focus={focus}
           indentItem={this._indentItem}
           unindentItem={this._unindentItem}
-          newItemAfter={this._newItemAfter}
           removeItem={this._removeItem}
           move={this.moveItem.bind(this)}
           find={this.findItem.bind(this)}

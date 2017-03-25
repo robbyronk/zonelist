@@ -13,7 +13,6 @@ class ListItem extends React.Component {
 
     this._removeItem = this._removeItem.bind(this)
     this._updateTitle = this._updateTitle.bind(this)
-    this._newItemAfter = this._newItemAfter.bind(this)
   }
 
   _renderChildren(children) {
@@ -23,7 +22,6 @@ class ListItem extends React.Component {
           {children.map(child => <DnDListItem
             key={child.id}
             listItem={child}
-            newItemAfter={this.props.newItemAfter}
             removeItem={this.props.removeItem}
             updateTitle={this.props.updateTitle}
           />)}
@@ -34,10 +32,6 @@ class ListItem extends React.Component {
 
   _updateTitle(newTitle) {
     this.props.updateTitle(this.props.listItem.id, newTitle)
-  }
-
-  _newItemAfter() {
-    this.props.newItemAfter(this.props.listItem.id)
   }
 
   _removeItem() {
@@ -55,7 +49,6 @@ class ListItem extends React.Component {
           <ItemTitle
             title={title}
             update={this._updateTitle}
-            newItemAfter={this._newItemAfter}
             removeItem={this._removeItem}
           />
           {this._renderChildren(children)}
@@ -67,7 +60,6 @@ class ListItem extends React.Component {
 
 ListItem.propTypes = {
   listItem: React.PropTypes.object,
-  newItemAfter: React.PropTypes.func,
   updateTitle: React.PropTypes.func,
 }
 
