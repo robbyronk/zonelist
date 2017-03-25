@@ -49,7 +49,6 @@ export default class Item extends Component {
     move: PropTypes.func.isRequired,
     find: PropTypes.func.isRequired,
     focus: PropTypes.string,
-    indentItem: PropTypes.func.isRequired,
     removeItem: PropTypes.func.isRequired,
   };
 
@@ -78,7 +77,6 @@ export default class Item extends Component {
             id={id}
             title={title}
             focus={focus}
-            indentItem={() => this.props.indentItem(id)}
             unindentItem={() => this.props.unindentItem(id)}
             removeItem={() => this.props.removeItem(id)}
           />
@@ -91,7 +89,6 @@ export default class Item extends Component {
           finalMove={this.props.finalMove}
           find={find}
           focus={focus}
-          indentItem={this.props.indentItem}
           unindentItem={this.props.unindentItem}
           removeItem={this.props.removeItem}
         />

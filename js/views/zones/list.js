@@ -55,10 +55,6 @@ class ZoneList extends React.Component {
     this.props.dispatch(removeItem(id))
   }
 
-  _indentItem = (id) => {
-    this.props.dispatch(indentItem(id))
-  }
-
   _unindentItem = (id) => {
     this.props.dispatch(unindentItem(id))
   }
@@ -146,7 +142,6 @@ class ZoneList extends React.Component {
           parent={null}
           items={tree}
           focus={focus}
-          indentItem={this._indentItem}
           unindentItem={this._unindentItem}
           removeItem={this._removeItem}
           move={this.moveItem.bind(this)}
