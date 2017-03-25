@@ -6,7 +6,7 @@ import uniqueId from "lodash/uniqueId";
 function *createNewItem(action) {
   const afterId = action.id
   const item = {
-    id: uniqueId('item_'),
+    id: (new Date().getTime()),
     title: '',
     children: [],
   }
