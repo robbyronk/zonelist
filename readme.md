@@ -10,7 +10,5 @@ localstorage.
 
 To try it:
 ```
-$ npm i
-$ npm run build
-$ npm run serve
+$ yarn && yarn start
 ```
