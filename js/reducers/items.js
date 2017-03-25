@@ -1,3 +1,4 @@
+import update from 'immutability-helper';
 import find from 'lodash/find'
 import includes from 'lodash/includes'
 import uniqueId from 'lodash/uniqueId'
@@ -37,13 +38,8 @@ function findParent(items, id) {
   return find(items, i => includes(i.children, id))
 }
 
-function updateTitle(state, action) {
-  const {id, newTitle} = action
-  if (state[id]) {
-    const newItem = Object.assign({}, state[id], {title: newTitle})
-    return Object.assign({}, state, {[id]: newItem})
-  }
-  return state
+function updateTitle(state, {id, newTitle}) {
+  return update(state, {[id]: {title: {$set: newTitle}}})
 }
 
 function newItemAfter(state, action) {
