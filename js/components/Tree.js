@@ -33,14 +33,13 @@ export default class Tree extends Component {
     move   : PropTypes.func.isRequired,
     finalMove   : PropTypes.func.isRequired,
     find   : PropTypes.func.isRequired,
-    unindentItem: PropTypes.func.isRequired,
     removeItem: PropTypes.func.isRequired,
     focus: PropTypes.string,
   };
 
   render() {
     const {connectDropTarget, items, parent, move, find, focus} = this.props
-    const {removeItem, unindentItem} = this.props
+    const {removeItem} = this.props
 
     return connectDropTarget(
       <div style={{
@@ -60,7 +59,6 @@ export default class Tree extends Component {
             finalMove={this.props.finalMove}
             find={find}
             focus={focus}
-            unindentItem={unindentItem}
             removeItem={removeItem}
           />
         })}

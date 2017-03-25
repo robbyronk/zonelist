@@ -77,7 +77,6 @@ export default class Item extends Component {
             id={id}
             title={title}
             focus={focus}
-            unindentItem={() => this.props.unindentItem(id)}
             removeItem={() => this.props.removeItem(id)}
           />
         </div>
@@ -89,7 +88,6 @@ export default class Item extends Component {
           finalMove={this.props.finalMove}
           find={find}
           focus={focus}
-          unindentItem={this.props.unindentItem}
           removeItem={this.props.removeItem}
         />
       </div>

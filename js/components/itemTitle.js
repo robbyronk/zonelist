@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {get} from "lodash"
-import {indentItem, newItemAfter, updateTitle} from '../actions'
+import {indentItem, newItemAfter, unindentItem, updateTitle} from '../actions'
 
 class ItemTitle extends React.Component {
   constructor(props) {
@@ -53,9 +53,7 @@ class ItemTitle extends React.Component {
 
   _onShiftTab = (e) => {
     e.preventDefault()
-    if (this.props.unindentItem) {
-      this.props.unindentItem()
-    }
+    this.props.unindentItem(this.props.id)
   }
 
   _onKeyDown(e) {
@@ -105,7 +103,6 @@ class ItemTitle extends React.Component {
 }
 
 ItemTitle.propTypes = {
-  unindentItem: React.PropTypes.func.isRequired,
   newItemBefore: React.PropTypes.func,
   removeItem: React.PropTypes.func.isRequired,
 }
@@ -117,7 +114,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   indentItem: (id) => dispatch(indentItem(id)),
   newItemAfter: (id) => dispatch(newItemAfter(id)),
-  updateTitle: (id, newTitle) => dispatch(updateTitle(id, newTitle))
+  updateTitle: (id, newTitle) => dispatch(updateTitle(id, newTitle)),
+  unindentItem: (id) => dispatch(unindentItem(id)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemTitle)
