@@ -8,10 +8,10 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[app/**/*.js]
+[**/*.js]
 indent_style = space
 indent_size = 2
 
-[app/**/*.scss]
+[**/*.scss]
 indent_style = space
 indent_size = 2
