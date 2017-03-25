@@ -108,6 +108,7 @@ export default class ItemTitle extends React.Component {
   render() {
     return (
       <input
+        className="item-title"
         type="text"
         onBlur={this._onBlurUpdate}
         onChange={this._handleChange}

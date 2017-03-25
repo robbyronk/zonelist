@@ -80,7 +80,7 @@ export default class Item extends Component {
     return connectDropTarget(connectDragPreview(
       <div>
         <div style={isDragging ? draggingStyle : style}>
-        {connectDragSource(<span>drag</span>)}
+        {connectDragSource(<span className="drag-source">&#x21D5;</span>)}
           <ItemTitle
             id={id}
             title={title}
