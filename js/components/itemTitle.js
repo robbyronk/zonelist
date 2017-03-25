@@ -115,7 +115,6 @@ ItemTitle.propTypes = {
   newItemBefore: React.PropTypes.func,
   removeItem: React.PropTypes.func.isRequired,
   title: React.PropTypes.string.isRequired,
-  update: React.PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state, ownProps) => ({

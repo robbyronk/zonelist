@@ -32,7 +32,6 @@ class ZoneList extends React.Component {
   constructor(props) {
     super(props)
 
-    this._handleUpdateTitle = this._handleUpdateTitle.bind(this)
     this._newItemAfter = this._newItemAfter.bind(this)
     this._removeItem = this._removeItem.bind(this)
     this.finalMove = this.finalMove.bind(this)
@@ -51,10 +50,6 @@ class ZoneList extends React.Component {
       }
     )
 
-  }
-
-  _handleUpdateTitle(id, newTitle) {
-    this.props.dispatch(updateTitle(id, newTitle))
   }
 
   _newItemAfter(id) {
@@ -160,7 +155,6 @@ class ZoneList extends React.Component {
           unindentItem={this._unindentItem}
           newItemAfter={this._newItemAfter}
           removeItem={this._removeItem}
-          updateTitle={this._handleUpdateTitle}
           move={this.moveItem.bind(this)}
           find={this.findItem.bind(this)}
           finalMove={this.finalMove}

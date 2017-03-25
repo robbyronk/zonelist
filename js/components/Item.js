@@ -50,15 +50,9 @@ export default class Item extends Component {
     find: PropTypes.func.isRequired,
     focus: PropTypes.string,
     indentItem: PropTypes.func.isRequired,
-    updateTitle: PropTypes.func.isRequired,
     newItemAfter: PropTypes.func.isRequired,
     removeItem: PropTypes.func.isRequired,
   };
-
-  update = (newTitle) => {
-    console.log('blur happened')
-    this.props.updateTitle(id, newTitle)
-  }
 
   render() {
     const {
@@ -87,7 +81,6 @@ export default class Item extends Component {
             focus={focus}
             indentItem={() => this.props.indentItem(id)}
             unindentItem={() => this.props.unindentItem(id)}
-            update={this.update}
             newItemAfter={() => this.props.newItemAfter(id)}
             removeItem={() => this.props.removeItem(id)}
           />
@@ -104,7 +97,6 @@ export default class Item extends Component {
           unindentItem={this.props.unindentItem}
           newItemAfter={this.props.newItemAfter}
           removeItem={this.props.removeItem}
-          updateTitle={this.props.updateTitle}
         />
       </div>
     ))
