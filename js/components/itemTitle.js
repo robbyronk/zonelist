@@ -1,14 +1,12 @@
 import React, {PropTypes} from "react";
+import {connect} from "react-redux";
+import {get} from "lodash"
+import {updateTitle} from "../actions";
 
-
-export default class ItemTitle extends React.Component {
+class ItemTitle extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      title: props.title
-    }
     this._handleChange = this._handleChange.bind(this)
-    this._onBlurUpdate = this._onBlurUpdate.bind(this)
     this._onBackspace = this._onBackspace.bind(this)
     this._onCtrlAltEnter = this._onCtrlAltEnter.bind(this)
     this._onEnter = this._onEnter.bind(this)
@@ -22,22 +20,13 @@ export default class ItemTitle extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({title: nextProps.title});
-  }
-
-  _handleChange(e) {
-    this.setState({title: e.target.value});
-  }
-
-  _onBlurUpdate(e) {
-    if (this.state.title !== e.target.value) {
-      this.props.update(e.target.value)
-    }
+  _handleChange({target: {value}}) {
+    // todo mapDispatchToProps
+    this.props.dispatch(updateTitle(this.props.id, value))
   }
 
   _onBackspace(e) {
-    if (this.state.title === '') {
+    if (this.props.title === '') {
       console.log('removing item')
       if (this.props.removeItem) {
         this.props.removeItem()
@@ -53,7 +42,6 @@ export default class ItemTitle extends React.Component {
   }
 
   _onEnter(e) {
-    this.props.update(e.target.value)
     if (this.props.newItemAfter) {
       this.props.newItemAfter()
     }
@@ -75,7 +63,7 @@ export default class ItemTitle extends React.Component {
   }
 
   _onKeyDown(e) {
-    console.log(e.key, e.keyCode, e.altKey, e.ctrlKey, e.shiftKey, e.metaKey, e.which, e.charCode, e.location)
+    // console.log(e.key, e.keyCode, e.altKey, e.ctrlKey, e.shiftKey, e.metaKey, e.which, e.charCode, e.location)
     switch (e.key) {
       case 'Enter':
         if (e.altKey && e.ctrlKey) {
@@ -97,7 +85,7 @@ export default class ItemTitle extends React.Component {
   }
 
   _onKeyPress(e) {
-    console.log(e.key, e.keyCode, e.altKey, e.ctrlKey, e.shiftKey, e.metaKey, e.which, e.charCode, e.location)
+    // console.log(e.key, e.keyCode, e.altKey, e.ctrlKey, e.shiftKey, e.metaKey, e.which, e.charCode, e.location)
     switch (e.key) {
       case 'Enter':
         this._onEnter(e)
@@ -110,12 +98,11 @@ export default class ItemTitle extends React.Component {
       <input
         className="item-title"
         type="text"
-        onBlur={this._onBlurUpdate}
         onChange={this._handleChange}
         onKeyDown={this._onKeyDown}
         onKeyPress={this._onKeyPress}
         ref={input => this.textInput = input}
-        value={this.state.title || ''}
+        value={this.props.title}
       />
     )
   }
@@ -130,3 +117,9 @@ ItemTitle.propTypes = {
   title: React.PropTypes.string.isRequired,
   update: React.PropTypes.func.isRequired,
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  title: get(state, `items.${ownProps.id}.title`)
+})
+
+export default connect(mapStateToProps)(ItemTitle)
