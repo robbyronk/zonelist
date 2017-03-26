@@ -10,6 +10,7 @@
     "test": "mocha --reporter spec --compilers js:babel-core/register",
     "build": "webpack --env production",
     "wstart": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
+    "wtest": "nodemon --watch js --watch test --exec \"mocha --reporter spec --compilers js:babel-core/register\"",
     "start": "webpack-dev-server --env development"
   },
   "author": "robbyronk",
