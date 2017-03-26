@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react'
+import {connect} from 'react-redux'
+import {get} from 'lodash'
 import { DropTarget } from 'react-dnd'
 import Item from './Item'
 
@@ -23,12 +25,19 @@ const target = {
   }
 }
 
+function mapStateToProps (state, ownProps) {
+  return {
+    items: get(state, `items.${ownProps.id}.children`)
+  }
+}
+
+@connect(mapStateToProps)
 @DropTarget('ITEM', target, (connect, monitor) => ({
   connectDropTarget: connect.dropTarget()
 }))
 export default class Tree extends Component {
   static propTypes = {
-    items  : PropTypes.array.isRequired,
+    ids  : PropTypes.array.isRequired,
     parent : PropTypes.any,
     move   : PropTypes.func.isRequired,
     finalMove   : PropTypes.func.isRequired,
@@ -36,7 +45,7 @@ export default class Tree extends Component {
   };
 
   render() {
-    const {connectDropTarget, items, parent, move, find} = this.props
+    const {connectDropTarget, ids, parent, move, find} = this.props
 
     return connectDropTarget(
       <div style={{
@@ -46,12 +55,11 @@ export default class Tree extends Component {
         marginTop: -11,
         marginLeft: '2em'
       }}>
-        {items.map((item, i) => {
+        {ids.map((id, i) => {
           return <Item
-            key={item.id}
-            id={item.id}
+            key={id}
+            id={id}
             parent={parent}
-            item={item}
             move={move}
             finalMove={this.props.finalMove}
             find={find}

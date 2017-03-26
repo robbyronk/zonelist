@@ -1,4 +1,6 @@
 import React, {Component, PropTypes} from 'react'
+import {connect} from 'react-redux'
+import {get} from 'lodash'
 import {DragSource, DropTarget} from 'react-dnd'
 import Tree from './Tree'
 import ItemTitle from './itemTitle'
@@ -33,6 +35,14 @@ const target = {
   }
 }
 
+function mapStateToProps (state, ownProps) {
+  return {
+    item: get(state, `items.${ownProps.id}`),
+    children: get(state, `items.${ownProps.id}.children`)
+  }
+}
+
+@connect(mapStateToProps)
 @DropTarget('ITEM', target, connect => ({
   connectDropTarget: connect.dropTarget()
 }))
@@ -78,7 +88,7 @@ export default class Item extends Component {
 
         <Tree
           parent={id}
-          items={children}
+          ids={children}
           move={move}
           finalMove={this.props.finalMove}
           find={find}

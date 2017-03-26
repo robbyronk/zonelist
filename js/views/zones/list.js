@@ -122,13 +122,11 @@ class ZoneList extends React.Component {
   }
 
   render() {
-    const {tree} = this.state
-
     return (
       <div className='view-container list'>
         <Tree
+          ids={["1"]}
           parent={null}
-          items={tree}
           move={this.moveItem.bind(this)}
           find={this.findItem.bind(this)}
           finalMove={this.finalMove}
