@@ -58,6 +58,9 @@ function removeItem(state, action) {
 }
 
 function moveItem(state, {id, afterId, parent}) {
+  if(!parent) {
+    return state
+  }
   return mapValues(state, item => {
     const withoutId = without(item.children, id);
     if (item.id === parent) {
