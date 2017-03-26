@@ -43,17 +43,13 @@ function updateTitle(state, {id, newTitle}) {
 }
 
 function newItemAfter(state, action) {
-  const {afterId} = action
+  const {afterId, item} = action
   const parent = findParent(state, afterId)
-  const nItem = action.item
-  const idIndex = parent.children.indexOf(afterId)
-  const nChildren = [
-    ...parent.children.slice(0, idIndex + 1),
-    nItem.id,
-    ...parent.children.slice(idIndex + 1),
-  ]
-  const nParent = Object.assign({}, parent, {children: nChildren})
-  return Object.assign({}, state, {[nItem.id]: nItem, [parent.id]: nParent})
+  const insertIndex = parent.children.indexOf(afterId) + 1 // +1 to put it after `afterId`
+  return update(state, {
+    [item.id]: {$set: action.item},
+    [parent.id]: {children: {$splice: [[insertIndex, 0, item.id]]}}
+  })
 }
 
 function removeItem(state, action) {
