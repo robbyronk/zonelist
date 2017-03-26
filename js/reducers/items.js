@@ -120,6 +120,8 @@ export default function reducer(state = initialState, action = {}) {
       return removeItem(state, action)
     case 'MOVE_ITEM':
       return moveItem(state, action)
+    case 'RESET':
+      return initialState
     default:
       return state;
   }

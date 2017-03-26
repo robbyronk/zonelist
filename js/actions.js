@@ -33,3 +33,9 @@ export function unindentItem(id) {
     id
   }
 }
+
+export function reset() {
+  return {
+    type: 'RESET'
+  }
+}

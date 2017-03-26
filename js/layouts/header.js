@@ -1,7 +1,12 @@
 import React from "react";
 import {connect} from "react-redux";
-import {Link} from "react-router";
+import {reset} from '../actions'
 
+const mapDispatchToProps = (dispatch) => ({
+  reset: () => dispatch(reset())
+});
+
+@connect(null, mapDispatchToProps)
 class Header extends React.Component {
   render() {
     return (
@@ -9,20 +14,13 @@ class Header extends React.Component {
         <nav>
           <ul>
             <li>
-              Home
+              <button onClick={this.props.reset}>Reset</button>
             </li>
           </ul>
         </nav>
-        <Link to='/'>
-          <span className='logo'/>
-        </Link>
       </header>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  header: state.header,
-});
-
-export default connect(mapStateToProps)(Header);
+export default Header;
