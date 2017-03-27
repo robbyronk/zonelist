@@ -34,6 +34,15 @@ export function unindentItem(id) {
   }
 }
 
+export function moveItem(id, afterId, parent) {
+  return {
+    type: 'MOVE_ITEM',
+    id,
+    afterId,
+    parent
+  }
+}
+
 export function reset() {
   return {
     type: 'RESET'
