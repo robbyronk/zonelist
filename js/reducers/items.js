@@ -69,6 +69,8 @@ function moveItem(state, {id, afterId, parent}) {
   if(!parent || isChild(id, parent)) {
     return state
   }
+  const targetChildren = get(state, `${parent}.children`, [])
+  if(targetChildren[targetChildren.indexOf(afterId) + 1] === id) return state
   return mapValues(state, item => {
     const withoutId = without(item.children, id);
     if (item.id === parent) {
