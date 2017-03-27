@@ -36,13 +36,7 @@ export default class Tree extends Component {
     const {connectDropTarget, ids, parent} = this.props
 
     return connectDropTarget(
-      <div style={{
-        position: 'relative',
-        minHeight: 10,
-        paddingTop: 10,
-        marginTop: -11,
-        marginLeft: '2em'
-      }}>
+      <div className="tree">
         {ids.map((id, i) => {
           return <Item
             key={id}

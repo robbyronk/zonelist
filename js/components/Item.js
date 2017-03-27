@@ -5,6 +5,7 @@ import {DragSource, DropTarget} from 'react-dnd'
 import Tree from './Tree'
 import ItemTitle from './itemTitle'
 import {moveItem} from '../actions'
+import classNames from 'classnames'
 
 const source = {
   beginDrag(props) {
@@ -70,20 +71,9 @@ export default class Item extends Component {
       item: {id, title, children}
     } = this.props
 
-    const style = {
-      background: 'white',
-      border: '1px solid #ccc',
-      padding: '1em',
-      marginBottom: -1
-    }
-    const draggingStyle = {
-      opacity: 0.5,
-      ...style
-    }
-
     return connectDropTarget(connectDragPreview(
-      <div>
-        <div style={isDragging ? draggingStyle : style}>
+      <div className={classNames({dragging: isDragging})}>
+        <div className="item">
         {connectDragSource(<span className="drag-source">&#x21D5;</span>)}
           <ItemTitle
             id={id}
