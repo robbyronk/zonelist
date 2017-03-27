@@ -11,12 +11,11 @@ const source = {
     return {
       id: props.id,
       parent: props.parent,
-      items: props.item.children
     }
   },
 
   isDragging(props, monitor) {
-    return props.id == monitor.getItem().id
+    return props.id === monitor.getItem().id
   }
 }
 
@@ -29,7 +28,7 @@ const target = {
     const {id: draggedId} = monitor.getItem()
     const {id: overId} = props
 
-    if (draggedId == overId || draggedId == props.parent) return
+    if (draggedId === overId || draggedId === props.parent) return
     if (!monitor.isOver({shallow: true})) return
 
     props.move(draggedId, overId, props.parent)

@@ -1,32 +1,18 @@
 import React, { Component, PropTypes } from 'react'
 import {connect} from 'react-redux'
-import {get} from 'lodash'
 import { DropTarget } from 'react-dnd'
 import Item from './Item'
 import {moveItem} from '../actions'
 
 const target = {
-  drop(props, monitor, component) {
-    if(monitor.didDrop()) {
-      return
-    }
-    props.finalMove(monitor.getItem().id)
-  },
-
   hover(props, monitor) {
-    const {id: draggedId, parent, items} = monitor.getItem()
+    const {id: draggedId, parent} = monitor.getItem()
 
     if (!monitor.isOver({shallow: true})) return
 
-    if (parent == props.parent || draggedId == props.parent) return
+    if (parent === props.parent || draggedId === props.parent) return
 
     props.move(draggedId, props.id, props.parent)
-  }
-}
-
-function mapStateToProps (state, ownProps) {
-  return {
-    items: get(state, `items.${ownProps.id}.children`)
   }
 }
 
@@ -36,7 +22,7 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-@connect(mapStateToProps, mapDispatchToProps)
+@connect(null, mapDispatchToProps)
 @DropTarget('ITEM', target, (connect, monitor) => ({
   connectDropTarget: connect.dropTarget()
 }))
