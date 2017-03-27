@@ -47,7 +47,7 @@
   "dependencies": {
     "bourbon": "^4.2.6",
     "bourbon-neat": "^1.7.2",
-    "classnames": "^2.2.1",
+    "classnames": "^2.2.5",
     "es6-promise": "^3.0.2",
     "history": "^1.17.0",
     "immutability-helper": "^2.1.2",
