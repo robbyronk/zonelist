@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {get} from 'lodash'
 import { DropTarget } from 'react-dnd'
 import Item from './Item'
+import {moveItem} from '../actions'
 
 const target = {
   drop(props, monitor, component) {
@@ -17,8 +18,6 @@ const target = {
 
     if (!monitor.isOver({shallow: true})) return
 
-    const descendantNode = props.find(props.parent, items)
-    if (descendantNode) return
     if (parent == props.parent || draggedId == props.parent) return
 
     props.move(draggedId, props.id, props.parent)
@@ -31,7 +30,13 @@ function mapStateToProps (state, ownProps) {
   }
 }
 
-@connect(mapStateToProps)
+function mapDispatchToProps (dispatch) {
+  return {
+    move: (id, afterId, parent) => dispatch(moveItem(id, afterId, parent))
+  }
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
 @DropTarget('ITEM', target, (connect, monitor) => ({
   connectDropTarget: connect.dropTarget()
 }))
@@ -39,13 +44,10 @@ export default class Tree extends Component {
   static propTypes = {
     ids  : PropTypes.array.isRequired,
     parent : PropTypes.any,
-    move   : PropTypes.func.isRequired,
-    finalMove   : PropTypes.func.isRequired,
-    find   : PropTypes.func.isRequired,
   };
 
   render() {
-    const {connectDropTarget, ids, parent, move, find} = this.props
+    const {connectDropTarget, ids, parent} = this.props
 
     return connectDropTarget(
       <div style={{
@@ -60,9 +62,6 @@ export default class Tree extends Component {
             key={id}
             id={id}
             parent={parent}
-            move={move}
-            finalMove={this.props.finalMove}
-            find={find}
           />
         })}
       </div>

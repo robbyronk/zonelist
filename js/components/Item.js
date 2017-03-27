@@ -4,6 +4,7 @@ import {get} from 'lodash'
 import {DragSource, DropTarget} from 'react-dnd'
 import Tree from './Tree'
 import ItemTitle from './itemTitle'
+import {moveItem} from '../actions'
 
 const source = {
   beginDrag(props) {
@@ -42,7 +43,13 @@ function mapStateToProps (state, ownProps) {
   }
 }
 
-@connect(mapStateToProps)
+function mapDispatchToProps (dispatch) {
+  return {
+    move: (id, afterId, parent) => dispatch(moveItem(id, afterId, parent))
+  }
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
 @DropTarget('ITEM', target, connect => ({
   connectDropTarget: connect.dropTarget()
 }))
@@ -56,14 +63,12 @@ export default class Item extends Component {
     id: PropTypes.any.isRequired,
     parent: PropTypes.any,
     item: PropTypes.object,
-    move: PropTypes.func.isRequired,
-    find: PropTypes.func.isRequired,
   };
 
   render() {
     const {
       connectDropTarget, connectDragPreview, connectDragSource, isDragging,
-      item: {id, title, children}, parent, move, find
+      item: {id, title, children}
     } = this.props
 
     const style = {
@@ -89,9 +94,6 @@ export default class Item extends Component {
         <Tree
           parent={id}
           ids={children}
-          move={move}
-          finalMove={this.props.finalMove}
-          find={find}
         />
       </div>
     ))
