@@ -1,6 +1,7 @@
 import 'babel-polyfill'
 import expect from 'expect';
 import reducers from '../js/reducers';
+import {isChild} from '../js/reducers/items'
 
 describe('reducers', () => {
   it('simple update title test', () => {
@@ -33,4 +34,26 @@ describe('reducers', () => {
     state = reducers(prevState, {type:'MOVE_ITEM',id:'2',afterId:'1',parent:null});
     expect(state).toEqual(prevState);
   });
+
+  it('simple move item test', () => {
+    let state;
+    state = reducers({routing:{locationBeforeTransitions:{pathname:'/',search:'',hash:'',state:null,action:'POP',key:'183jhd',query:{},$searchBase:{search:'',searchBase:''}}},focus:null,items:{'1':{id:'1',title:'one',children:['2','3']},'2':{id:'2',title:'two',children:[]},'3':{id:'3',title:'three',children:['4','5']},'4':{id:'4',title:'four',children:[]},'5':{id:'5',title:'five',children:[]}}}, {type:'MOVE_ITEM',id:'4',afterId:null,parent:'1'});
+    expect(state).toEqual({routing:{locationBeforeTransitions:{pathname:'/',search:'',hash:'',state:null,action:'POP',key:'183jhd',query:{},$searchBase:{search:'',searchBase:''}}},focus:null,items:{'1':{id:'1',title:'one',children:['4','2','3']},'2':{id:'2',title:'two',children:[]},'3':{id:'3',title:'three',children:['5']},'4':{id:'4',title:'four',children:[]},'5':{id:'5',title:'five',children:[]}}});
+  });
 });
+
+describe('items reducers utils', () => {
+  it('should find child', () => {
+    let state = {
+      '1': { id: '1', children: ['2', '3']},
+      '2': { id: '2', children: []},
+      '3': { id: '3', children: ['4', '5']},
+      '4': { id: '4', children: []},
+      '5': { id: '5', children: []},
+    };
+    expect(isChild(state, '1', '5')).toEqual(true)
+    expect(isChild(state, '1', '3')).toEqual(true)
+    expect(isChild(state, '5', '1')).toEqual(false)
+    expect(isChild(state, '3', '1')).toEqual(false)
+  })
+})

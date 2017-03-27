@@ -5,6 +5,7 @@ import uniqueId from 'lodash/uniqueId'
 import omit from 'lodash/omit'
 import without from 'lodash/without'
 import mapValues from 'lodash/mapValues'
+import {get, isEmpty, some} from 'lodash'
 
 const initialState = {
   '1': {
@@ -38,6 +39,13 @@ function findParent(items, id) {
   return find(items, i => includes(i.children, id))
 }
 
+export function isChild(items, parentId, childId) {
+  const children = get(items, `${parentId}.children`, [])
+  if(isEmpty(children)) return false
+  if(includes(children, childId)) return true
+  return some(children, (c) => isChild(items, c, childId))
+}
+
 function updateTitle(state, {id, newTitle}) {
   return update(state, {[id]: {title: {$set: newTitle}}})
 }
@@ -58,7 +66,7 @@ function removeItem(state, action) {
 }
 
 function moveItem(state, {id, afterId, parent}) {
-  if(!parent) {
+  if(!parent || isChild(id, parent)) {
     return state
   }
   return mapValues(state, item => {
