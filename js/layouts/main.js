@@ -4,7 +4,7 @@ import Header from './header'
 export default class MainLayout extends React.Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <Header/>
         {this.props.children}
       </div>
