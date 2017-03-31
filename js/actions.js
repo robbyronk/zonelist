@@ -48,3 +48,15 @@ export function reset() {
     type: 'RESET'
   }
 }
+
+export function openImportModal() {
+  return {
+    type: 'OPEN_IMPORT_MODAL'
+  }
+}
+
+export function closeImportModal() {
+  return {
+    type: 'CLOSE_IMPORT_MODAL'
+  }
+}

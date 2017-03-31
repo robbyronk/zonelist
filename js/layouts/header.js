@@ -1,10 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {reset} from '../actions'
+import {reset,openImportModal} from '../actions'
+import ImportModal from '../components/import-modal'
 
-const mapDispatchToProps = (dispatch) => ({
-  reset: () => dispatch(reset())
-})
+const mapDispatchToProps = {
+  openImportModal,
+  reset,
+}
 
 @connect(null, mapDispatchToProps)
 export default class Header extends React.Component {
@@ -18,7 +20,8 @@ export default class Header extends React.Component {
           <button className="btn btn-block btn-danger" onClick={this.props.reset}>Reset</button>
         </div>
         <div className="col-3">
-          <button className="btn btn-block">Import</button>
+          <button className="btn btn-block" onClick={this.props.openImportModal}>Import</button>
+          <ImportModal/>
         </div>
         <div className="col-3">
           <button className="btn btn-block">Export</button>
