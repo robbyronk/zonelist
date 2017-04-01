@@ -6,7 +6,8 @@ import {closeExportModal} from '../actions'
 
 function mapStateToProps(state) {
   return {
-    isExporting: state.is.exporting
+    isExporting: state.is.exporting,
+    items: state.items,
   }
 }
 
@@ -21,7 +22,9 @@ export default class ExportModal extends React.Component {
       <Modal isOpen={this.props.isExporting} toggle={this.toggle} className={this.props.className}>
         <ModalHeader toggle={this.toggle}>Export Your Zone</ModalHeader>
         <ModalBody>
-          textarea to show state
+          <textarea className="form-control" name="items" id="items" rows="10">
+            {JSON.stringify(this.props.items, null, 2)}
+          </textarea>
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
