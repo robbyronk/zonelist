@@ -1,9 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {reset,openImportModal} from '../actions'
+import {reset,openImportModal,openExportModal} from '../actions'
 import ImportModal from '../components/import-modal'
+import ExportModal from '../components/export-modal'
 
 const mapDispatchToProps = {
+  openExportModal,
   openImportModal,
   reset,
 }
@@ -24,7 +26,8 @@ export default class Header extends React.Component {
           <ImportModal/>
         </div>
         <div className="col-3">
-          <button className="btn btn-block">Export</button>
+          <button className="btn btn-block" onClick={this.props.openExportModal}>Export</button>
+          <ExportModal/>
         </div>
       </div>
     )

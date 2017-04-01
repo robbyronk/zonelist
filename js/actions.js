@@ -60,3 +60,15 @@ export function closeImportModal() {
     type: 'CLOSE_IMPORT_MODAL'
   }
 }
+
+export function openExportModal() {
+  return {
+    type: 'OPEN_EXPORT_MODAL'
+  }
+}
+
+export function closeExportModal() {
+  return {
+    type: 'CLOSE_EXPORT_MODAL'
+  }
+}
