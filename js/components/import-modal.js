@@ -6,7 +6,7 @@ import {closeImportModal} from '../actions'
 
 function mapStateToProps(state) {
   return {
-    isImporting: state.isImporting
+    isImporting: state.is.importing
   }
 }
 
