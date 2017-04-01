@@ -20,7 +20,7 @@ const mapDispatchToProps = {
 export default class ImportModal extends React.Component {
   state = {
     isInvalid: true,
-    importData: null,
+    importData: '',
   }
 
   _onChange = ({target: {value: importData}}) => this.setState({importData})
