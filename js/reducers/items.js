@@ -5,7 +5,7 @@ import uniqueId from 'lodash/uniqueId'
 import omit from 'lodash/omit'
 import without from 'lodash/without'
 import mapValues from 'lodash/mapValues'
-import {get, isEmpty, some} from 'lodash'
+import {get, isEmpty, some, isPlainObject} from 'lodash'
 
 const initialState = {
   '1': {
@@ -114,6 +114,13 @@ function unindentItem(state, {id}) {
   })
 }
 
+function setItems(state, {items}) {
+  // todo check items and make sure that it's correct
+  if(isPlainObject(items)) {
+    return items
+  }
+  return state
+}
 
 
 export default function reducer(state = initialState, action = {}) {
@@ -132,6 +139,8 @@ export default function reducer(state = initialState, action = {}) {
       return moveItem(state, action)
     case 'RESET':
       return initialState
+    case 'SET_ITEMS':
+      return setItems(state, action)
     default:
       return state;
   }

@@ -72,3 +72,10 @@ export function closeExportModal() {
     type: 'CLOSE_EXPORT_MODAL'
   }
 }
+
+export function setItems(items) {
+  return {
+    type: 'SET_ITEMS',
+    items
+  }
+}
