@@ -13,12 +13,14 @@
 }
 
 .drag-source {
-  height: 1em;
+  height: 5em;
+  font-size: 2em;
+  margin-right: 0.5em;
   padding-left: 0.2em;
-  padding-right: 0.2em;
+  padding-right: 0.1em;
   border-radius: 0.5em;
-  background-color: teal;
-  color: whitesmoke;
+  background-color: #cccccc;
+  color: #333;
   border: #005555 solid 2px;
   cursor: grab;
 }

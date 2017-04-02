@@ -74,7 +74,7 @@ export default class Item extends Component {
     return connectDropTarget(connectDragPreview(
       <div className={classNames({dragging: isDragging})}>
         <div className="item">
-        {connectDragSource(<span className="drag-source">&#x21D5;</span>)}
+        {connectDragSource(<span className="drag-source">&#x2195;</span>)}
           <ItemTitle
             id={id}
           />
