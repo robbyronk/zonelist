@@ -8,12 +8,13 @@
 }
 
 .item-title {
+  flex: auto;
   border: none;
   border-bottom: gray solid 2px;
 }
 
 .drag-source {
-  height: 5em;
+  flex: 0 0 1em;
   font-size: 2em;
   margin-right: 0.5em;
   padding-left: 0.2em;
@@ -34,6 +35,8 @@
 }
 
 .item {
+  display: flex;
+  flex-direction: row;
   background: white;
   border: 1px solid #ccc;
   padding: 1em;
