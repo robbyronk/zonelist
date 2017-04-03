@@ -52,6 +52,9 @@ function updateTitle(state, {id, newTitle}) {
 
 function newItemAfter(state, action) {
   const {afterId, item} = action
+  if (afterId === 'root') {
+    return state
+  }
   const parent = findParent(state, afterId)
   const insertIndex = parent.children.indexOf(afterId) + 1 // +1 to put it after `afterId`
   return update(state, {
@@ -66,6 +69,9 @@ function removeItem(state, action) {
 }
 
 function moveItem(state, {id, afterId, parent}) {
+  if (id === 'root') {
+    return state
+  }
   if(!parent || isChild(id, parent)) {
     return state
   }
@@ -84,6 +90,9 @@ function moveItem(state, {id, afterId, parent}) {
 }
 
 function indentItem(state, {id}) {
+  if (id === 'root') {
+    return state
+  }
   const {children} = findParent(state, id)
   if(!children) {
     return state
@@ -98,6 +107,9 @@ function indentItem(state, {id}) {
 }
 
 function unindentItem(state, {id}) {
+  if (id === 'root') {
+    return state
+  }
   const parent = findParent(state, id)
   const {children} = parent
   const indexId = children.indexOf(id)
