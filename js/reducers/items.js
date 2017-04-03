@@ -8,8 +8,8 @@ import mapValues from 'lodash/mapValues'
 import {get, isEmpty, some, isPlainObject} from 'lodash'
 
 const initialState = {
-  '1': {
-    id: '1',
+  'root': {
+    id: 'root',
     title: 'one',
     children: ['2', '3']
   },

@@ -1,6 +1,6 @@
 {
-    "1": {
-        "id": "1",
+    "root": {
+        "id": "root",
         "title": "ZoneList MVP",
         "children": [
             "2",

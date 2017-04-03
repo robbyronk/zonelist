@@ -9,7 +9,7 @@ export default class ZoneList extends React.Component {
     return (
       <div className='view-container list'>
         <Tree
-          ids={['1']}
+          ids={['root']}
           parent={null}
         />
       </div>
