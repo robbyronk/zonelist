@@ -1,19 +1,8 @@
 {
-    "2": {
-        "id": "2",
-        "title": "Make a real root item",
-        "children": [
-            1491114033308,
-            1491114052869,
-            1491114065593,
-            1491114088835
-        ]
-    },
     "root": {
         "id": "root",
         "title": "ZoneList MVP",
         "children": [
-            "2",
             1491091919570,
             1491091993014
         ]
@@ -34,29 +23,6 @@
             1491114592287
         ]
     },
-    "1491114033308": {
-        "id": 1491114033308,
-        "title": "Make an item with id `root`",
-        "children": []
-    },
-    "1491114052869": {
-        "id": 1491114052869,
-        "title": "Make sure that item can't be modified, other than title",
-        "children": [
-            1491114224680,
-            1491114241463
-        ]
-    },
-    "1491114065593": {
-        "id": 1491114065593,
-        "title": "Make sure that items can be created under root",
-        "children": []
-    },
-    "1491114088835": {
-        "id": 1491114088835,
-        "title": "Make sure items can't be unindented to the same level as root",
-        "children": []
-    },
     "1491114193049": {
         "id": 1491114193049,
         "title": "Make a page and route",
@@ -65,16 +31,6 @@
     "1491114204784": {
         "id": 1491114204784,
         "title": "Show items with no incomplete children in todo, in progress and waiting",
-        "children": []
-    },
-    "1491114224680": {
-        "id": 1491114224680,
-        "title": "Updating title should work for root",
-        "children": []
-    },
-    "1491114241463": {
-        "id": 1491114241463,
-        "title": "Other actions should not modify state when the action id is root",
         "children": []
     },
     "1491114522558": {
