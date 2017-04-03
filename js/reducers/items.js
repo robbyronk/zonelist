@@ -115,10 +115,10 @@ function indentItem(state, {id}) {
 }
 
 function unindentItem(state, {id}) {
-  if (id === 'root') {
+  const parent = findParent(state, id)
+  if (parent.id === 'root') {
     return state
   }
-  const parent = findParent(state, id)
   const {children} = parent
   const indexId = children.indexOf(id)
   const obj = state[id];
