@@ -62,28 +62,18 @@ export default class Item extends Component {
   static propTypes = {
     id: PropTypes.any.isRequired,
     parent: PropTypes.any,
-    item: PropTypes.object,
   };
 
   render() {
-    const {
-      connectDropTarget, connectDragPreview, connectDragSource, isDragging,
-      item: {id, title, children}
-    } = this.props
+    const { connectDropTarget, connectDragPreview, connectDragSource, isDragging, item, id} = this.props
 
     return connectDropTarget(connectDragPreview(
       <div className={classNames({dragging: isDragging})}>
         <div className="item">
-        {connectDragSource(<span className="drag-source badge badge-success">&#x2195;</span>)}
-          <ItemTitle
-            id={id}
-          />
+          {connectDragSource(<span className="drag-source badge badge-success">&#x2195;</span>)}
+          <ItemTitle id={id}/>
         </div>
-
-        <Tree
-          parent={id}
-          ids={children}
-        />
+        <Tree parent={id} ids={item.children}/>
       </div>
     ))
   }
