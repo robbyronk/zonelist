@@ -53,13 +53,21 @@ function updateTitle(state, {id, newTitle}) {
 function newItemAfter(state, action) {
   const {afterId, item} = action
   if (afterId === 'root') {
-    return state
+    return newItemUnder(state, {underId: 'root', item})
   }
   const parent = findParent(state, afterId)
   const insertIndex = parent.children.indexOf(afterId) + 1 // +1 to put it after `afterId`
   return update(state, {
     [item.id]: {$set: action.item},
     [parent.id]: {children: {$splice: [[insertIndex, 0, item.id]]}}
+  })
+}
+
+function newItemUnder(state, action) {
+  const {underId, item} = action
+  return update(state, {
+    [item.id]: {$set: action.item},
+    [underId]: {children: {$splice: [[0, 0, item.id]]}}
   })
 }
 
