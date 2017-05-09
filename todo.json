@@ -39,16 +39,10 @@
         "title": "Show items with no non-complete children in complete",
         "children": []
     },
-    "1491114592287": {
-        "id": 1491114592287,
-        "title": "Use Font Awesome",
-        "children": []
-    },
     "1491211876308": {
         "id": 1491211876308,
         "title": "Easy tasks",
         "children": [
-            1491114592287,
             1491212130554,
             1491212253194,
             1491212388044,
