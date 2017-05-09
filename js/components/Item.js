@@ -70,7 +70,7 @@ export default class Item extends Component {
     return connectDropTarget(connectDragPreview(
       <div className={classNames({dragging: isDragging})}>
         <div className="item">
-          {connectDragSource(<span className="drag-source badge badge-success">&#x2195;</span>)}
+          {connectDragSource(<span className="drag-source badge badge-success"><i className="fa fa-arrows" aria-hidden="true"/></span>)}
           <ItemTitle id={id}/>
         </div>
         <Tree parent={id} ids={item.children}/>
