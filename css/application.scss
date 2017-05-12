@@ -42,3 +42,10 @@ $fa-font-path: "~font-awesome/fonts";
 .dragging {
   opacity: 0.5;
 }
+
+.board-item {
+  background: gray;
+  height: 4em;
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
