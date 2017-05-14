@@ -1,11 +1,14 @@
-import React from 'react'
+import React, {Component, PropTypes} from 'react'
 
-export default class BoardItem extends React.Component {
+export default class BoardItem extends Component {
+  static propTypes = {
+    item: PropTypes.object.isRequired,
+  };
+
   render() {
-    const title = 'something to do'
     return (
       <div className="board-item">
-        <span className="board-item-title">{title}</span>
+        <span className="board-item-title">{this.props.item.title}</span>
       </div>
     )
   }
