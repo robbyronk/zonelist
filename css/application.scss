@@ -45,7 +45,7 @@ $fa-font-path: "~font-awesome/fonts";
 
 .board-item {
   background: gray;
-  height: 4em;
+  min-height: 4em;
   margin-bottom: 1em;
   padding: 0.5em;
 }
