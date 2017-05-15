@@ -12,10 +12,10 @@
         "id": 1491091919570,
         "title": "Kanban board",
         "children": [
-            1491211995212,
             1491114204784,
             1491114522558,
-            1491091993014
+            1491091993014,
+            1494792020778
         ]
     },
     "1491091993014": {
@@ -26,7 +26,8 @@
     "1491114204784": {
         "id": 1491114204784,
         "title": "Show items with no incomplete children in todo, in progress and waiting",
-        "children": []
+        "children": [],
+        "status": "inProgress"
     },
     "1491114522558": {
         "id": 1491114522558,
@@ -43,24 +44,6 @@
             1491212635996,
             1491215085850
         ]
-    },
-    "1491211995212": {
-        "id": 1491211995212,
-        "title": "Mockup components",
-        "children": [
-            1491212089718,
-            1491212093174
-        ]
-    },
-    "1491212089718": {
-        "id": 1491212089718,
-        "title": "Lanes",
-        "children": []
-    },
-    "1491212093174": {
-        "id": 1491212093174,
-        "title": "Tasks",
-        "children": []
     },
     "1491212130554": {
         "id": 1491212130554,
@@ -153,6 +136,11 @@
     "1491215103338": {
         "id": 1491215103338,
         "title": "Add lines to help see the level of indentation",
+        "children": []
+    },
+    "1494792020778": {
+        "id": 1494792020778,
+        "title": "Add buttons to change the status of items",
         "children": []
     }
 }
