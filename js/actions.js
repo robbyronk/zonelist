@@ -79,3 +79,11 @@ export function setItems(items) {
     items
   }
 }
+
+export function setStatus(id, status) {
+  return {
+    type: 'SET_STATUS',
+    id,
+    status
+  }
+}

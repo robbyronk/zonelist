@@ -143,6 +143,9 @@ function setItems(state, {items}) {
 }
 
 
+function setStatus(state, {id, status}) {
+  return update(state, {[id]: {status: {$set: status}}})
+}
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case 'INDENT_ITEM':
@@ -161,6 +164,8 @@ export default function reducer(state = initialState, action = {}) {
       return initialState
     case 'SET_ITEMS':
       return setItems(state, action)
+    case 'SET_STATUS':
+      return setStatus(state, action)
     default:
       return state;
   }
