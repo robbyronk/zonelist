@@ -87,3 +87,15 @@ export function setStatus(id, status) {
     status
   }
 }
+
+export function showBoard() {
+  return {
+    type: 'SHOW_BOARD',
+  }
+}
+
+export function hideBoard() {
+  return {
+    type: 'HIDE_BOARD',
+  }
+}
