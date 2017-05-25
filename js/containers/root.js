@@ -1,25 +1,19 @@
 import React, {PropTypes} from "react";
 import {Provider} from "react-redux";
-import {Router, RoutingContext} from "react-router";
-import invariant from "invariant";
-import configRoutes from "../routes";
+import MainLayout from '../layouts/main'
+import ZoneList from '../views/zones/list'
 
 const propTypes = {
-  routerHistory: PropTypes.object.isRequired,
   store: PropTypes.object.isRequired
 };
 
-const Root = ({routerHistory, store}) => {
-  invariant(
-    routerHistory,
-    '<Root /> needs either a routingContext or routerHistory to render.'
-  );
+const Root = ({store}) => {
 
   return (
     <Provider store={store}>
-      <Router history={routerHistory}>
-        {configRoutes(store)}
-      </Router>
+      <MainLayout>
+        <ZoneList/>
+      </MainLayout>
     </Provider>
   );
 };
