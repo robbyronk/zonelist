@@ -15,10 +15,15 @@ $fa-font-path: "~font-awesome/fonts";
   border-bottom: gray solid 2px;
 }
 
+.item-status {
+  flex: 0 0 1em;
+  font-size: 1.5em;
+  color: #333;
+}
+
 .drag-source {
   flex: 0 0 1em;
   font-size: 1.5em;
-  margin-right: 0.5em;
   color: #333;
   cursor: grab;
 }

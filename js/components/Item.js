@@ -6,6 +6,7 @@ import Tree from './Tree'
 import ItemTitle from './itemTitle'
 import {moveItem} from '../actions'
 import classNames from 'classnames'
+import StatusIcon from './status-icon'
 
 const source = {
   beginDrag(props) {
@@ -71,6 +72,7 @@ export default class Item extends Component {
       <div className={classNames({dragging: isDragging})}>
         <div className="item">
           {connectDragSource(<span className="drag-source badge badge-success"><i className="fa fa-arrows" aria-hidden="true"/></span>)}
+          <span className="badge item-status"><StatusIcon status={item.status}/></span>
           <ItemTitle id={id}/>
         </div>
         <Tree parent={id} ids={item.children}/>
