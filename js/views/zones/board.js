@@ -19,10 +19,10 @@ export default class ZoneBoard extends React.Component {
   render() {
     return (
       <div className='row'>
-        <BoardLane items={this.props.toDo} title="To Do" icon="list-alt"/>
-        <BoardLane items={this.props.inProgress} title="In Progress" icon="crosshairs"/>
-        <BoardLane items={this.props.waiting} title="Waiting" icon="clock-o"/>
-        <BoardLane items={this.props.done} title="Done" icon="check"/>
+        <BoardLane items={this.props.toDo} title="To Do" status="toDo"/>
+        <BoardLane items={this.props.inProgress} title="In Progress" status="inProgress"/>
+        <BoardLane items={this.props.waiting} title="Waiting" status="waiting"/>
+        <BoardLane items={this.props.done} title="Done" status="done"/>
       </div>
     )
   }
