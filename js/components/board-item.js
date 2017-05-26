@@ -26,7 +26,7 @@ export default class BoardItem extends Component {
     const status = item.status || 'toDo'
     return (
       <div className="board-item">
-        <span className="board-item-title">{item.title}</span>
+        <div className="board-item-title">{item.title}</div>
         <div className="row">
           {status === 'toDo' ? null : this.btn('toDo')}
           {status === 'inProgress' ? null : this.btn('inProgress')}
