@@ -28,15 +28,22 @@ export default class Header extends React.Component {
         <div className="col-9 text-right">
           <UncontrolledDropdown>
             <DropdownToggle>
-              Import / Export
+              <i className="fa fa-upload" aria-hidden="true"/> Import
+              / <i className="fa fa-download" aria-hidden="true"/> Export
             </DropdownToggle>
             <DropdownMenu right>
-              <DropdownItem onClick={this.props.openImportModal}>Import</DropdownItem>
-              <DropdownItem onClick={this.props.openExportModal}>Export</DropdownItem>
+              <DropdownItem onClick={this.props.openImportModal}>
+                <i className="fa fa-upload" aria-hidden="true"/> Import
+              </DropdownItem>
+              <DropdownItem onClick={this.props.openExportModal}>
+                <i className="fa fa-download" aria-hidden="true"/> Export
+              </DropdownItem>
               <DropdownItem divider/>
               <DropdownItem header>Careful!</DropdownItem>
               <DropdownItem header>Reset will erase everything!</DropdownItem>
-              <DropdownItem onClick={this.props.reset}>Reset</DropdownItem>
+              <DropdownItem onClick={this.props.reset}>
+                <i className="fa fa-window-close" aria-hidden="true"/> Reset
+              </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
           <ImportModal/>
@@ -48,8 +55,12 @@ export default class Header extends React.Component {
         <div className="col-6 text-right">
           {
             this.props.isBoard
-              ? <button className="btn" onClick={this.props.hideBoard}>Show List</button>
-              : <button className="btn" onClick={this.props.showBoard}>Show Board</button>
+              ? <button className="btn" onClick={this.props.hideBoard}>
+              <i className="fa fa-indent" aria-hidden="true"/> Show List
+            </button>
+              : <button className="btn" onClick={this.props.showBoard}>
+              <i className="fa fa-align-left fa-rotate-90" aria-hidden="true"/> Show Board
+            </button>
           }
         </div>
       </div>
