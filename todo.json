@@ -15,14 +15,19 @@
       1491114204784,
       1491114522558,
       1491091993014,
-      1494792020778
-    ]
+      1494792020778,
+      1495791425621,
+      1495792951082,
+      1495792964346,
+      1495792979135
+    ],
+    "status": "done"
   },
   "1491091993014": {
     "id": 1491091993014,
     "title": "Show status on list view",
     "children": [],
-    "status": "inProgress"
+    "status": "done"
   },
   "1491114204784": {
     "id": 1491114204784,
@@ -119,7 +124,7 @@
     "id": 1491212686534,
     "title": "Find out how to deploy for production with webpack",
     "children": [],
-    "status": "toDo"
+    "status": "waiting"
   },
   "1491212707451": {
     "id": 1491212707451,
@@ -156,6 +161,30 @@
   "1494792020778": {
     "id": 1494792020778,
     "title": "Add buttons to change the status of items",
+    "children": [],
+    "status": "done"
+  },
+  "1495791425621": {
+    "id": 1495791425621,
+    "title": "Hide buttons for the column they are under",
+    "children": [],
+    "status": "done"
+  },
+  "1495792951082": {
+    "id": 1495792951082,
+    "title": "Make the items easier to read",
+    "children": [],
+    "status": "done"
+  },
+  "1495792964346": {
+    "id": 1495792964346,
+    "title": "Emphasise the in progress item",
+    "children": [],
+    "status": "done"
+  },
+  "1495792979135": {
+    "id": 1495792979135,
+    "title": "Demphasise the waiting and done items",
     "children": [],
     "status": "done"
   }
