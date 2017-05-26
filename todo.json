@@ -6,6 +6,7 @@
       1491211876308,
       1491091919570,
       1495794361388,
+      1495803088157,
       1491212665839
     ]
   },
@@ -195,5 +196,10 @@
     "title": "Make a top menu",
     "children": [],
     "status": "done"
+  },
+  "1495803088157": {
+    "id": 1495803088157,
+    "title": "Remove lines on items with no children",
+    "children": []
   }
 }
