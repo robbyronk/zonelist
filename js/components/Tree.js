@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import {connect} from 'react-redux'
 import { DropTarget } from 'react-dnd'
+import classNames from 'classnames'
 import Item from './Item'
 import {moveItem} from '../actions'
 
@@ -36,7 +37,7 @@ export default class Tree extends Component {
     const {connectDropTarget, ids, parent} = this.props
 
     return connectDropTarget(
-      <div className="tree">
+      <div className={classNames('tree', {root: parent === null})}>
         {ids.map((id, i) => {
           return <Item
             key={id}
