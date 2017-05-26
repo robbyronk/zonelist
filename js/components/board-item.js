@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
+import classNames from 'classnames'
 import {setStatus} from '../actions'
 import StatusIcon from './status-icon'
 
@@ -25,7 +26,7 @@ export default class BoardItem extends Component {
     const {item} = this.props
     const status = item.status || 'toDo'
     return (
-      <div className="board-item">
+      <div className={classNames('board-item', status)}>
         <div className="board-item-title">{item.title}</div>
         <div className="row">
           {status === 'toDo' ? null : this.btn('toDo')}

@@ -54,6 +54,27 @@ $fa-font-path: "~font-awesome/fonts";
   padding: 0.5em;
 }
 
+.board-item.toDo {
+  background: #9896ff;
+  color: #333;
+}
+
+.board-item.inProgress {
+  background: #66ff66;
+  color: #000;
+  font-weight:bold;
+}
+
+.board-item.waiting {
+  background: #ffeecc;
+  color: #666;
+}
+
+.board-item.done {
+  background: #ccffcc;
+  color: #666;
+}
+
 .board-item-title {
   margin: 0.5em 0;
 }
