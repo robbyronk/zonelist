@@ -1,146 +1,162 @@
 {
-    "root": {
-        "id": "root",
-        "title": "ZoneList MVP",
-        "children": [
-            1491211876308,
-            1491091919570,
-            1491212665839
-        ]
-    },
-    "1491091919570": {
-        "id": 1491091919570,
-        "title": "Kanban board",
-        "children": [
-            1491114204784,
-            1491114522558,
-            1491091993014,
-            1494792020778
-        ]
-    },
-    "1491091993014": {
-        "id": 1491091993014,
-        "title": "Show status on list view",
-        "children": []
-    },
-    "1491114204784": {
-        "id": 1491114204784,
-        "title": "Show items with no incomplete children in todo, in progress and waiting",
-        "children": [],
-        "status": "inProgress"
-    },
-    "1491114522558": {
-        "id": 1491114522558,
-        "title": "Show items with no non-complete children in complete",
-        "children": []
-    },
-    "1491211876308": {
-        "id": 1491211876308,
-        "title": "Easy tasks",
-        "children": [
-            1491212130554,
-            1491212253194,
-            1491212388044,
-            1491212635996,
-            1491215085850
-        ]
-    },
-    "1491212130554": {
-        "id": 1491212130554,
-        "title": "Clean up directory structure",
-        "children": [
-            1491212173013,
-            1491212202736,
-            1491212217996,
-            1491212246738,
-            1491212319533
-        ]
-    },
-    "1491212173013": {
-        "id": 1491212173013,
-        "title": "Remove layouts",
-        "children": []
-    },
-    "1491212202736": {
-        "id": 1491212202736,
-        "title": "Move routes to file",
-        "children": []
-    },
-    "1491212217996": {
-        "id": 1491212217996,
-        "title": "Move store to file",
-        "children": []
-    },
-    "1491212246738": {
-        "id": 1491212246738,
-        "title": "Move constants",
-        "children": []
-    },
-    "1491212253194": {
-        "id": 1491212253194,
-        "title": "Extract out constants",
-        "children": []
-    },
-    "1491212319533": {
-        "id": 1491212319533,
-        "title": "Move containers/root.js",
-        "children": []
-    },
-    "1491212388044": {
-        "id": 1491212388044,
-        "title": "Remove unused dependencies",
-        "children": []
-    },
-    "1491212635996": {
-        "id": 1491212635996,
-        "title": "Update Readme",
-        "children": []
-    },
-    "1491212665839": {
-        "id": 1491212665839,
-        "title": "Deploy somewhere on the internet",
-        "children": [
-            1491212686534,
-            1491212803401,
-            1491212707451
-        ]
-    },
-    "1491212686534": {
-        "id": 1491212686534,
-        "title": "Find out how to deploy for production with webpack",
-        "children": []
-    },
-    "1491212707451": {
-        "id": 1491212707451,
-        "title": "Deploy to github.io",
-        "children": []
-    },
-    "1491212803401": {
-        "id": 1491212803401,
-        "title": "Split webpack config",
-        "children": []
-    },
-    "1491215085850": {
-        "id": 1491215085850,
-        "title": "Change styles",
-        "children": [
-            1491215097363,
-            1491215103338
-        ]
-    },
-    "1491215097363": {
-        "id": 1491215097363,
-        "title": "Remove boxes around items",
-        "children": []
-    },
-    "1491215103338": {
-        "id": 1491215103338,
-        "title": "Add lines to help see the level of indentation",
-        "children": []
-    },
-    "1494792020778": {
-        "id": 1494792020778,
-        "title": "Add buttons to change the status of items",
-        "children": []
-    }
+  "root": {
+    "id": "root",
+    "title": "ZoneList MVP",
+    "children": [
+      1491211876308,
+      1491091919570,
+      1491212665839
+    ]
+  },
+  "1491091919570": {
+    "id": 1491091919570,
+    "title": "Kanban board",
+    "children": [
+      1491114204784,
+      1491114522558,
+      1491091993014,
+      1494792020778
+    ]
+  },
+  "1491091993014": {
+    "id": 1491091993014,
+    "title": "Show status on list view",
+    "children": [],
+    "status": "inProgress"
+  },
+  "1491114204784": {
+    "id": 1491114204784,
+    "title": "Show items with no incomplete children in todo, in progress and waiting",
+    "children": [],
+    "status": "done"
+  },
+  "1491114522558": {
+    "id": 1491114522558,
+    "title": "Show items with no non-complete children in complete",
+    "children": [],
+    "status": "done"
+  },
+  "1491211876308": {
+    "id": 1491211876308,
+    "title": "Easy tasks",
+    "children": [
+      1491212130554,
+      1491212253194,
+      1491212388044,
+      1491212635996,
+      1491215085850
+    ]
+  },
+  "1491212130554": {
+    "id": 1491212130554,
+    "title": "Clean up directory structure",
+    "children": [
+      1491212173013,
+      1491212202736,
+      1491212217996,
+      1491212246738,
+      1491212319533
+    ]
+  },
+  "1491212173013": {
+    "id": 1491212173013,
+    "title": "Remove layouts",
+    "children": [],
+    "status": "toDo"
+  },
+  "1491212202736": {
+    "id": 1491212202736,
+    "title": "Move routes to file",
+    "children": [],
+    "status": "toDo"
+  },
+  "1491212217996": {
+    "id": 1491212217996,
+    "title": "Move store to file",
+    "children": [],
+    "status": "toDo"
+  },
+  "1491212246738": {
+    "id": 1491212246738,
+    "title": "Move constants",
+    "children": [],
+    "status": "toDo"
+  },
+  "1491212253194": {
+    "id": 1491212253194,
+    "title": "Extract out constants",
+    "children": [],
+    "status": "toDo"
+  },
+  "1491212319533": {
+    "id": 1491212319533,
+    "title": "Move containers/root.js",
+    "children": [],
+    "status": "toDo"
+  },
+  "1491212388044": {
+    "id": 1491212388044,
+    "title": "Remove unused dependencies",
+    "children": [],
+    "status": "toDo"
+  },
+  "1491212635996": {
+    "id": 1491212635996,
+    "title": "Update Readme",
+    "children": [],
+    "status": "done"
+  },
+  "1491212665839": {
+    "id": 1491212665839,
+    "title": "Deploy somewhere on the internet",
+    "children": [
+      1491212686534,
+      1491212803401,
+      1491212707451
+    ]
+  },
+  "1491212686534": {
+    "id": 1491212686534,
+    "title": "Find out how to deploy for production with webpack",
+    "children": [],
+    "status": "toDo"
+  },
+  "1491212707451": {
+    "id": 1491212707451,
+    "title": "Deploy to github.io",
+    "children": [],
+    "status": "done"
+  },
+  "1491212803401": {
+    "id": 1491212803401,
+    "title": "Split webpack config",
+    "children": [],
+    "status": "toDo"
+  },
+  "1491215085850": {
+    "id": 1491215085850,
+    "title": "Change styles",
+    "children": [
+      1491215097363,
+      1491215103338
+    ]
+  },
+  "1491215097363": {
+    "id": 1491215097363,
+    "title": "Remove boxes around items",
+    "children": [],
+    "status": "done"
+  },
+  "1491215103338": {
+    "id": 1491215103338,
+    "title": "Add lines to help see the level of indentation",
+    "children": [],
+    "status": "toDo"
+  },
+  "1494792020778": {
+    "id": 1494792020778,
+    "title": "Add buttons to change the status of items",
+    "children": [],
+    "status": "done"
+  }
 }
