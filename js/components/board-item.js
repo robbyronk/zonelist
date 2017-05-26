@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {setStatus} from '../actions'
+import StatusIcon from './status-icon'
 
 var mapDispatchToProps = {
   setStatus
@@ -11,18 +12,27 @@ export default class BoardItem extends Component {
     item: PropTypes.object.isRequired,
   };
 
+  btn = (status) => (
+    <div className="col-4">
+      <button className="btn btn-block btn-sm"
+              onClick={() => this.props.setStatus(this.props.item.id, status)}>
+        <StatusIcon status={status}/>
+      </button>
+    </div>
+  )
+
   render() {
+    const {item} = this.props
+    const status = item.status || 'toDo'
     return (
       <div className="board-item">
-        <span className="board-item-title">{this.props.item.title}</span>
-        <button className="btn btn-block btn-sm"
-                onClick={() => this.props.setStatus(this.props.item.id, 'toDo')}>Move to To Do</button>
-        <button className="btn btn-block btn-sm"
-                onClick={() => this.props.setStatus(this.props.item.id, 'inProgress')}>Move to In Progress</button>
-        <button className="btn btn-block btn-sm"
-                onClick={() => this.props.setStatus(this.props.item.id, 'waiting')}>Move to Waiting</button>
-        <button className="btn btn-block btn-sm"
-                onClick={() => this.props.setStatus(this.props.item.id, 'done')}>Move to Done</button>
+        <span className="board-item-title">{item.title}</span>
+        <div className="row">
+          {status === 'toDo' ? null : this.btn('toDo')}
+          {status === 'inProgress' ? null : this.btn('inProgress')}
+          {status === 'waiting' ? null : this.btn('waiting')}
+          {status === 'done' ? null : this.btn('done')}
+        </div>
       </div>
     )
   }
