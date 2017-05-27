@@ -2,7 +2,7 @@ import {createStore, applyMiddleware, compose} from "redux";
 import createLogger from "redux-logger";
 import createSagaMiddleware from "redux-saga";
 import persistState from 'redux-localstorage'
-import reducers from "../reducers";
+import reducers from "./reducers";
 
 const loggerMiddleware = createLogger({
   level: 'info',
@@ -21,8 +21,8 @@ export default function configureStore() {
   ));
 
   if (module.hot) {
-    module.hot.accept('../reducers', () => {
-      const nextReducer = require('../reducers/index').default;
+    module.hot.accept('./reducers', () => {
+      const nextReducer = require('./reducers').default;
 
       store.replaceReducer(nextReducer);
     })
