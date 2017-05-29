@@ -4,6 +4,7 @@ import {reset, openImportModal, openExportModal, showBoard, hideBoard} from '../
 import ImportModal from '../components/import-modal'
 import ExportModal from '../components/export-modal'
 import {DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown} from 'reactstrap'
+import IntroModal from '../components/intro-modal'
 
 const mapDispatchToProps = {
   openExportModal,
@@ -48,6 +49,7 @@ export default class Header extends React.Component {
           </UncontrolledDropdown>
           <ImportModal/>
           <ExportModal/>
+          <IntroModal/>
         </div>
         <div className="col-6">
           version 0.0.0-submarine-screendoor

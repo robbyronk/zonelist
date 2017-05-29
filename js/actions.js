@@ -99,3 +99,9 @@ export function hideBoard() {
     type: 'HIDE_BOARD',
   }
 }
+
+export function hideIntro() {
+  return {
+    type: 'HIDE_INTRO',
+  }
+}

@@ -18,6 +18,8 @@ export default function reducer(state = initialState, action = {}) {
       return update(state, {board: {$set: true}})
     case 'HIDE_BOARD':
       return update(state, {board: {$set: false}})
+    case 'HIDE_INTRO':
+      return update(state, {introduced: {$set: true}})
 
     default:
       return state;
