@@ -61,7 +61,6 @@
     "title": "Clean up directory structure",
     "children": [
       1491212173013,
-      1491212202736,
       1491212217996,
       1491212246738,
       1491212319533
@@ -73,17 +72,11 @@
     "children": [],
     "status": "toDo"
   },
-  "1491212202736": {
-    "id": 1491212202736,
-    "title": "Move routes to file",
-    "children": [],
-    "status": "toDo"
-  },
   "1491212217996": {
     "id": 1491212217996,
     "title": "Move store to file",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1491212246738": {
     "id": 1491212246738,
@@ -206,28 +199,35 @@
       1495911132264,
       1495911141600,
       1495911147004,
-      1495911156945
-    ]
+      1495911156945,
+      1496044586775,
+      1496044795518
+    ],
+    "status": "done"
   },
   "1495911132264": {
     "id": 1495911132264,
     "title": "Import -> Load In",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1495911141600": {
     "id": 1495911141600,
     "title": "Export -> Save Out",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1495911147004": {
     "id": 1495911147004,
     "title": "Board -> Get to Work",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1495911156945": {
     "id": 1495911156945,
     "title": "List -> Make a Plan",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1495911186858": {
     "id": 1495911186858,
@@ -245,11 +245,51 @@
   "1495911231176": {
     "id": 1495911231176,
     "title": "Make a modal pop up on first start",
-    "children": []
+    "children": [],
+    "status": "inProgress"
   },
   "1495911390903": {
     "id": 1495911390903,
     "title": "Add \"how to use\" links to Plan and Work",
+    "children": [
+      1495911739873,
+      1496043920560
+    ]
+  },
+  "1495911739873": {
+    "id": 1495911739873,
+    "title": "Plan",
+    "children": [
+      1495911742949
+    ]
+  },
+  "1495911742949": {
+    "id": 1495911742949,
+    "title": "TLDR Create an outline of your project and break down each task into bite size tasks",
     "children": []
+  },
+  "1496043920560": {
+    "id": 1496043920560,
+    "title": "Work",
+    "children": [
+      1496043923212
+    ]
+  },
+  "1496043923212": {
+    "id": 1496043923212,
+    "title": "TLDR Take things off the To ",
+    "children": []
+  },
+  "1496044586775": {
+    "id": 1496044586775,
+    "title": "In Progress -> Main Focus",
+    "children": [],
+    "status": "done"
+  },
+  "1496044795518": {
+    "id": 1496044795518,
+    "title": "Waiting -> On Hold",
+    "children": [],
+    "status": "done"
   }
 }
