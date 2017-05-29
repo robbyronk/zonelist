@@ -28,15 +28,15 @@ export default class Header extends React.Component {
         <div className="col-9 text-right">
           <UncontrolledDropdown>
             <DropdownToggle>
-              <i className="fa fa-upload" aria-hidden="true"/> Import
-              / <i className="fa fa-download" aria-hidden="true"/> Export
+              <i className="fa fa-download" aria-hidden="true"/> Save
+              / <i className="fa fa-upload" aria-hidden="true"/> Load
             </DropdownToggle>
             <DropdownMenu right>
-              <DropdownItem onClick={this.props.openImportModal}>
-                <i className="fa fa-upload" aria-hidden="true"/> Import
-              </DropdownItem>
               <DropdownItem onClick={this.props.openExportModal}>
-                <i className="fa fa-download" aria-hidden="true"/> Export
+                <i className="fa fa-download" aria-hidden="true"/> Save Out
+              </DropdownItem>
+              <DropdownItem onClick={this.props.openImportModal}>
+                <i className="fa fa-upload" aria-hidden="true"/> Load In
               </DropdownItem>
               <DropdownItem divider/>
               <DropdownItem header>Careful!</DropdownItem>
@@ -56,10 +56,10 @@ export default class Header extends React.Component {
           {
             this.props.isBoard
               ? <button className="btn" onClick={this.props.hideBoard}>
-              <i className="fa fa-indent" aria-hidden="true"/> Show List
+              <i className="fa fa-indent" aria-hidden="true"/> Make a Plan
             </button>
               : <button className="btn" onClick={this.props.showBoard}>
-              <i className="fa fa-align-left fa-rotate-90" aria-hidden="true"/> Show Board
+              <i className="fa fa-align-left fa-rotate-90" aria-hidden="true"/> Get Focused
             </button>
           }
         </div>
