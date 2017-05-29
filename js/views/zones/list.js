@@ -7,7 +7,7 @@ import HTML5Backend from 'react-dnd-html5-backend'
 export default class ZoneList extends React.Component {
   render() {
     return (
-      <div className='row'>
+      <div className='list'>
         <Tree
           ids={['root']}
           parent={null}
