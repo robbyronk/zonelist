@@ -10,27 +10,27 @@ import {get, isEmpty, some, isPlainObject} from 'lodash'
 const initialState = {
   'root': {
     id: 'root',
-    title: 'one',
+    title: 'Big Project',
     children: ['2', '3']
   },
   '2': {
     id: '2',
-    title: 'two',
+    title: 'Task One',
     children: []
   },
   '3': {
     id: '3',
-    title: 'three',
+    title: 'Task Two',
     children: ['4', '5']
   },
   '4': {
     id: '4',
-    title: 'four',
+    title: 'Smaller Task',
     children: []
   },
   '5': {
     id: '5',
-    title: 'five',
+    title: 'Another Smaller Task',
     children: []
   },
 }
