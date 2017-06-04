@@ -3,13 +3,23 @@
     "id": "root",
     "title": "ZoneList MVP",
     "children": [
+      1496557380761,
       1491211876308,
       1491091919570,
       1495794361388,
       1491212665839,
       1495911103089,
       1495911186858,
-      1495911390903
+      1495911390903,
+      1496557363855,
+      1496557634206,
+      1496557639300,
+      1496558182520,
+      1496558200368,
+      1496558219854,
+      1496559057116,
+      1496558360243,
+      1496559645089
     ]
   },
   "1491091919570": {
@@ -277,7 +287,7 @@
   },
   "1496043923212": {
     "id": 1496043923212,
-    "title": "TLDR Take things off the To ",
+    "title": "TLDR Take things off the To Do, put them into Main Focus, then put them into Done",
     "children": []
   },
   "1496044586775": {
@@ -291,5 +301,204 @@
     "title": "Waiting -> On Hold",
     "children": [],
     "status": "done"
+  },
+  "1496557363855": {
+    "id": 1496557363855,
+    "title": "Maybe have the starting items' titles disappear on first click",
+    "children": []
+  },
+  "1496557380761": {
+    "id": 1496557380761,
+    "title": "Bugs",
+    "children": [
+      1496557384130,
+      1496557396746
+    ]
+  },
+  "1496557384130": {
+    "id": 1496557384130,
+    "title": "Dragging an item to the top does not work",
+    "children": []
+  },
+  "1496557396746": {
+    "id": 1496557396746,
+    "title": "Dragging an item directly right does not indent it",
+    "children": []
+  },
+  "1496557634206": {
+    "id": 1496557634206,
+    "title": "Select whole title on click",
+    "children": []
+  },
+  "1496557639300": {
+    "id": 1496557639300,
+    "title": "Design problems",
+    "children": [
+      1496557776985,
+      1496558099327,
+      1496558119436,
+      1496558137222,
+      1496558164436,
+      1496559133418,
+      1496559143326
+    ]
+  },
+  "1496557776985": {
+    "id": 1496557776985,
+    "title": "It's not obvious that the other page is the \"next step\"",
+    "children": [
+      1496562708876
+    ]
+  },
+  "1496558099327": {
+    "id": 1496558099327,
+    "title": "In focus mode, the order and context of items is lost",
+    "children": [
+      1496559024942,
+      1496559033664
+    ]
+  },
+  "1496558119436": {
+    "id": 1496558119436,
+    "title": "The colours should match throughout the app",
+    "children": [],
+    "status": "inProgress"
+  },
+  "1496558137222": {
+    "id": 1496558137222,
+    "title": "Make it obvious the focus board only has smaller tasks on it",
+    "children": [
+      1496562657457
+    ]
+  },
+  "1496558164436": {
+    "id": 1496558164436,
+    "title": "Onboarding does not guide the user into successfully breaking down their challenge, then focusing",
+    "children": [
+      1496562622997
+    ]
+  },
+  "1496558182520": {
+    "id": 1496558182520,
+    "title": "Remove reset button",
+    "children": []
+  },
+  "1496558200368": {
+    "id": 1496558200368,
+    "title": "Add a way to filter tasks",
+    "children": [
+      1496559112545
+    ]
+  },
+  "1496558219854": {
+    "id": 1496558219854,
+    "title": "Add hover text to all buttons",
+    "children": []
+  },
+  "1496558360243": {
+    "id": 1496558360243,
+    "title": "The order of items in focus mode should be the same as in outline mode",
+    "children": []
+  },
+  "1496559024942": {
+    "id": 1496559024942,
+    "title": "Show context of small items by showing ancestry above it",
+    "children": []
+  },
+  "1496559033664": {
+    "id": 1496559033664,
+    "title": "Honour the sequence of items",
+    "children": []
+  },
+  "1496559057116": {
+    "id": 1496559057116,
+    "title": "Make the status button on the list page able to change the status",
+    "children": []
+  },
+  "1496559112545": {
+    "id": 1496559112545,
+    "title": "This might be a later enhancement",
+    "children": []
+  },
+  "1496559133418": {
+    "id": 1496559133418,
+    "title": "Add buttons for everything that has a keyboard shortcut",
+    "children": [
+      1496562258141,
+      1496562383572
+    ]
+  },
+  "1496559143326": {
+    "id": 1496559143326,
+    "title": "Keyboard shortcuts are not discoverable",
+    "children": [
+      1496562815110
+    ]
+  },
+  "1496559645089": {
+    "id": 1496559645089,
+    "title": "Name pages \"Outline\" and \"Focus\"",
+    "children": []
+  },
+  "1496562258141": {
+    "id": 1496562258141,
+    "title": "Add Buttons right under item text",
+    "children": [
+      1496562282551,
+      1496562320656,
+      1496562326546,
+      1496562364977,
+      1496562376075
+    ]
+  },
+  "1496562282551": {
+    "id": 1496562282551,
+    "title": "Add \"Make bigger\" button",
+    "children": []
+  },
+  "1496562320656": {
+    "id": 1496562320656,
+    "title": "Add \"Make smaller\" button",
+    "children": []
+  },
+  "1496562326546": {
+    "id": 1496562326546,
+    "title": "Add \"Add new item below\"",
+    "children": []
+  },
+  "1496562364977": {
+    "id": 1496562364977,
+    "title": "Add \"Add new sub item\"",
+    "children": []
+  },
+  "1496562376075": {
+    "id": 1496562376075,
+    "title": "On the far right, add delete button",
+    "children": []
+  },
+  "1496562383572": {
+    "id": 1496562383572,
+    "title": "Only show buttons when item field is selected",
+    "children": []
+  },
+  "1496562622997": {
+    "id": 1496562622997,
+    "title": "New buttons might encourage this. User testing required.",
+    "children": []
+  },
+  "1496562657457": {
+    "id": 1496562657457,
+    "title": "Add size tag to item",
+    "children": []
+  },
+  "1496562708876": {
+    "id": 1496562708876,
+    "title": "Add toggle switch between Outline mode and Focus Mode",
+    "children": []
+  },
+  "1496562815110": {
+    "id": 1496562815110,
+    "title": "Add hover text to buttons with keyboard shortcut",
+    "children": []
   }
 }
