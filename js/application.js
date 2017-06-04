@@ -2,7 +2,7 @@ import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
 import configureStore, {sagaMiddleware} from "./store";
-import Root from "./containers/root";
+import Root from "./root";
 import rootSaga from "./sagas";
 
 import '../css/application.scss'

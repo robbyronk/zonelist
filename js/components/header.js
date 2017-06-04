@@ -1,10 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {reset, openImportModal, openExportModal, showBoard, hideBoard} from '../actions'
-import ImportModal from '../components/import-modal'
-import ExportModal from '../components/export-modal'
+import ImportModal from './import-modal'
+import ExportModal from './export-modal'
 import {DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown} from 'reactstrap'
-import IntroModal from '../components/intro-modal'
+import IntroModal from './intro-modal'
 
 const mapDispatchToProps = {
   openExportModal,
