@@ -12,7 +12,6 @@
       1495911186858,
       1495911390903,
       1496557363855,
-      1496557634206,
       1496557639300,
       1496558182520,
       1496558200368,
@@ -64,7 +63,8 @@
       1491212388044,
       1491212635996,
       1491215085850
-    ]
+    ],
+    "status": "done"
   },
   "1491212130554": {
     "id": 1491212130554,
@@ -74,13 +74,14 @@
       1491212217996,
       1491212246738,
       1491212319533
-    ]
+    ],
+    "status": "done"
   },
   "1491212173013": {
     "id": 1491212173013,
     "title": "Remove layouts",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1491212217996": {
     "id": 1491212217996,
@@ -92,25 +93,25 @@
     "id": 1491212246738,
     "title": "Move constants",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1491212253194": {
     "id": 1491212253194,
     "title": "Extract out constants",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1491212319533": {
     "id": 1491212319533,
     "title": "Move containers/root.js",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1491212388044": {
     "id": 1491212388044,
     "title": "Remove unused dependencies",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1491212635996": {
     "id": 1491212635996,
@@ -325,11 +326,6 @@
     "title": "Dragging an item directly right does not indent it",
     "children": []
   },
-  "1496557634206": {
-    "id": 1496557634206,
-    "title": "Select whole title on click",
-    "children": []
-  },
   "1496557639300": {
     "id": 1496557639300,
     "title": "Design problems",
@@ -399,7 +395,8 @@
   "1496558360243": {
     "id": 1496558360243,
     "title": "The order of items in focus mode should be the same as in outline mode",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1496559024942": {
     "id": 1496559024942,
