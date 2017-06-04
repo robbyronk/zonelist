@@ -39,12 +39,6 @@ export default class Header extends React.Component {
               <DropdownItem onClick={this.props.openImportModal}>
                 <i className="fa fa-upload" aria-hidden="true"/> Load In
               </DropdownItem>
-              <DropdownItem divider/>
-              <DropdownItem header>Careful!</DropdownItem>
-              <DropdownItem header>Reset will erase everything!</DropdownItem>
-              <DropdownItem onClick={this.props.reset}>
-                <i className="fa fa-window-close" aria-hidden="true"/> Reset
-              </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
           <ImportModal/>

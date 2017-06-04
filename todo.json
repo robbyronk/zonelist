@@ -362,7 +362,7 @@
     "id": 1496558119436,
     "title": "The colours should match throughout the app",
     "children": [],
-    "status": "inProgress"
+    "status": "toDo"
   },
   "1496558137222": {
     "id": 1496558137222,
@@ -381,7 +381,8 @@
   "1496558182520": {
     "id": 1496558182520,
     "title": "Remove reset button",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1496558200368": {
     "id": 1496558200368,
