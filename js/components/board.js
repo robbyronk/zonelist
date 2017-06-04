@@ -1,9 +1,9 @@
 import React from 'react'
 import {DragDropContext} from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
-import BoardLane from '../../components/board-lane'
+import BoardLane from './board-lane'
 import {connect} from 'react-redux'
-import {doneLane, inProgressLane, toDoLane, waitingLane} from '../../selectors/board'
+import {doneLane, inProgressLane, toDoLane, waitingLane} from '../selectors/board'
 
 const mapStateToProps = state => ({
     toDo: toDoLane(state),
