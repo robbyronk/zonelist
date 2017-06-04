@@ -149,23 +149,23 @@ function setStatus(state, {id, status}) {
 }
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
-    case 'INDENT_ITEM':
+    case ActionTypes.INDENT_ITEM:
       return indentItem(state, action)
-    case 'UNINDENT_ITEM':
+    case ActionTypes.UNINDENT_ITEM:
       return unindentItem(state, action)
     case ActionTypes.UPDATE_TITLE:
       return updateTitle(state, action)
-    case 'NEW_ITEM':
+    case ActionTypes.NEW_ITEM:
       return newItemAfter(state, action)
-    case 'REMOVE_ITEM':
+    case ActionTypes.REMOVE_ITEM:
       return removeItem(state, action)
-    case 'MOVE_ITEM':
+    case ActionTypes.MOVE_ITEM:
       return moveItem(state, action)
-    case 'RESET':
+    case ActionTypes.RESET:
       return initialState
-    case 'SET_ITEMS':
+    case ActionTypes.SET_ITEMS:
       return setItems(state, action)
-    case 'SET_STATUS':
+    case ActionTypes.SET_STATUS:
       return setStatus(state, action)
     default:
       return state;

@@ -1,6 +1,6 @@
 import {takeEvery} from "redux-saga";
 import {fork, put} from "redux-saga/effects";
-import uniqueId from "lodash/uniqueId";
+import ActionTypes from '../actions'
 
 
 function *createNewItem(action) {
@@ -10,9 +10,9 @@ function *createNewItem(action) {
     title: '',
     children: [],
   }
-  yield put({type: 'NEW_ITEM', item, afterId})
+  yield put({type: ActionTypes.NEW_ITEM, item, afterId})
 }
 
 export default function* sagas() {
-  yield fork(takeEvery, 'NEW_ITEM_AFTER', createNewItem)
+  yield fork(takeEvery, ActionTypes.NEW_ITEM_AFTER, createNewItem)
 }

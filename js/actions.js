@@ -1,5 +1,20 @@
 const ActionTypes = {
   UPDATE_TITLE: 'UPDATE_TITLE',
+  NEW_ITEM_AFTER: 'NEW_ITEM_AFTER',
+  REMOVE_ITEM: 'REMOVE_ITEM',
+  INDENT_ITEM: 'INDENT_ITEM',
+  UNINDENT_ITEM: 'UNINDENT_ITEM',
+  MOVE_ITEM: 'MOVE_ITEM',
+  RESET: 'RESET',
+  OPEN_IMPORT_MODAL: 'OPEN_IMPORT_MODAL',
+  CLOSE_IMPORT_MODAL: 'CLOSE_IMPORT_MODAL',
+  OPEN_EXPORT_MODAL: 'OPEN_EXPORT_MODAL',
+  CLOSE_EXPORT_MODAL: 'CLOSE_EXPORT_MODAL',
+  SET_ITEMS: 'SET_ITEMS',
+  SET_STATUS: 'SET_STATUS',
+  SHOW_BOARD: 'SHOW_BOARD',
+  HIDE_BOARD: 'HIDE_BOARD',
+  HIDE_INTRO: 'HIDE_INTRO',
 };
 
 export default ActionTypes;
@@ -14,35 +29,35 @@ export function updateTitle(id, newTitle) {
 
 export function newItemAfter(id) {
   return {
-    type: 'NEW_ITEM_AFTER',
+    type: ActionTypes.NEW_ITEM_AFTER,
     id
   }
 }
 
 export function removeItem(id) {
   return {
-    type: 'REMOVE_ITEM',
+    type: ActionTypes.REMOVE_ITEM,
     id
   }
 }
 
 export function indentItem(id) {
   return {
-    type: 'INDENT_ITEM',
+    type: ActionTypes.INDENT_ITEM,
     id
   }
 }
 
 export function unindentItem(id) {
   return {
-    type: 'UNINDENT_ITEM',
+    type: ActionTypes.UNINDENT_ITEM,
     id
   }
 }
 
 export function moveItem(id, afterId, parent) {
   return {
-    type: 'MOVE_ITEM',
+    type: ActionTypes.MOVE_ITEM,
     id,
     afterId,
     parent
@@ -51,44 +66,44 @@ export function moveItem(id, afterId, parent) {
 
 export function reset() {
   return {
-    type: 'RESET'
+    type: ActionTypes.RESET
   }
 }
 
 export function openImportModal() {
   return {
-    type: 'OPEN_IMPORT_MODAL'
+    type: ActionTypes.OPEN_IMPORT_MODAL
   }
 }
 
 export function closeImportModal() {
   return {
-    type: 'CLOSE_IMPORT_MODAL'
+    type: ActionTypes.CLOSE_IMPORT_MODAL
   }
 }
 
 export function openExportModal() {
   return {
-    type: 'OPEN_EXPORT_MODAL'
+    type: ActionTypes.OPEN_EXPORT_MODAL
   }
 }
 
 export function closeExportModal() {
   return {
-    type: 'CLOSE_EXPORT_MODAL'
+    type: ActionTypes.CLOSE_EXPORT_MODAL
   }
 }
 
 export function setItems(items) {
   return {
-    type: 'SET_ITEMS',
+    type: ActionTypes.SET_ITEMS,
     items
   }
 }
 
 export function setStatus(id, status) {
   return {
-    type: 'SET_STATUS',
+    type: ActionTypes.SET_STATUS,
     id,
     status
   }
@@ -96,18 +111,18 @@ export function setStatus(id, status) {
 
 export function showBoard() {
   return {
-    type: 'SHOW_BOARD',
+    type: ActionTypes.SHOW_BOARD,
   }
 }
 
 export function hideBoard() {
   return {
-    type: 'HIDE_BOARD',
+    type: ActionTypes.HIDE_BOARD,
   }
 }
 
 export function hideIntro() {
   return {
-    type: 'HIDE_INTRO',
+    type: ActionTypes.HIDE_INTRO,
   }
 }

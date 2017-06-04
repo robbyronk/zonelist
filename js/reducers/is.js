@@ -1,24 +1,25 @@
 import update from 'immutability-helper';
+import ActionTypes from '../actions'
 
 const initialState = {}
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
-    case 'OPEN_IMPORT_MODAL':
+    case ActionTypes.OPEN_IMPORT_MODAL:
       return update(state, {importing: {$set: true}})
-    case 'CLOSE_IMPORT_MODAL':
+    case ActionTypes.CLOSE_IMPORT_MODAL:
       return update(state, {importing: {$set: false}})
-    case 'SET_ITEMS':
+    case ActionTypes.SET_ITEMS:
       return update(state, {importing: {$set: false}})
-    case 'OPEN_EXPORT_MODAL':
+    case ActionTypes.OPEN_EXPORT_MODAL:
       return update(state, {exporting: {$set: true}})
-    case 'CLOSE_EXPORT_MODAL':
+    case ActionTypes.CLOSE_EXPORT_MODAL:
       return update(state, {exporting: {$set: false}})
-    case 'SHOW_BOARD':
+    case ActionTypes.SHOW_BOARD:
       return update(state, {board: {$set: true}})
-    case 'HIDE_BOARD':
+    case ActionTypes.HIDE_BOARD:
       return update(state, {board: {$set: false}})
-    case 'HIDE_INTRO':
+    case ActionTypes.HIDE_INTRO:
       return update(state, {introduced: {$set: true}})
 
     default:
