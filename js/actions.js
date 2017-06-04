@@ -1,6 +1,12 @@
+const ActionTypes = {
+  UPDATE_TITLE: 'UPDATE_TITLE',
+};
+
+export default ActionTypes;
+
 export function updateTitle(id, newTitle) {
   return {
-    type: 'UPDATE_TITLE',
+    type: ActionTypes.UPDATE_TITLE,
     id,
     newTitle,
   }

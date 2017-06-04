@@ -6,6 +6,7 @@ import omit from 'lodash/omit'
 import without from 'lodash/without'
 import mapValues from 'lodash/mapValues'
 import {get, isEmpty, some, isPlainObject} from 'lodash'
+import ActionTypes from '../actions'
 
 const initialState = {
   'root': {
@@ -152,7 +153,7 @@ export default function reducer(state = initialState, action = {}) {
       return indentItem(state, action)
     case 'UNINDENT_ITEM':
       return unindentItem(state, action)
-    case 'UPDATE_TITLE':
+    case ActionTypes.UPDATE_TITLE:
       return updateTitle(state, action)
     case 'NEW_ITEM':
       return newItemAfter(state, action)
