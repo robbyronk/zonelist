@@ -15,10 +15,6 @@ export default function reducer(state = initialState, action = {}) {
       return update(state, {exporting: {$set: true}})
     case ActionTypes.CLOSE_EXPORT_MODAL:
       return update(state, {exporting: {$set: false}})
-    case ActionTypes.SHOW_BOARD:
-      return update(state, {board: {$set: true}})
-    case ActionTypes.HIDE_BOARD:
-      return update(state, {board: {$set: false}})
     case ActionTypes.HIDE_INTRO:
       return update(state, {introduced: {$set: true}})
 
