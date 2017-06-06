@@ -15,7 +15,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-  isBoard: state.is.board
+  view: state.view,
 })
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -50,7 +50,7 @@ export default class Header extends React.Component {
         </div>
         <div className="col-6 text-right">
           {
-            this.props.isBoard
+            this.props.view === 'focus'
               ? <button className="btn" onClick={this.props.hideBoard}>
               <i className="fa fa-indent" aria-hidden="true"/> Make a Plan
             </button>
