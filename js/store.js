@@ -17,7 +17,7 @@ export default function configureStore() {
 
   const store = createStore(reducers, composeEnhancers(
     applyMiddleware(sagaMiddleware, loggerMiddleware),
-    persistState('items')
+    persistState(['items', 'view', 'is'])
   ));
 
   if (module.hot) {
