@@ -1,6 +1,7 @@
 import 'babel-polyfill'
 import expect from 'expect'
 import {listOrder, listOrderSelector} from '../js/selectors/board'
+import findContext from '../js/selectors/findContext'
 
 describe('selectors', () => {
   it('should keep the list order', () => {
@@ -39,5 +40,17 @@ describe('selectors', () => {
     ]
 
     expect(listOrderSelector({items})).toEqual(order)
+  })
+
+  it('should find ancestry', () => {
+    const items = {
+      'root': {id: 'root', children: ['2', '3']},
+      '2': {id: '2', children: []},
+      '3': {id: '3', children: ['5', '4']},
+      '4': {id: '4', children: []},
+      '5': {id: '5', children: []},
+    }
+
+    expect(findContext(items, '5')).toEqual(['root', '3', '5'])
   })
 })
