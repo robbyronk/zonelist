@@ -17,6 +17,8 @@ export default function reducer(state = initialState, action = {}) {
       return update(state, {exporting: {$set: false}})
     case ActionTypes.HIDE_INTRO:
       return update(state, {introduced: {$set: true}})
+    case ActionTypes.RESET:
+      return initialState
 
     default:
       return state;
