@@ -1,8 +1,8 @@
 import React from "react";
 import Header from './header'
 import {connect} from 'react-redux'
-import ZoneBoard from './board'
 import ZoneList from './list'
+import FocusList from './focus'
 
 @connect(state => ({view: state.view}))
 export default class MainLayout extends React.Component {
@@ -10,7 +10,7 @@ export default class MainLayout extends React.Component {
     return (
       <div className="container">
         <Header/>
-        {this.props.view === 'focus' ? <ZoneBoard/> : <ZoneList/>}
+        {this.props.view === 'focus' ? <FocusList/> : <ZoneList/>}
       </div>
     );
   }
