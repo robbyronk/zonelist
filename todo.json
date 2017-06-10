@@ -352,7 +352,8 @@
     "children": [
       1496559024942,
       1496559033664
-    ]
+    ],
+    "status": "done"
   },
   "1496558119436": {
     "id": 1496558119436,
@@ -401,12 +402,14 @@
   "1496559024942": {
     "id": 1496559024942,
     "title": "Show context of small items by showing ancestry above it",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1496559033664": {
     "id": 1496559033664,
     "title": "Honour the sequence of items",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1496559057116": {
     "id": 1496559057116,
@@ -416,7 +419,8 @@
   "1496559112545": {
     "id": 1496559112545,
     "title": "This might be a later enhancement",
-    "children": []
+    "children": [],
+    "status": "waiting"
   },
   "1496559133418": {
     "id": 1496559133418,
@@ -482,7 +486,8 @@
   "1496562622997": {
     "id": 1496562622997,
     "title": "New buttons might encourage this. User testing required.",
-    "children": []
+    "children": [],
+    "status": "waiting"
   },
   "1496562657457": {
     "id": 1496562657457,
