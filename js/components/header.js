@@ -46,7 +46,7 @@ export default class Header extends React.Component {
           <IntroModal/>
         </div>
         <div className="col-6">
-          version 0.0.0-submarine-screendoor
+          version 0.0.1-inflatable-dart-board
         </div>
         <div className="col-6 text-right">
           {
