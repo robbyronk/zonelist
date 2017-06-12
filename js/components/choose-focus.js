@@ -5,22 +5,39 @@ import StatusIcon from './status-icon'
 import ItemContext from './item-context'
 import {setStatus} from '../actions'
 
-
-const FocusChoice = connect(
-  null,
-  {
-    setStatus
+@connect(null, {setStatus})
+class FocusChoice extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      hover: false
+    }
   }
-)(({id, setStatus}) => (
-  <div className="row">
-    <div className="col-12">
-      <ItemContext item={id}/>
-    </div>
-    <button className="btn" onClick={() => setStatus(id, 'inProgress')}>
-      <StatusIcon status={'inProgress'}/> Mark as Main Focus
-    </button>
-  </div>
-))
+
+  render() {
+    const {id, setStatus} = this.props
+    return (
+      <div className="row"
+           onMouseEnter={() => this.setState({hover: true})}
+           onMouseLeave={() => this.setState({hover: false})}>
+        <div className="col-2">
+          {
+            this.state.hover
+              ? (
+              <button className="btn btn-block" onClick={() => setStatus(id, 'inProgress')}>
+                <StatusIcon status={'inProgress'}/><br/> Mark as <br/> Main Focus
+              </button>
+            )
+              : null
+          }
+        </div>
+        <div className="col-10">
+          <ItemContext item={id}/>
+        </div>
+      </div>
+    )
+  }
+}
 
 const mapStateToProps = state => ({
     toDo: toDoLane(state),
