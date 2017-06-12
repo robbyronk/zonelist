@@ -18,7 +18,9 @@
       1496558219854,
       1496559057116,
       1496558360243,
-      1496559645089
+      1496559645089,
+      1497075086097,
+      1497131051553
     ]
   },
   "1491091919570": {
@@ -144,7 +146,7 @@
     "id": 1491212803401,
     "title": "Split webpack config",
     "children": [],
-    "status": "toDo"
+    "status": "waiting"
   },
   "1491215085850": {
     "id": 1491215085850,
@@ -261,34 +263,7 @@
   },
   "1495911390903": {
     "id": 1495911390903,
-    "title": "Add \"how to use\" links to Plan and Work",
-    "children": [
-      1495911739873,
-      1496043920560
-    ]
-  },
-  "1495911739873": {
-    "id": 1495911739873,
-    "title": "Plan",
-    "children": [
-      1495911742949
-    ]
-  },
-  "1495911742949": {
-    "id": 1495911742949,
-    "title": "TLDR Create an outline of your project and break down each task into bite size tasks",
-    "children": []
-  },
-  "1496043920560": {
-    "id": 1496043920560,
-    "title": "Work",
-    "children": [
-      1496043923212
-    ]
-  },
-  "1496043923212": {
-    "id": 1496043923212,
-    "title": "TLDR Take things off the To Do, put them into Main Focus, then put them into Done",
+    "title": "Add \"how to use\" links to Outline and Focus",
     "children": []
   },
   "1496044586775": {
@@ -319,7 +294,8 @@
   "1496557384130": {
     "id": 1496557384130,
     "title": "Dragging an item to the top does not work",
-    "children": []
+    "children": [],
+    "status": "toDo"
   },
   "1496557396746": {
     "id": 1496557396746,
@@ -414,7 +390,8 @@
   "1496559057116": {
     "id": 1496559057116,
     "title": "Make the status button on the list page able to change the status",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1496559112545": {
     "id": 1496559112545,
@@ -503,5 +480,38 @@
     "id": 1496562815110,
     "title": "Add hover text to buttons with keyboard shortcut",
     "children": []
+  },
+  "1497075086097": {
+    "id": 1497075086097,
+    "title": "Change words throughout code to match the interface",
+    "children": []
+  },
+  "1497131051553": {
+    "id": 1497131051553,
+    "title": "Enhance the look of the Focus page",
+    "children": [
+      1497131076294,
+      1497131096640,
+      1497254181518
+    ],
+    "status": "done"
+  },
+  "1497131076294": {
+    "id": 1497131076294,
+    "title": "Put the \"Main Focus\" button on the left of the item",
+    "children": [],
+    "status": "done"
+  },
+  "1497131096640": {
+    "id": 1497131096640,
+    "title": "If it needs it, put boxes around each item",
+    "children": [],
+    "status": "done"
+  },
+  "1497254181518": {
+    "id": 1497254181518,
+    "title": "Add a min-height to focus items",
+    "children": [],
+    "status": "done"
   }
 }
