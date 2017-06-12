@@ -17,7 +17,7 @@ class FocusChoice extends React.Component {
   render() {
     const {id, setStatus} = this.props
     return (
-      <div className="row"
+      <div className="row focus-choice"
            onMouseEnter={() => this.setState({hover: true})}
            onMouseLeave={() => this.setState({hover: false})}>
         <div className="col-2">
