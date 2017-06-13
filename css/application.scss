@@ -36,8 +36,8 @@ $fa-font-path: "~font-awesome/fonts";
 .tree {
   position: relative;
   min-height: 1em;
-  padding-top: 1em;
-  margin-top: -1em;
+  //padding-top: 1em;
+  //margin-top: -1em;
   margin-left: 2em;
   border-left: solid 1px #999;
 }
@@ -51,6 +51,16 @@ $fa-font-path: "~font-awesome/fonts";
   flex-direction: row;
   background: white;
   padding: 1em;
+}
+
+.item-toolbar {
+  padding-left: 8em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-toolbar > .right {
+  margin-left: auto;
 }
 
 .dragging {
