@@ -37,7 +37,7 @@ export default class Tree extends Component {
     const {connectDropTarget, ids, parent} = this.props
 
     return connectDropTarget(
-      <div className={classNames('tree', {root: parent === null})}>
+      <div className={classNames({tree: ids.length, root: parent === null})}>
         {ids.map((id, i) => {
           return <Item
             key={id}
