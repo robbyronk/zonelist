@@ -7,6 +7,7 @@ import ItemTitle from './itemTitle'
 import {moveItem} from '../actions'
 import classNames from 'classnames'
 import ItemStatusDropdown from './item-status-dropdown'
+import ListItemToolbar from './list-item-toolbar'
 
 const source = {
   beginDrag(props) {
@@ -75,26 +76,7 @@ export default class Item extends Component {
           <div className="item-status"><ItemStatusDropdown item={item}/></div>
           <ItemTitle id={id}/>
         </div>
-        <div className="item-toolbar">
-          <button className="btn btn-sm mx-2">
-            <i className="fa fa-level-up" aria-hidden="true"/>
-          </button>
-          <button className="btn btn-sm mx-2">
-            <i className="fa fa-level-down" aria-hidden="true"/>
-          </button>
-          <button className="btn btn-sm mx-2">
-            <i className="fa fa-arrow-up" aria-hidden="true"/>
-          </button>
-          <button className="btn btn-sm mx-2">
-            <i className="fa fa-arrow-down" aria-hidden="true"/>
-          </button>
-          <button className="btn btn-sm mx-2">
-            <i className="fa fa-plus" aria-hidden="true"/>
-          </button>
-          <button className="btn btn-sm right">
-            <i className="fa fa-trash" aria-hidden="true"/>
-          </button>
-        </div>
+        <ListItemToolbar/>
         <Tree parent={id} ids={item.children}/>
       </div>
     ))
