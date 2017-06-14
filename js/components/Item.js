@@ -76,7 +76,7 @@ export default class Item extends Component {
           <div className="item-status"><ItemStatusDropdown item={item}/></div>
           <ItemTitle id={id}/>
         </div>
-        <ListItemToolbar/>
+        <ListItemToolbar id={id}/>
         <Tree parent={id} ids={item.children}/>
       </div>
     ))

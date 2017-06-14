@@ -1,9 +1,12 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {unindentItem} from '../actions'
 
-export default function ListItemToolbar(props) {
+function ListItemToolbar({unindentItem, id}) {
   return (
     <div className="item-toolbar">
-      <button className="btn btn-sm mx-2">
+      <button className="btn btn-sm mx-2"
+              onClick={() => unindentItem(id)}>
         <i className="fa fa-level-up" aria-hidden="true"/>
       </button>
       <button className="btn btn-sm mx-2">
@@ -24,3 +27,5 @@ export default function ListItemToolbar(props) {
     </div>
   )
 }
+
+export default connect(null, {unindentItem})(ListItemToolbar)
