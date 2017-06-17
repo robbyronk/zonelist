@@ -13,12 +13,12 @@ function ListItemToolbar({unindentItem, indentItem, newItemAfter, id}) {
               onClick={() => indentItem(id)}>
         <i className="fa fa-level-down" aria-hidden="true"/>
       </button>
-      <button className="btn btn-sm mx-2">
-        <i className="fa fa-arrow-up" aria-hidden="true"/>
-      </button>
-      <button className="btn btn-sm mx-2">
-        <i className="fa fa-arrow-down" aria-hidden="true"/>
-      </button>
+      {/*<button className="btn btn-sm mx-2">*/}
+        {/*<i className="fa fa-arrow-up" aria-hidden="true"/>*/}
+      {/*</button>*/}
+      {/*<button className="btn btn-sm mx-2">*/}
+        {/*<i className="fa fa-arrow-down" aria-hidden="true"/>*/}
+      {/*</button>*/}
       <button className="btn btn-sm mx-2"
               onClick={() => newItemAfter(id)}>
         <i className="fa fa-plus" aria-hidden="true"/>
