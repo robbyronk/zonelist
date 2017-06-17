@@ -20,7 +20,8 @@
       1496558360243,
       1496559645089,
       1497075086097,
-      1497131051553
+      1497131051553,
+      1497696090670
     ]
   },
   "1491091919570": {
@@ -335,7 +336,7 @@
     "id": 1496558119436,
     "title": "The colours should match throughout the app",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1496558137222": {
     "id": 1496558137222,
@@ -433,17 +434,20 @@
   "1496562282551": {
     "id": 1496562282551,
     "title": "Add \"Make bigger\" button",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1496562320656": {
     "id": 1496562320656,
     "title": "Add \"Make smaller\" button",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1496562326546": {
     "id": 1496562326546,
     "title": "Add \"Add new item below\"",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1496562364977": {
     "id": 1496562364977,
@@ -453,7 +457,8 @@
   "1496562376075": {
     "id": 1496562376075,
     "title": "On the far right, add delete button",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1496562383572": {
     "id": 1496562383572,
@@ -513,5 +518,17 @@
     "title": "Add a min-height to focus items",
     "children": [],
     "status": "done"
+  },
+  "1497696090670": {
+    "id": 1497696090670,
+    "title": "Use narrow coloured tab on the far left of tasks to differentiate status",
+    "children": [
+      1497696132023
+    ]
+  },
+  "1497696132023": {
+    "id": 1497696132023,
+    "title": "The narrow coloured tab makes a small indent very noticable",
+    "children": []
   }
 }
