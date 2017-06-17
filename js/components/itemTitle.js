@@ -25,9 +25,6 @@ class ItemTitle extends React.Component {
   }
 
   _onBackspace(e) {
-    if (this.props.title === '') {
-      this.props.removeItem(this.props.id)
-    }
   }
 
   _onCtrlAltEnter(e) {
