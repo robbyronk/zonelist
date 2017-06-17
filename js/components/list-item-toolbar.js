@@ -1,8 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {indentItem, newItemAfter, unindentItem} from '../actions'
+import {indentItem, newItemAfter, removeItem, unindentItem} from '../actions'
 
-function ListItemToolbar({unindentItem, indentItem, newItemAfter, id}) {
+function ListItemToolbar({unindentItem, indentItem, newItemAfter, removeItem, id}) {
   return (
     <div className="item-toolbar">
       <button className="btn btn-sm mx-2"
@@ -23,11 +23,12 @@ function ListItemToolbar({unindentItem, indentItem, newItemAfter, id}) {
               onClick={() => newItemAfter(id)}>
         <i className="fa fa-plus" aria-hidden="true"/>
       </button>
-      <button className="btn btn-sm right">
+      <button className="btn btn-sm right"
+              onClick={() => removeItem(id)}>
         <i className="fa fa-trash" aria-hidden="true"/>
       </button>
     </div>
   )
 }
 
-export default connect(null, {unindentItem, indentItem, newItemAfter})(ListItemToolbar)
+export default connect(null, {unindentItem, indentItem, newItemAfter, removeItem})(ListItemToolbar)
