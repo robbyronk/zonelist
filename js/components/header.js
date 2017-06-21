@@ -70,26 +70,6 @@ export default class Header extends React.Component {
             <ExportModal/>
             <IntroModal/>
           </li>
-          <li className="nav-item">
-            <span className="navbar-nav">
-              <button className="btn nav-item">
-                <i className="fa fa-outdent"/>
-                <span className="hidden-sm-down">Outdent</span>
-              </button>
-              <button className="btn nav-item">
-                <i className="fa fa-indent"/>
-                <span className="hidden-sm-down">Indent</span>
-              </button>
-              <button className="btn nav-item">
-                <i className="fa fa-plus"/>
-                <span className="hidden-sm-down">New Task</span>
-              </button>
-              <button className="btn nav-item">
-                <i className="fa fa-code-fork fa-flip-vertical"/>
-                <span className="hidden-sm-down">New Sub Task</span>
-              </button>
-            </span>
-          </li>
         </ul>
       </nav>
     )
