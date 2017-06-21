@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import ZoneList from './list'
 import FocusList from './focus'
 import Outline from './outline'
+import Focus from './focus/index'
 
 @connect(state => ({view: state.view}))
 export default class MainLayout extends React.Component {
@@ -13,6 +14,8 @@ export default class MainLayout extends React.Component {
         return (<ZoneList/>)
       case 'old-focus':
         return (<FocusList/>)
+      case 'focus':
+        return (<Focus/>)
     }
     return (<Outline/>)
   }
