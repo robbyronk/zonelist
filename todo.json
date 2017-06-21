@@ -4,123 +4,20 @@
     "title": "ZoneList MVP",
     "children": [
       1496557380761,
-      1491211876308,
-      1491091919570,
-      1495794361388,
       1491212665839,
-      1495911103089,
       1495911186858,
       1495911390903,
       1496557363855,
       1496557639300,
-      1496558182520,
       1496558200368,
       1496558219854,
       1496559057116,
-      1496558360243,
       1496559645089,
       1497075086097,
-      1497131051553,
-      1497696090670
+      1497696090670,
+      1497957057831,
+      1498036955536
     ]
-  },
-  "1491091919570": {
-    "id": 1491091919570,
-    "title": "Kanban board",
-    "children": [
-      1491114204784,
-      1491114522558,
-      1491091993014,
-      1494792020778,
-      1495791425621,
-      1495792951082,
-      1495792964346,
-      1495792979135
-    ],
-    "status": "done"
-  },
-  "1491091993014": {
-    "id": 1491091993014,
-    "title": "Show status on list view",
-    "children": [],
-    "status": "done"
-  },
-  "1491114204784": {
-    "id": 1491114204784,
-    "title": "Show items with no incomplete children in todo, in progress and waiting",
-    "children": [],
-    "status": "done"
-  },
-  "1491114522558": {
-    "id": 1491114522558,
-    "title": "Show items with no non-complete children in complete",
-    "children": [],
-    "status": "done"
-  },
-  "1491211876308": {
-    "id": 1491211876308,
-    "title": "Easy tasks",
-    "children": [
-      1491212130554,
-      1491212253194,
-      1491212388044,
-      1491212635996,
-      1491215085850
-    ],
-    "status": "done"
-  },
-  "1491212130554": {
-    "id": 1491212130554,
-    "title": "Clean up directory structure",
-    "children": [
-      1491212173013,
-      1491212217996,
-      1491212246738,
-      1491212319533
-    ],
-    "status": "done"
-  },
-  "1491212173013": {
-    "id": 1491212173013,
-    "title": "Remove layouts",
-    "children": [],
-    "status": "done"
-  },
-  "1491212217996": {
-    "id": 1491212217996,
-    "title": "Move store to file",
-    "children": [],
-    "status": "done"
-  },
-  "1491212246738": {
-    "id": 1491212246738,
-    "title": "Move constants",
-    "children": [],
-    "status": "done"
-  },
-  "1491212253194": {
-    "id": 1491212253194,
-    "title": "Extract out constants",
-    "children": [],
-    "status": "done"
-  },
-  "1491212319533": {
-    "id": 1491212319533,
-    "title": "Move containers/root.js",
-    "children": [],
-    "status": "done"
-  },
-  "1491212388044": {
-    "id": 1491212388044,
-    "title": "Remove unused dependencies",
-    "children": [],
-    "status": "done"
-  },
-  "1491212635996": {
-    "id": 1491212635996,
-    "title": "Update Readme",
-    "children": [],
-    "status": "done"
   },
   "1491212665839": {
     "id": 1491212665839,
@@ -149,100 +46,6 @@
     "children": [],
     "status": "waiting"
   },
-  "1491215085850": {
-    "id": 1491215085850,
-    "title": "Change styles",
-    "children": [
-      1491215097363,
-      1491215103338
-    ],
-    "status": "done"
-  },
-  "1491215097363": {
-    "id": 1491215097363,
-    "title": "Remove boxes around items",
-    "children": [],
-    "status": "done"
-  },
-  "1491215103338": {
-    "id": 1491215103338,
-    "title": "Add lines to help see the level of indentation",
-    "children": [],
-    "status": "done"
-  },
-  "1494792020778": {
-    "id": 1494792020778,
-    "title": "Add buttons to change the status of items",
-    "children": [],
-    "status": "done"
-  },
-  "1495791425621": {
-    "id": 1495791425621,
-    "title": "Hide buttons for the column they are under",
-    "children": [],
-    "status": "done"
-  },
-  "1495792951082": {
-    "id": 1495792951082,
-    "title": "Make the items easier to read",
-    "children": [],
-    "status": "done"
-  },
-  "1495792964346": {
-    "id": 1495792964346,
-    "title": "Emphasise the in progress item",
-    "children": [],
-    "status": "done"
-  },
-  "1495792979135": {
-    "id": 1495792979135,
-    "title": "Demphasise the waiting and done items",
-    "children": [],
-    "status": "done"
-  },
-  "1495794361388": {
-    "id": 1495794361388,
-    "title": "Make a top menu",
-    "children": [],
-    "status": "done"
-  },
-  "1495911103089": {
-    "id": 1495911103089,
-    "title": "Change wording to be friendlier",
-    "children": [
-      1495911132264,
-      1495911141600,
-      1495911147004,
-      1495911156945,
-      1496044586775,
-      1496044795518
-    ],
-    "status": "done"
-  },
-  "1495911132264": {
-    "id": 1495911132264,
-    "title": "Import -> Load In",
-    "children": [],
-    "status": "done"
-  },
-  "1495911141600": {
-    "id": 1495911141600,
-    "title": "Export -> Save Out",
-    "children": [],
-    "status": "done"
-  },
-  "1495911147004": {
-    "id": 1495911147004,
-    "title": "Board -> Get to Work",
-    "children": [],
-    "status": "done"
-  },
-  "1495911156945": {
-    "id": 1495911156945,
-    "title": "List -> Make a Plan",
-    "children": [],
-    "status": "done"
-  },
   "1495911186858": {
     "id": 1495911186858,
     "title": "Add a welcome message",
@@ -266,18 +69,6 @@
     "id": 1495911390903,
     "title": "Add \"how to use\" links to Outline and Focus",
     "children": []
-  },
-  "1496044586775": {
-    "id": 1496044586775,
-    "title": "In Progress -> Main Focus",
-    "children": [],
-    "status": "done"
-  },
-  "1496044795518": {
-    "id": 1496044795518,
-    "title": "Waiting -> On Hold",
-    "children": [],
-    "status": "done"
   },
   "1496557363855": {
     "id": 1496557363855,
@@ -307,30 +98,10 @@
     "id": 1496557639300,
     "title": "Design problems",
     "children": [
-      1496557776985,
-      1496558099327,
       1496558119436,
       1496558137222,
-      1496558164436,
-      1496559133418,
-      1496559143326
+      1496558164436
     ]
-  },
-  "1496557776985": {
-    "id": 1496557776985,
-    "title": "It's not obvious that the other page is the \"next step\"",
-    "children": [
-      1496562708876
-    ]
-  },
-  "1496558099327": {
-    "id": 1496558099327,
-    "title": "In focus mode, the order and context of items is lost",
-    "children": [
-      1496559024942,
-      1496559033664
-    ],
-    "status": "done"
   },
   "1496558119436": {
     "id": 1496558119436,
@@ -352,12 +123,6 @@
       1496562622997
     ]
   },
-  "1496558182520": {
-    "id": 1496558182520,
-    "title": "Remove reset button",
-    "children": [],
-    "status": "done"
-  },
   "1496558200368": {
     "id": 1496558200368,
     "title": "Add a way to filter tasks",
@@ -369,24 +134,6 @@
     "id": 1496558219854,
     "title": "Add hover text to all buttons",
     "children": []
-  },
-  "1496558360243": {
-    "id": 1496558360243,
-    "title": "The order of items in focus mode should be the same as in outline mode",
-    "children": [],
-    "status": "done"
-  },
-  "1496559024942": {
-    "id": 1496559024942,
-    "title": "Show context of small items by showing ancestry above it",
-    "children": [],
-    "status": "done"
-  },
-  "1496559033664": {
-    "id": 1496559033664,
-    "title": "Honour the sequence of items",
-    "children": [],
-    "status": "done"
   },
   "1496559057116": {
     "id": 1496559057116,
@@ -400,69 +147,9 @@
     "children": [],
     "status": "waiting"
   },
-  "1496559133418": {
-    "id": 1496559133418,
-    "title": "Add buttons for everything that has a keyboard shortcut",
-    "children": [
-      1496562258141,
-      1496562383572
-    ]
-  },
-  "1496559143326": {
-    "id": 1496559143326,
-    "title": "Keyboard shortcuts are not discoverable",
-    "children": [
-      1496562815110
-    ]
-  },
   "1496559645089": {
     "id": 1496559645089,
     "title": "Name pages \"Outline\" and \"Focus\"",
-    "children": []
-  },
-  "1496562258141": {
-    "id": 1496562258141,
-    "title": "Add Buttons right under item text",
-    "children": [
-      1496562282551,
-      1496562320656,
-      1496562326546,
-      1496562364977,
-      1496562376075
-    ]
-  },
-  "1496562282551": {
-    "id": 1496562282551,
-    "title": "Add \"Make bigger\" button",
-    "children": [],
-    "status": "done"
-  },
-  "1496562320656": {
-    "id": 1496562320656,
-    "title": "Add \"Make smaller\" button",
-    "children": [],
-    "status": "done"
-  },
-  "1496562326546": {
-    "id": 1496562326546,
-    "title": "Add \"Add new item below\"",
-    "children": [],
-    "status": "done"
-  },
-  "1496562364977": {
-    "id": 1496562364977,
-    "title": "Add \"Add new sub item\"",
-    "children": []
-  },
-  "1496562376075": {
-    "id": 1496562376075,
-    "title": "On the far right, add delete button",
-    "children": [],
-    "status": "done"
-  },
-  "1496562383572": {
-    "id": 1496562383572,
-    "title": "Only show buttons when item field is selected",
     "children": []
   },
   "1496562622997": {
@@ -476,48 +163,10 @@
     "title": "Add size tag to item",
     "children": []
   },
-  "1496562708876": {
-    "id": 1496562708876,
-    "title": "Add toggle switch between Outline mode and Focus Mode",
-    "children": []
-  },
-  "1496562815110": {
-    "id": 1496562815110,
-    "title": "Add hover text to buttons with keyboard shortcut",
-    "children": []
-  },
   "1497075086097": {
     "id": 1497075086097,
     "title": "Change words throughout code to match the interface",
     "children": []
-  },
-  "1497131051553": {
-    "id": 1497131051553,
-    "title": "Enhance the look of the Focus page",
-    "children": [
-      1497131076294,
-      1497131096640,
-      1497254181518
-    ],
-    "status": "done"
-  },
-  "1497131076294": {
-    "id": 1497131076294,
-    "title": "Put the \"Main Focus\" button on the left of the item",
-    "children": [],
-    "status": "done"
-  },
-  "1497131096640": {
-    "id": 1497131096640,
-    "title": "If it needs it, put boxes around each item",
-    "children": [],
-    "status": "done"
-  },
-  "1497254181518": {
-    "id": 1497254181518,
-    "title": "Add a min-height to focus items",
-    "children": [],
-    "status": "done"
   },
   "1497696090670": {
     "id": 1497696090670,
@@ -529,6 +178,157 @@
   "1497696132023": {
     "id": 1497696132023,
     "title": "The narrow coloured tab makes a small indent very noticable",
+    "children": []
+  },
+  "1497957057831": {
+    "id": 1497957057831,
+    "title": "Use new mockups",
+    "children": [
+      1498036439744,
+      1497957116744
+    ]
+  },
+  "1497957116744": {
+    "id": 1497957116744,
+    "title": "Use old interface and new interface together",
+    "children": [
+      1497957228225,
+      1497957300317,
+      1497957262557,
+      1497957366127,
+      1497957466004
+    ]
+  },
+  "1497957228225": {
+    "id": 1497957228225,
+    "title": "Update menu at the top to have links to old/new outline/focus",
+    "children": []
+  },
+  "1497957262557": {
+    "id": 1497957262557,
+    "title": "Update \"router\" component to show the current view",
+    "children": []
+  },
+  "1497957300317": {
+    "id": 1497957300317,
+    "title": "Update state shape to allow for more than two pages",
+    "children": []
+  },
+  "1497957366127": {
+    "id": 1497957366127,
+    "title": "Use new interface and make sure that it has all of the functionality of the old interface",
+    "children": [
+      1497957410136
+    ]
+  },
+  "1497957410136": {
+    "id": 1497957410136,
+    "title": "Add vertical rearranging to new outline view",
+    "children": [
+      1497957429534
+    ]
+  },
+  "1497957429534": {
+    "id": 1497957429534,
+    "title": "Add link to menu to activate rearranging mode",
+    "children": []
+  },
+  "1497957466004": {
+    "id": 1497957466004,
+    "title": "Test new interface on mobile devices",
+    "children": []
+  },
+  "1498036439744": {
+    "id": 1498036439744,
+    "title": "Wire up mockups",
+    "children": [
+      1498036451825,
+      1498036473992,
+      1498036526552,
+      1498036536623
+    ]
+  },
+  "1498036451825": {
+    "id": 1498036451825,
+    "title": "Create component of the mockup",
+    "children": [
+      1498036648594,
+      1498036656624,
+      1498036696502
+    ]
+  },
+  "1498036473992": {
+    "id": 1498036473992,
+    "title": "Create components of the parts inside of the mockup",
+    "children": []
+  },
+  "1498036526552": {
+    "id": 1498036526552,
+    "title": "Wire up data into the new components",
+    "children": []
+  },
+  "1498036536623": {
+    "id": 1498036536623,
+    "title": "Wire up actions into the new components",
+    "children": []
+  },
+  "1498036648594": {
+    "id": 1498036648594,
+    "title": "Make component for the new outline mode",
+    "children": []
+  },
+  "1498036656624": {
+    "id": 1498036656624,
+    "title": "Make component for the new focus mode",
+    "children": []
+  },
+  "1498036696502": {
+    "id": 1498036696502,
+    "title": "",
+    "children": []
+  },
+  "1498036955536": {
+    "id": 1498036955536,
+    "title": "Update state shape",
+    "children": [
+      1498036967900
+    ]
+  },
+  "1498036967900": {
+    "id": 1498036967900,
+    "title": "Keys",
+    "children": [
+      1498036969588,
+      1498036984400,
+      1498036986416,
+      1498037025146
+    ]
+  },
+  "1498036969588": {
+    "id": 1498036969588,
+    "title": "outline",
+    "children": [
+      1498037036224
+    ]
+  },
+  "1498036984400": {
+    "id": 1498036984400,
+    "title": "focus",
+    "children": []
+  },
+  "1498036986416": {
+    "id": 1498036986416,
+    "title": "view",
+    "children": []
+  },
+  "1498037025146": {
+    "id": 1498037025146,
+    "title": "items",
+    "children": []
+  },
+  "1498037036224": {
+    "id": 1498037036224,
+    "title": "selected item",
     "children": []
   }
 }
