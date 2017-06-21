@@ -107,3 +107,30 @@ $fa-font-path: "~font-awesome/fonts";
   margin: 0.5em;
   min-height: 5.5em;
 }
+
+// outline
+.bar {
+  height: 1.5em;
+  width: 0.25em;
+  display: inline-block;
+}
+
+.to-do {
+  background: #31708f;
+}
+
+.main-focus {
+  background: #328f32;
+}
+
+.snoozed {
+  background: #ffa500;
+}
+
+.first-level {
+  margin-left: 0.25em;
+}
+
+.second-level {
+  margin-left: 0.5em;
+}
