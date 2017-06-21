@@ -6,8 +6,7 @@ function Outline(props) {
     <div className="container">
       <div className="row mt-1">
         <div className="col-12">
-          <span className="bar to-do"/>
-          Big Project
+          <h2>Big Project</h2>
         </div>
       </div>
       <div className="row">
