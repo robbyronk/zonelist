@@ -16,6 +16,8 @@ const ActionTypes = {
   SHOW_BOARD: 'SHOW_BOARD',
   HIDE_BOARD: 'HIDE_BOARD',
   HIDE_INTRO: 'HIDE_INTRO',
+  SHOW_OUTLINE: 'SHOW_OUTLINE',
+  SHOW_FOCUS: 'SHOW_FOCUS',
 };
 
 export default ActionTypes;
@@ -113,6 +115,18 @@ export function setStatus(id, status) {
 export function showBoard() {
   return {
     type: ActionTypes.SHOW_BOARD,
+  }
+}
+
+export function showFocus() {
+  return {
+    type: ActionTypes.SHOW_FOCUS,
+  }
+}
+
+export function showOutline() {
+  return {
+    type: ActionTypes.SHOW_OUTLINE,
   }
 }
 
