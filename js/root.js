@@ -2,10 +2,6 @@ import React, {PropTypes} from "react";
 import {Provider} from "react-redux";
 import MainLayout from './components/main'
 
-const propTypes = {
-  store: PropTypes.object.isRequired
-};
-
 const Root = ({store}) => {
 
   return (
@@ -15,5 +11,7 @@ const Root = ({store}) => {
   );
 };
 
-Root.propTypes = propTypes;
+Root.propTypes = {
+  store: PropTypes.object.isRequired
+};
 export default Root;
