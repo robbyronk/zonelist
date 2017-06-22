@@ -18,6 +18,8 @@ const ActionTypes = {
   HIDE_INTRO: 'HIDE_INTRO',
   SHOW_OUTLINE: 'SHOW_OUTLINE',
   SHOW_FOCUS: 'SHOW_FOCUS',
+  SELECT_TASK: 'SELECT_TASK',
+  UNSELECT_TASK: 'UNSELECT_TASK',
 };
 
 export default ActionTypes;
@@ -139,5 +141,19 @@ export function hideBoard() {
 export function hideIntro() {
   return {
     type: ActionTypes.HIDE_INTRO,
+  }
+}
+
+export function selectTask(id) {
+  return {
+    type: ActionTypes.SELECT_TASK,
+    id
+  }
+}
+
+
+export function unselectTask() {
+  return {
+    type: ActionTypes.UNSELECT_TASK,
   }
 }
