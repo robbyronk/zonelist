@@ -1,12 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import RootTaskTitle from './root'
 
 function Outline(props) {
   return (
     <div className="container">
       <div className="row mt-1">
         <div className="col-12">
-          <h2>Big Project</h2>
+          <RootTaskTitle id="root"/>
         </div>
       </div>
       <div className="row">
