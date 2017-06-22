@@ -5,7 +5,7 @@ import uniqueId from 'lodash/uniqueId'
 import omit from 'lodash/omit'
 import without from 'lodash/without'
 import mapValues from 'lodash/mapValues'
-import {get, isEmpty, some, isPlainObject} from 'lodash'
+import {get, isEmpty, some, isPlainObject, trimStart} from 'lodash'
 import ActionTypes from '../actions'
 
 const initialState = {
@@ -48,7 +48,7 @@ export function isChild(items, parentId, childId) {
 }
 
 function updateTitle(state, {id, newTitle}) {
-  return update(state, {[id]: {title: {$set: newTitle}}})
+  return update(state, {[id]: {title: {$set: trimStart(newTitle)}}})
 }
 
 function newItemAfter(state, action) {
