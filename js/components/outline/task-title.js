@@ -92,11 +92,11 @@ class TaskTitle extends React.Component {
     const {task} = this.props
     const status = task.status || 'toDo'
     let barStyle = {
-      marginLeft: task.level * 0.5 + 'em'
+      marginLeft: task.level * 1 + 'em'
     }
     if (this.props.selected === task.id) {
       barStyle = {
-        width: (task.level * 0.5 + 0.25) + 'em'
+        width: (task.level * 1 + 0.25) + 'em'
       }
     }
     return (
