@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
-import {get} from "lodash"
 import {indentItem, newItemAfter, removeItem, unindentItem, updateTitle} from '../../actions'
+import classnames from 'classnames'
 
 class TaskTitle extends React.Component {
   constructor(props) {
@@ -15,13 +15,20 @@ class TaskTitle extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.id === this.props.focus) {
+    if (this.props.task.id === this.props.focus) {
       this.textInput.focus();
     }
+    this.textInput.style.height = 'auto'
+    this.textInput.style.height = this.textInput.scrollHeight + 'px'
+  }
+
+  componentDidUpdate() {
+    this.textInput.style.height = 'auto'
+    this.textInput.style.height = this.textInput.scrollHeight + 'px'
   }
 
   _handleChange({target: {value}}) {
-    this.props.updateTitle(this.props.id, value)
+    this.props.updateTitle(this.props.task.id, value)
   }
 
   _onBackspace(e) {
@@ -36,18 +43,18 @@ class TaskTitle extends React.Component {
 
   _onEnter(e) {
     if (this.props.newItemAfter) {
-      this.props.newItemAfter(this.props.id)
+      this.props.newItemAfter(this.props.task.id)
     }
   }
 
   _onTab = (e) => {
     e.preventDefault()
-    this.props.indentItem(this.props.id)
+    this.props.indentItem(this.props.task.id)
   }
 
   _onShiftTab = (e) => {
     e.preventDefault()
-    this.props.unindentItem(this.props.id)
+    this.props.unindentItem(this.props.task.id)
   }
 
   _onKeyDown(e) {
@@ -82,17 +89,23 @@ class TaskTitle extends React.Component {
   }
 
   render() {
+    const {task} = this.props
+    const status = task.status || 'toDo'
+    const barStyle = {
+      marginLeft: task.level * 0.5 + 'em'
+    }
     return (
-      <div>
-        <span className="bar to-do"/>
-        <input
-          className="item-title"
+      <div className="d-flex">
+        <span className={classnames('bar', status)} style={barStyle}/>
+        <textarea
+          rows={1}
+          className="item-title flex-grow"
           type="text"
           onChange={this._handleChange}
           onKeyDown={this._onKeyDown}
           onKeyPress={this._onKeyPress}
           ref={input => this.textInput = input}
-          value={this.props.title}
+          value={task.title}
         />
       </div>
     )
@@ -105,7 +118,6 @@ TaskTitle.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
   focus: state.focus,
-  title: get(state, `items.${ownProps.id}.title`),
 })
 
 export default connect(mapStateToProps, {indentItem, newItemAfter, removeItem, unindentItem, updateTitle})(TaskTitle)

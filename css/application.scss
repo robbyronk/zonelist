@@ -119,21 +119,26 @@ $fa-font-path: "~font-awesome/fonts";
 }
 
 .bar {
-  height: 1.5em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
   width: 0.25em;
   display: inline-block;
 }
 
-.to-do {
+.toDo {
   background: #31708f;
 }
 
-.main-focus {
-  background: #328f32;
+.inProgress {
+  background: #00ff00;
 }
 
-.snoozed {
+.waiting {
   background: #ffa500;
+}
+
+.done {
+  background: #364d36;
 }
 
 .first-level {
