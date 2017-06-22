@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
-import {indentItem, newItemAfter, removeItem, unindentItem, updateTitle} from '../../actions'
+import {indentItem, newItemAfter, removeItem, selectTask, unindentItem, unselectTask, updateTitle} from '../../actions'
 import classnames from 'classnames'
 
 class TaskTitle extends React.Component {
@@ -91,8 +91,13 @@ class TaskTitle extends React.Component {
   render() {
     const {task} = this.props
     const status = task.status || 'toDo'
-    const barStyle = {
+    let barStyle = {
       marginLeft: task.level * 0.5 + 'em'
+    }
+    if (this.props.selected === task.id) {
+      barStyle = {
+        width: (task.level * 0.5 + 0.25) + 'em'
+      }
     }
     return (
       <div className="d-flex">
@@ -104,6 +109,8 @@ class TaskTitle extends React.Component {
           onChange={this._handleChange}
           onKeyDown={this._onKeyDown}
           onKeyPress={this._onKeyPress}
+          onFocus={() => this.props.selectTask(task.id)}
+          onBlur={() => this.props.unselectTask()}
           ref={input => this.textInput = input}
           value={task.title}
         />
@@ -118,6 +125,7 @@ TaskTitle.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
   focus: state.focus,
+  selected: state.outline.selectedItem
 })
 
-export default connect(mapStateToProps, {indentItem, newItemAfter, removeItem, unindentItem, updateTitle})(TaskTitle)
+export default connect(mapStateToProps, {indentItem, newItemAfter, removeItem, unindentItem, updateTitle, selectTask, unselectTask})(TaskTitle)
