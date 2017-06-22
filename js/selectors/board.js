@@ -3,8 +3,8 @@ import {concat, every, filter, flatMap, includes} from 'lodash'
 
 const items = state => state.items
 
-export const listOrder = (items, parent = 'root') =>
-  concat([items[parent]], flatMap(items[parent].children, c => listOrder(items, c)))
+export const listOrder = (items, parent = 'root', level = 0) =>
+  concat([{...items[parent], level}], flatMap(items[parent].children, c => listOrder(items, c, level + 1)))
 
 export const listOrderSelector = createSelector(
   items,
