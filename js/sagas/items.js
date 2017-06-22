@@ -9,6 +9,7 @@ function *createNewItem(action) {
     id: (new Date().getTime()),
     title: '',
     children: [],
+    status: 'toDo'
   }
   yield put({type: ActionTypes.NEW_ITEM, item, afterId})
 }
