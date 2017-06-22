@@ -1,10 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {head, tail} from 'lodash'
-import {makeGetContext} from '../selectors/items'
+import {makeOldGetContext} from '../selectors/items'
 
 const makeMapStateToProps = () => {
-  const getContext = makeGetContext()
+  const getContext = makeOldGetContext()
   const mapStateToProps = (state, ownProps) => ({
       context: getContext(state, ownProps)
     }
