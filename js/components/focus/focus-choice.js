@@ -5,7 +5,7 @@ import {setStatus} from '../../actions'
 
 function FocusChoice({id, setStatus}) {
   return (
-    <button className="my-4 btn btn-info btn-block text-left focus-choice"
+    <button className="my-3 btn btn-info btn-block text-left focus-choice"
             onClick={() => setStatus(id, 'inProgress')}>
       <TaskContext id={id}/>
     </button>
