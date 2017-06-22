@@ -5,6 +5,7 @@ import ZoneList from './list'
 import FocusList from './focus'
 import Outline from './outline'
 import Focus from './focus/index'
+import Footer from './footer'
 
 @connect(state => ({view: state.view}))
 export default class MainLayout extends React.Component {
@@ -25,6 +26,7 @@ export default class MainLayout extends React.Component {
       <div className="container">
         <Header/>
         {this._component(this.props.view)}
+        <Footer/>
       </div>
     );
   }
