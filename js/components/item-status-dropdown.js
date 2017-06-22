@@ -41,7 +41,7 @@ export default class ItemStatusDropdown extends Component {
         <DropdownToggle className={this.props.className}>
           <StatusIcon status={item.status}/> <span className="hidden-sm-down"> Update Status</span>
         </DropdownToggle>
-        <DropdownMenu>
+        <DropdownMenu right>
           <DropdownItem onClick={() => this.click('toDo')}>
             <StatusIcon status={'toDo'}/> To Do
           </DropdownItem>
