@@ -1,14 +1,15 @@
 import React, {Component, PropTypes} from 'react'
-import {setStatus} from '../actions'
+import {removeItem, setStatus} from '../actions'
 import {connect} from 'react-redux'
 import {ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap'
 
 import StatusIcon from './status-icon'
 
-@connect(null, {setStatus})
+@connect(null, {setStatus, removeItem})
 export default class ItemStatusDropdown extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
+    className: PropTypes.string,
   }
 
   constructor(props) {
@@ -36,9 +37,9 @@ export default class ItemStatusDropdown extends Component {
   render() {
     const {item} = this.props
     return (
-      <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle>
-          <StatusIcon status={item.status}/>
+      <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} >
+        <DropdownToggle className={this.props.className}>
+          <StatusIcon status={item.status}/> <span className="hidden-sm-down"> Update Status</span>
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem onClick={() => this.click('toDo')}>
@@ -52,6 +53,10 @@ export default class ItemStatusDropdown extends Component {
           </DropdownItem>
           <DropdownItem onClick={() => this.click('done')}>
             <StatusIcon status={'done'}/> Done
+          </DropdownItem>
+          <DropdownItem divider/>
+          <DropdownItem onClick={() => this.props.removeItem(item.id)}>
+            <i className="fa fa-trash"/> Delete
           </DropdownItem>
         </DropdownMenu>
       </ButtonDropdown>
