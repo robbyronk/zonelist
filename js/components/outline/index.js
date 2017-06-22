@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import RootTaskTitle from './root'
+import TaskTitle from './task-title'
 
 function Outline(props) {
   return (
@@ -12,8 +13,7 @@ function Outline(props) {
       </div>
       <div className="row">
         <div className="col-12">
-          <span className="bar to-do first-level"/>
-          Task
+          <TaskTitle id="1496557380761"/>
         </div>
       </div>
       <div className="row">

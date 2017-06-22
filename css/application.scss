@@ -13,12 +13,6 @@ $fa-font-path: "~font-awesome/fonts";
   margin-top: 1em;
 }
 
-.item-title {
-  flex: auto;
-  border: none;
-  border-bottom: gray solid 2px;
-}
-
 .item-status {
   margin: 0 0.5em;
   flex: 0 0 1em;
@@ -118,6 +112,11 @@ $fa-font-path: "~font-awesome/fonts";
 // outline
 .root-task-title {
   font-size: 1.5rem;
+  border: none;
+}
+
+.item-title {
+  flex: auto;
   border: none;
 }
 
