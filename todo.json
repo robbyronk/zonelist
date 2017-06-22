@@ -16,7 +16,10 @@
       1497075086097,
       1497696090670,
       1497957057831,
-      1498036955536
+      1498036955536,
+      1498161616646,
+      1498162049867,
+      1498162197719
     ]
   },
   "1491212665839": {
@@ -57,7 +60,8 @@
   "1495911198048": {
     "id": 1495911198048,
     "title": "Write a short \"how to use\"",
-    "children": []
+    "children": [],
+    "status": "waiting"
   },
   "1495911231176": {
     "id": 1495911231176,
@@ -68,12 +72,14 @@
   "1495911390903": {
     "id": 1495911390903,
     "title": "Add \"how to use\" links to Outline and Focus",
-    "children": []
+    "children": [],
+    "status": "waiting"
   },
   "1496557363855": {
     "id": 1496557363855,
     "title": "Maybe have the starting items' titles disappear on first click",
-    "children": []
+    "children": [],
+    "status": "waiting"
   },
   "1496557380761": {
     "id": 1496557380761,
@@ -81,18 +87,20 @@
     "children": [
       1496557384130,
       1496557396746
-    ]
+    ],
+    "status": "toDo"
   },
   "1496557384130": {
     "id": 1496557384130,
-    "title": "Dragging an item to the top does not work",
+    "title": "Dragging an item to the top does not work\n",
     "children": [],
-    "status": "toDo"
+    "status": "waiting"
   },
   "1496557396746": {
     "id": 1496557396746,
     "title": "Dragging an item directly right does not indent it",
-    "children": []
+    "children": [],
+    "status": "waiting"
   },
   "1496557639300": {
     "id": 1496557639300,
@@ -133,7 +141,8 @@
   "1496558219854": {
     "id": 1496558219854,
     "title": "Add hover text to all buttons",
-    "children": []
+    "children": [],
+    "status": "waiting"
   },
   "1496559057116": {
     "id": 1496559057116,
@@ -150,7 +159,8 @@
   "1496559645089": {
     "id": 1496559645089,
     "title": "Name pages \"Outline\" and \"Focus\"",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1496562622997": {
     "id": 1496562622997,
@@ -161,24 +171,28 @@
   "1496562657457": {
     "id": 1496562657457,
     "title": "Add size tag to item",
-    "children": []
+    "children": [],
+    "status": "waiting"
   },
   "1497075086097": {
     "id": 1497075086097,
     "title": "Change words throughout code to match the interface",
-    "children": []
+    "children": [],
+    "status": "waiting"
   },
   "1497696090670": {
     "id": 1497696090670,
     "title": "Use narrow coloured tab on the far left of tasks to differentiate status",
     "children": [
       1497696132023
-    ]
+    ],
+    "status": "done"
   },
   "1497696132023": {
     "id": 1497696132023,
     "title": "The narrow coloured tab makes a small indent very noticable",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1497957057831": {
     "id": 1497957057831,
@@ -202,17 +216,20 @@
   "1497957228225": {
     "id": 1497957228225,
     "title": "Update menu at the top to have links to old/new outline/focus",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1497957262557": {
     "id": 1497957262557,
     "title": "Update \"router\" component to show the current view",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1497957300317": {
     "id": 1497957300317,
     "title": "Update state shape to allow for more than two pages",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1497957366127": {
     "id": 1497957366127,
@@ -236,7 +253,8 @@
   "1497957466004": {
     "id": 1497957466004,
     "title": "Test new interface on mobile devices",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1498036439744": {
     "id": 1498036439744,
@@ -250,85 +268,279 @@
   },
   "1498036451825": {
     "id": 1498036451825,
-    "title": "Create component of the mockup",
+    "title": "Create components of the mockups",
     "children": [
       1498036648594,
       1498036656624,
       1498036696502
-    ]
+    ],
+    "status": "done"
   },
   "1498036473992": {
     "id": 1498036473992,
     "title": "Create components of the parts inside of the mockup",
-    "children": []
+    "children": [
+      1498088316932,
+      1498088654341
+    ],
+    "status": "done"
   },
   "1498036526552": {
     "id": 1498036526552,
     "title": "Wire up data into the new components",
-    "children": []
+    "children": [
+      1498088388231,
+      1498088776943
+    ],
+    "status": "done"
   },
   "1498036536623": {
     "id": 1498036536623,
     "title": "Wire up actions into the new components",
-    "children": []
+    "children": [
+      1498088847311,
+      1498088893182
+    ]
   },
   "1498036648594": {
     "id": 1498036648594,
     "title": "Make component for the new outline mode",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1498036656624": {
     "id": 1498036656624,
     "title": "Make component for the new focus mode",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1498036696502": {
     "id": 1498036696502,
-    "title": "",
-    "children": []
+    "title": "Make component for footer",
+    "children": [],
+    "status": "done"
   },
   "1498036955536": {
     "id": 1498036955536,
     "title": "Update state shape",
     "children": [
       1498036967900
-    ]
+    ],
+    "status": "done"
   },
   "1498036967900": {
     "id": 1498036967900,
     "title": "Keys",
     "children": [
       1498036969588,
-      1498036984400,
-      1498036986416,
-      1498037025146
-    ]
+      1498036986416
+    ],
+    "status": "done"
   },
   "1498036969588": {
     "id": 1498036969588,
     "title": "outline",
     "children": [
       1498037036224
-    ]
-  },
-  "1498036984400": {
-    "id": 1498036984400,
-    "title": "focus",
-    "children": []
+    ],
+    "status": "done"
   },
   "1498036986416": {
     "id": 1498036986416,
     "title": "view",
-    "children": []
-  },
-  "1498037025146": {
-    "id": 1498037025146,
-    "title": "items",
-    "children": []
+    "children": [],
+    "status": "done"
   },
   "1498037036224": {
     "id": 1498037036224,
     "title": "selected item",
-    "children": []
+    "children": [],
+    "status": "done"
+  },
+  "1498088316932": {
+    "id": 1498088316932,
+    "title": "For the Outline view",
+    "children": [
+      1498088361351,
+      1498088379038
+    ],
+    "status": "done"
+  },
+  "1498088361351": {
+    "id": 1498088361351,
+    "title": "Make component for the root task",
+    "children": [],
+    "status": "done"
+  },
+  "1498088379038": {
+    "id": 1498088379038,
+    "title": "Make component for child tasks",
+    "children": [],
+    "status": "done"
+  },
+  "1498088388231": {
+    "id": 1498088388231,
+    "title": "For Outline view",
+    "children": [
+      1498088391437,
+      1498102824090
+    ],
+    "status": "done"
+  },
+  "1498088391437": {
+    "id": 1498088391437,
+    "title": "Make selector that fetches all items in order and adds indent level to them",
+    "children": [],
+    "status": "done"
+  },
+  "1498088654341": {
+    "id": 1498088654341,
+    "title": "For the Focus view",
+    "children": [
+      1498088671801,
+      1498088760138
+    ],
+    "status": "done"
+  },
+  "1498088671801": {
+    "id": 1498088671801,
+    "title": "Make component for the focus choice tasks",
+    "children": [],
+    "status": "done"
+  },
+  "1498088760138": {
+    "id": 1498088760138,
+    "title": "Make component for the main focus",
+    "children": [],
+    "status": "done"
+  },
+  "1498088776943": {
+    "id": 1498088776943,
+    "title": "For focus view",
+    "children": [
+      1498088780406,
+      1498103274937,
+      1498103285652
+    ],
+    "status": "done"
+  },
+  "1498088780406": {
+    "id": 1498088780406,
+    "title": "Make selector that gets the first item with main-focus status",
+    "children": [],
+    "status": "done"
+  },
+  "1498088847311": {
+    "id": 1498088847311,
+    "title": "For the Outline",
+    "children": [
+      1498088852093,
+      1498088861809,
+      1498088875054,
+      1498088877876,
+      1498088889965
+    ]
+  },
+  "1498088852093": {
+    "id": 1498088852093,
+    "title": "Able to set title",
+    "children": [],
+    "status": "done"
+  },
+  "1498088861809": {
+    "id": 1498088861809,
+    "title": "Indent, outdent",
+    "children": [],
+    "status": "done"
+  },
+  "1498088875054": {
+    "id": 1498088875054,
+    "title": "New item",
+    "children": [],
+    "status": "done"
+  },
+  "1498088877876": {
+    "id": 1498088877876,
+    "title": "New subitem",
+    "children": [],
+    "status": "waiting"
+  },
+  "1498088889965": {
+    "id": 1498088889965,
+    "title": "Delete",
+    "children": [],
+    "status": "done"
+  },
+  "1498088893182": {
+    "id": 1498088893182,
+    "title": "For the Focus view",
+    "children": [
+      1498088900413,
+      1498088905420,
+      1498088912420,
+      1498088915236
+    ],
+    "status": "done"
+  },
+  "1498088900413": {
+    "id": 1498088900413,
+    "title": "Choose a focus",
+    "children": [],
+    "status": "done"
+  },
+  "1498088905420": {
+    "id": 1498088905420,
+    "title": "Un-focus",
+    "children": [],
+    "status": "done"
+  },
+  "1498088912420": {
+    "id": 1498088912420,
+    "title": "Snooze",
+    "children": [],
+    "status": "done"
+  },
+  "1498088915236": {
+    "id": 1498088915236,
+    "title": "Complete",
+    "children": [],
+    "status": "done"
+  },
+  "1498102824090": {
+    "id": 1498102824090,
+    "title": "Fixing text overflow problems",
+    "children": [],
+    "status": "done"
+  },
+  "1498103274937": {
+    "id": 1498103274937,
+    "title": "Show Main Focus",
+    "children": [],
+    "status": "done"
+  },
+  "1498103285652": {
+    "id": 1498103285652,
+    "title": "Show List of ready to be worked on tasks",
+    "children": [],
+    "status": "done"
+  },
+  "1498161616646": {
+    "id": 1498161616646,
+    "title": "Change the coloured bar to be the status icon",
+    "children": [],
+    "status": "toDo"
+  },
+  "1498162049867": {
+    "id": 1498162049867,
+    "title": "Increase the size of the titles that are right under root in the hierarchy",
+    "children": [],
+    "status": "toDo"
+  },
+  "1498162197719": {
+    "id": 1498162197719,
+    "title": "Make main focus icon a yellow star",
+    "children": [],
+    "status": "toDo"
   }
 }
+
