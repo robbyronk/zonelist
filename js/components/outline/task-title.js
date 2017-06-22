@@ -42,6 +42,7 @@ class TaskTitle extends React.Component {
   }
 
   _onEnter(e) {
+    e.preventDefault()
     if (this.props.newItemAfter) {
       this.props.newItemAfter(this.props.task.id)
     }
