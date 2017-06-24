@@ -10,7 +10,7 @@ export default class StatusIcon extends Component {
   render() {
     const statusToIcon = {
       toDo: 'list-alt',
-      inProgress: 'crosshairs',
+      inProgress: 'star text-warning',
       waiting: 'clock-o',
       done: 'check'
     }
