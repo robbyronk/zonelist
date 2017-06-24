@@ -63,7 +63,7 @@ export default class Header extends React.Component {
                   <i className="fa fa-upload" aria-hidden="true"/> Import Code
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem header>v0.0.1-inflatable-dart-board</DropdownItem>
+                <DropdownItem header>v0.0.2-chocolate-teapot</DropdownItem>
               </DropdownMenu>
             </Dropdown>
             <ImportModal/>
