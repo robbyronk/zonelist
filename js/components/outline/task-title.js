@@ -23,9 +23,11 @@ class TaskTitle extends React.Component {
     this.textInput.style.height = this.textInput.scrollHeight + 'px'
   }
 
-  componentDidUpdate() {
-    this.textInput.style.height = 'auto'
-    this.textInput.style.height = this.textInput.scrollHeight + 'px'
+  componentDidUpdate(prevProps) {
+    if (prevProps.task.title !== this.props.task.title) {
+      this.textInput.style.height = 'auto'
+      this.textInput.style.height = this.textInput.scrollHeight + 'px'
+    }
   }
 
   _handleChange({target: {value}}) {
