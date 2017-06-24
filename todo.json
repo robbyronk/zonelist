@@ -10,7 +10,6 @@
       1496557363855,
       1496557639300,
       1496558200368,
-      1496558219854,
       1496559057116,
       1496559645089,
       1497075086097,
@@ -19,7 +18,8 @@
       1498036955536,
       1498161616646,
       1498162049867,
-      1498162197719
+      1498162197719,
+      1498255876426
     ]
   },
   "1491212665839": {
@@ -92,7 +92,7 @@
   },
   "1496557384130": {
     "id": 1496557384130,
-    "title": "Dragging an item to the top does not work\n",
+    "title": "Dragging an item to the top does not work",
     "children": [],
     "status": "waiting"
   },
@@ -137,12 +137,6 @@
     "children": [
       1496559112545
     ]
-  },
-  "1496558219854": {
-    "id": 1496558219854,
-    "title": "Add hover text to all buttons",
-    "children": [],
-    "status": "waiting"
   },
   "1496559057116": {
     "id": 1496559057116,
@@ -264,7 +258,8 @@
       1498036473992,
       1498036526552,
       1498036536623
-    ]
+    ],
+    "status": "done"
   },
   "1498036451825": {
     "id": 1498036451825,
@@ -300,7 +295,8 @@
     "children": [
       1498088847311,
       1498088893182
-    ]
+    ],
+    "status": "done"
   },
   "1498036648594": {
     "id": 1498036648594,
@@ -437,9 +433,9 @@
       1498088852093,
       1498088861809,
       1498088875054,
-      1498088877876,
       1498088889965
-    ]
+    ],
+    "status": "done"
   },
   "1498088852093": {
     "id": 1498088852093,
@@ -458,12 +454,6 @@
     "title": "New item",
     "children": [],
     "status": "done"
-  },
-  "1498088877876": {
-    "id": 1498088877876,
-    "title": "New subitem",
-    "children": [],
-    "status": "waiting"
   },
   "1498088889965": {
     "id": 1498088889965,
@@ -528,19 +518,24 @@
     "id": 1498161616646,
     "title": "Change the coloured bar to be the status icon",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1498162049867": {
     "id": 1498162049867,
     "title": "Increase the size of the titles that are right under root in the hierarchy",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1498162197719": {
     "id": 1498162197719,
     "title": "Make main focus icon a yellow star",
     "children": [],
-    "status": "toDo"
+    "status": "done"
+  },
+  "1498255876426": {
+    "id": 1498255876426,
+    "title": "Add text to each view describing what to do in 5 words",
+    "children": [],
+    "status": "done"
   }
 }
-
