@@ -4,14 +4,17 @@ import {head} from 'lodash'
 import {inProgressLane} from '../../selectors/board'
 import {connect} from 'react-redux'
 import TaskContext from './task-context'
+import StatusIcon from '../status-icon'
+import {UncontrolledAlert} from 'reactstrap'
 
 function MainFocus({task, setStatus}) {
   const {id} = task
   return (
     <div className="container">
-      <div className="alert alert-success text-center" role="alert">
-        <h3><i className="fa fa-crosshairs"/> Main Focus</h3>
-      </div>
+      <UncontrolledAlert color="info">
+        This is now your <span style={{whiteSpace: 'nowrap'}}><StatusIcon status="inProgress"/> Main Focus.</span> <br/>
+        You can do it!
+      </UncontrolledAlert>
       <div className="row mb-1">
         <div className="col-12">
           <TaskContext id={id}/>
