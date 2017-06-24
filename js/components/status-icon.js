@@ -5,6 +5,7 @@ export default class StatusIcon extends Component {
   static propTypes = {
     status: PropTypes.string,
     className: PropTypes.string,
+    style: PropTypes.string,
   };
 
   render() {
@@ -16,7 +17,7 @@ export default class StatusIcon extends Component {
     }
     const icon = statusToIcon[this.props.status || 'toDo']
     return (
-      <i className={classNames('fa', `fa-${icon}`, this.props.className)} aria-hidden="true"/>
+      <i className={classNames('fa', 'fa-lg', `fa-${icon}`, this.props.className)} style={this.props.style} aria-hidden="true"/>
     )
   }
 }
