@@ -105,7 +105,7 @@ class TaskTitle extends React.Component {
         <span className={classnames('bar', status)} style={barStyle}/>
         <textarea
           rows={1}
-          className="item-title flex-grow"
+          className={classnames('item-title','flex-grow', {'first-level-title': task.level === 1})}
           type="text"
           onChange={this._handleChange}
           onKeyDown={this._onKeyDown}
