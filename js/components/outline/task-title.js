@@ -2,6 +2,7 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {indentItem, newItemAfter, removeItem, selectTask, unindentItem, unselectTask, updateTitle} from '../../actions'
 import classnames from 'classnames'
+import StatusIcon from '../status-icon'
 
 class TaskTitle extends React.Component {
   constructor(props) {
@@ -91,18 +92,12 @@ class TaskTitle extends React.Component {
 
   render() {
     const {task} = this.props
-    const status = task.status || 'toDo'
-    let barStyle = {
+    let iconStyle = {
       marginLeft: task.level * 1 + 'em'
-    }
-    if (this.props.selected === task.id) {
-      barStyle = {
-        width: (task.level * 1 + 0.25) + 'em'
-      }
     }
     return (
       <div className="d-flex">
-        <span className={classnames('bar', status)} style={barStyle}/>
+        <StatusIcon status={task.status} style={iconStyle}/>
         <textarea
           rows={1}
           className={classnames('item-title','flex-grow', {'first-level-title': task.level === 1})}
