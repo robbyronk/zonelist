@@ -3,7 +3,6 @@
     "id": "root",
     "title": "ZoneList MVP",
     "children": [
-      1496557380761,
       1491212665839,
       1495911186858,
       1495911390903,
@@ -78,27 +77,6 @@
   "1496557363855": {
     "id": 1496557363855,
     "title": "Maybe have the starting items' titles disappear on first click",
-    "children": [],
-    "status": "waiting"
-  },
-  "1496557380761": {
-    "id": 1496557380761,
-    "title": "Bugs",
-    "children": [
-      1496557384130,
-      1496557396746
-    ],
-    "status": "toDo"
-  },
-  "1496557384130": {
-    "id": 1496557384130,
-    "title": "Dragging an item to the top does not work",
-    "children": [],
-    "status": "waiting"
-  },
-  "1496557396746": {
-    "id": 1496557396746,
-    "title": "Dragging an item directly right does not indent it",
     "children": [],
     "status": "waiting"
   },
