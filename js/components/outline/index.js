@@ -16,15 +16,15 @@ function Outline({tasks, selectedTask, unindentItem, indentItem, newItemAfter}) 
         Make an outline out of your plan here. Turn your big challenges into tiny tasks.
       </UncontrolledAlert>
       <div className={classnames('row sticky-top sub-menu bg-faded d-flex justify-content-around', {'invisible': !selectedTask.id})}>
-        <button className="btn" onClick={() => unindentItem(selectedTask.id)}>
+        <button className="btn btn-secondary" onClick={() => unindentItem(selectedTask.id)}>
           <i className="fa fa-outdent"/>
           <span className="hidden-sm-down"> Outdent</span>
         </button>
-        <button className="btn nav-item" onClick={() => indentItem(selectedTask.id)}>
+        <button className="btn nav-item btn-secondary" onClick={() => indentItem(selectedTask.id)}>
           <i className="fa fa-indent"/>
           <span className="hidden-sm-down"> Indent</span>
         </button>
-        <button className="btn nav-item" onClick={() => newItemAfter(selectedTask.id)}>
+        <button className="btn nav-item btn-secondary" onClick={() => newItemAfter(selectedTask.id)}>
           <i className="fa fa-plus"/>
           <span className="hidden-sm-down"> New Task</span>
         </button>
