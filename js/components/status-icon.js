@@ -3,14 +3,14 @@ import classNames from 'classnames'
 
 function StatusIcon({status, className, style}) {
   const statusToIcon = {
-    toDo: 'list-alt',
+    toDo: 'star',
     inProgress: 'star text-warning',
-    waiting: 'clock-o',
-    done: 'check'
+    waiting: 'moon-o',
+    done: 'star text-success'
   }
   const icon = statusToIcon[status || 'toDo']
   return (
-    <i className={classNames('fa', 'fa-lg', `fa-${icon}`, className)} style={style} aria-hidden="true"/>
+    <i className={classNames('fa', `fa-${icon}`, className)} style={style} aria-hidden="true"/>
   )
 }
 

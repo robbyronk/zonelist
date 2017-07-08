@@ -98,7 +98,7 @@ class TaskTitle extends React.Component {
       marginLeft: task.level * 1 + 'em'
     }
     return (
-      <div className={classnames('d-flex', {'selected-title': this.props.selected === task.id})}>
+      <div className={classnames('d-flex', 'align-items-baseline', {'selected-title': this.props.selected === task.id})}>
         <StatusIcon status={task.status} style={iconStyle}/>
         <textarea
           rows={1}
