@@ -1,6 +1,16 @@
+@import "custom";
 @import "~bootstrap/scss/bootstrap.scss";
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome.scss";
+
+// primary: 34459e
+// bg: 2f2938
+// info: 6d30d1
+// text: aa9263
+// main-focus: d18730 or f7f13d
+// success: 7ceac0
+// danger: ff459e
+
 
 .list-item-children {
   list-style-type: none;
@@ -120,6 +130,8 @@ $fa-font-path: "~font-awesome/fonts";
 .root-task-title {
   font-size: 1.5rem;
   border: none;
+  background-color: $body-bg;
+  color: $body-color;
 }
 
 .first-level-title {
@@ -129,10 +141,12 @@ $fa-font-path: "~font-awesome/fonts";
 .item-title {
   flex: auto;
   border: none;
+  background-color: $body-bg;
+  color: $body-color;
 }
 
 .selected-title {
-  border: solid #31708f 1px;
+  border: solid lighter-shade($brand-primary, 12%) 1px;
 }
 
 .sub-menu {

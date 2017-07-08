@@ -1,0 +1,78 @@
+@function lighter-shade($colour, $amount) {
+  @return lighten(desaturate($colour, $amount), $amount)
+}
+
+@function darker-shade($colour, $amount) {
+  @return darken(saturate($colour, $amount), $amount)
+}
+
+// primary: 34459e
+// bg: 2f2938
+// info: 6d30d1
+// text: aa9263
+// main-focus: d18730 or f7f13d
+// success: 7ceac0
+// danger: ff459e
+
+// Start with assigning color names to specific hex values.
+$white: #fff;
+$black: #000;
+$red: #d9534f;
+$orange: #f0ad4e;
+$yellow: #ffd500;
+$green: #5cb85c;
+$blue: #0275d8;
+$teal: #5bc0de;
+$pink: #ff5b77;
+$purple: #613d7c;
+
+// Create grayscale
+$gray-dark: #292b2c;
+$gray: #464a4c;
+$gray-light: #636c72;
+$gray-lighter: #eceeef;
+$gray-lightest: #f7f7f9;
+
+$brand-primary: #34459e;
+$brand-success: #66d9ad;
+$brand-info: #6d30d1;
+$brand-warning: $orange;
+$brand-danger: #ff459e;
+$brand-inverse: $gray-lighter;
+
+$body-bg: #2f2938;
+$body-color: #f2dec2;
+$inverse-bg: $gray-lighter;
+$inverse-color: $gray-dark;
+
+$input-bg: $body-bg;
+
+// buttons
+$btn-secondary-bg: $gray-dark;
+$btn-secondary-border: $gray-dark;
+$btn-secondary-color: $body-color;
+
+$btn-success-color: $body-bg;
+
+$btn-warning-color: $body-bg;
+
+$dropdown-bg: $gray-dark;
+$dropdown-link-color: $body-color;
+$dropdown-link-hover-bg: $gray-light;
+
+$state-success-text: lighter-shade($brand-primary, 30%);
+$state-success-bg: darker-shade($brand-primary, 35%);
+$state-success-border: lighten($state-success-bg, 5%);
+
+$state-info-text: lighter-shade($brand-info, 30%);
+$state-info-bg: darker-shade($brand-info, 35%);
+$state-info-border: lighten($state-info-bg, 5%);
+
+$state-warning-text: #8a6d3b;
+$state-warning-bg: #fcf8e3;
+$mark-bg: $state-warning-bg;
+$state-warning-border: lighten($state-warning-bg, 5%);
+
+$state-danger-text: #a84374;
+$state-danger-bg: #f2dede;
+$state-danger-border: darken($state-danger-bg, 5%);
