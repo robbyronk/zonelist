@@ -15,7 +15,7 @@ function MainFocus({task, setStatus}) {
         This is now your <span style={{whiteSpace: 'nowrap'}}><StatusIcon status="inProgress"/> Main Focus.</span> <br/>
         You can do it!
       </UncontrolledAlert>
-      <div className="row mb-1">
+      <div className="row my-3 py-2">
         <div className="col-12">
           <TaskContext id={id}/>
         </div>
@@ -32,7 +32,7 @@ function MainFocus({task, setStatus}) {
           </button>
         </div>
         <div className="col-sm-3 flex-sm-first mb-1">
-          <button className="btn btn-block" onClick={() => setStatus(id, 'toDo')}>
+          <button className="btn btn-block btn-outline-primary" onClick={() => setStatus(id, 'toDo')}>
             <i className="fa fa-undo"/> Un-focus
           </button>
         </div>
