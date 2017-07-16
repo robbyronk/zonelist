@@ -36,7 +36,8 @@ function Outline({tasks, selectedTask, unindentItem, indentItem, newItemAfter}) 
           className={classnames('btn', {
             'btn-info': selectedTask.status === 'toDo' || selectedTask.status === undefined,
             'btn-warning': selectedTask.status === 'waiting',
-            'btn-success': selectedTask.status === 'inProgress' || selectedTask.status === 'done'
+            'btn-success': selectedTask.status === 'inProgress',
+            'btn-secondary': selectedTask.status === 'done',
           })}
           item={selectedTask}/>
       </div>
