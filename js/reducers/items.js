@@ -74,6 +74,17 @@ function newItemUnder(state, action) {
 
 function removeItem(state, action) {
   const {id} = action
+
+  // hack
+  if(state.root.children.length === 1 && id === state.root.children[0]) {
+    return update(state, {
+      [id]: {
+        title: {$set: ''},
+        children: {$set: []},
+      }
+    })
+  }
+
   return mapValues(omit(state, [id]), item => Object.assign({}, item, {children: without(item.children, id)}))
 }
 
