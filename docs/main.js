@@ -41671,16 +41671,9 @@ var Header = (_dec = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProp
               _react2.default.createElement(
                 _reactstrap.DropdownMenu,
                 null,
-                _react2.default.createElement(
-                  _reactstrap.DropdownItem,
-                  { onClick: this.props.hideBoard },
-                  'Old Outline'
-                ),
-                _react2.default.createElement(
-                  _reactstrap.DropdownItem,
-                  { onClick: this.props.showBoard },
-                  'Old Focus'
-                ),
+                _react2.default.createElement(_reactstrap.DropdownItem, { divider: true }),
+                _react2.default.createElement(_reactstrap.DropdownItem, { divider: true }),
+                _react2.default.createElement(_reactstrap.DropdownItem, { divider: true }),
                 _react2.default.createElement(
                   _reactstrap.DropdownItem,
                   { onClick: this.props.showOutline },
@@ -42848,7 +42841,8 @@ function Outline(_ref) {
         className: (0, _classnames2.default)('btn', {
           'btn-info': selectedTask.status === 'toDo' || selectedTask.status === undefined,
           'btn-warning': selectedTask.status === 'waiting',
-          'btn-success': selectedTask.status === 'inProgress' || selectedTask.status === 'done'
+          'btn-success': selectedTask.status === 'inProgress',
+          'btn-secondary': selectedTask.status === 'done'
         }),
         item: selectedTask })
     ),
@@ -43609,6 +43603,15 @@ function newItemUnder(state, action) {
 
 function removeItem(state, action) {
   var id = action.id;
+
+  // hack
+
+  if (state.root.children.length === 1 && id === state.root.children[0]) {
+    return (0, _immutabilityHelper2.default)(state, _defineProperty({}, id, {
+      title: { $set: '' },
+      children: { $set: [] }
+    }));
+  }
 
   return (0, _mapValues2.default)((0, _omit2.default)(state, [id]), function (item) {
     return Object.assign({}, item, { children: (0, _without2.default)(item.children, id) });
