@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import {hideIntro} from '../actions'
+import StatusIcon from './status-icon'
 
 
 function mapStateToProps(state) {
@@ -19,18 +20,17 @@ export default class IntroModal extends React.Component {
   render() {
     return (
       <Modal isOpen={this.props.isOpen} toggle={this.props.close} className={this.props.className}>
-        <ModalHeader toggle={this.props.close}>Welcome to ZoneList</ModalHeader>
+        <ModalHeader toggle={this.props.close}>Thanks for testing ZoneList</ModalHeader>
         <ModalBody>
           <p>
-            Break your challenge down in to tasks and then break those tasks down into smaller tasks using
-            the <b>outline</b>. Then, pick one to be your <b>main focus</b> and finish it. Pick another until you
-            finish.
+            Autosave your Work Brain with 2 ideas:
+            <ol>
+              <li>Every time you <b>think of something</b> to do, <b>write it down</b> in the Outline Mode.</li>
+              <li>Work on <b>one thing at a time</b>, starting with the <b>smallest</b> tasks. Focus Mode will guide you.</li>
+            </ol>
           </p>
           <p>
-            When you get distracted, don't fret! Your <b>main focus</b> will be highlighted when you get back.
-          </p>
-          <p>
-            If plans change, no worries. Just go back to the <b>outline</b> and change the plan.
+            When you get distracted, your <StatusIcon status={'inProgress'}/> Main Focus and where it fits in will be highlighted when you get back.
           </p>
         </ModalBody>
         <ModalFooter>
