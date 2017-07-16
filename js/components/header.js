@@ -47,8 +47,9 @@ export default class Header extends React.Component {
                 ZoneList
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem onClick={this.props.hideBoard}>Old Outline</DropdownItem>
-                <DropdownItem onClick={this.props.showBoard}>Old Focus</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem divider />
+                <DropdownItem divider />
                 <DropdownItem onClick={this.props.showOutline}>
                   <i className="fa fa-indent" aria-hidden="true"/> Outline
                 </DropdownItem>
