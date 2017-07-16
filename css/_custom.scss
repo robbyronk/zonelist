@@ -76,3 +76,5 @@ $state-warning-border: lighten($state-warning-bg, 5%);
 $state-danger-text: #a84374;
 $state-danger-bg: #f2dede;
 $state-danger-border: darken($state-danger-bg, 5%);
+
+$modal-content-bg: $body-bg;
