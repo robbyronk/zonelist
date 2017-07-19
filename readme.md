@@ -1,17 +1,7 @@
 # ZoneList
+*Autosave for your brain*
 
-The goal for this repo is to demonstrate the 
-To Do Tree + Kanban board mashup.
+Built with Elixir and React
 
-It's pretty ugly right now.
-
-To try it:
-
-https://robbyronk.github.io/zonelist/
-
-*or*
-
-```
-$ yarn && yarn start
-```
-
+To try it out, install Elixir and Node, clone this repo,
+ run `mix zone.setup` and then run `mix phx.server`.
