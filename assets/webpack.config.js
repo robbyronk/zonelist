@@ -1,71 +1,132 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+/*
+ * Modules
+ **/
+const path = require("path");
+const webpack = require("webpack");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const autoprefixer = require("autoprefixer");
 
-const PATHS = {
-  app: path.join(__dirname, 'js'),
-  build: path.join(__dirname, 'build'),
-};
 
-const baseConfig = {
-  entry: './js/application.js',
-  output: {
-    path: PATHS.build,
-    filename: '[name].js',
-  },
-  plugins: [
-    new HtmlWebpackPlugin({template: './index.html'}),
-  ],
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          cacheDirectory: true,
-          plugins: ['transform-decorators-legacy', "react-hot-loader/babel"],
-          presets: ['react', 'es2015', 'stage-2', 'stage-0'],
-        },
-      },
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file-loader?name=fonts/[name].[ext]'
-      },
-    ]
-  }
-};
-
-const productionConfig = () => baseConfig;
-
-const developmentConfig = () => {
-  const config = {
-    devServer: {
-      // hotOnly: true, // uncomment to debug HMR, prevents a full refresh
-      hot: true, // tries to hot reload, will fallback to full refresh
-      historyApiFallback: true,
-      stats: 'errors-only',
-    },
-    plugins: [
-      new HtmlWebpackPlugin({template: './index.html'}),
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NamedModulesPlugin(),
-    ],
-  };
-
-  return Object.assign({}, baseConfig, config)
-};
-
+/*
+ * Configuration
+ **/
 module.exports = (env) => {
-  console.log('env', env);
+  const isDev = !(env && env.prod);
+  const devtool = isDev ? "eval" : "source-map";
 
-  if (env === 'production') {
-    return productionConfig();
-  }
+  return {
+    devtool: devtool,
 
-  return developmentConfig();
+    context: __dirname,
+
+    entry: {
+      app: [
+        "js/application.js",
+        "css/application.scss",
+      ]
+    },
+
+    output: {
+      path: path.resolve(__dirname, "../priv/static"),
+      filename: 'js/[name].js',
+      publicPath: 'http://localhost:8080/'
+    },
+
+    devServer: {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      }
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          loader: 'babel-loader',
+          exclude: /node_modules/,
+          query: {
+            cacheDirectory: true,
+            plugins: ['transform-decorators-legacy', "react-hot-loader/babel"],
+            presets: ['react', 'es2015', 'stage-2', 'stage-0'],
+          },
+        },
+        {
+          test: /\.scss$/,
+          use: ['style-loader', 'css-loader', 'sass-loader'],
+        },
+        {
+          test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+          loader: 'file-loader?name=fonts/[name].[ext]'
+        },
+
+        {
+          test: /\.(gif|png|jpe?g|svg)$/i,
+          exclude: /node_modules/,
+          loaders: [
+            'file-loader?name=images/[name].[ext]',
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                query: {
+                  mozjpeg: {
+                    progressive: true,
+                  },
+                  gifsicle: {
+                    interlaced: true,
+                  },
+                  optipng: {
+                    optimizationLevel: 7,
+                  },
+                  pngquant: {
+                    quality: '65-90',
+                    speed: 4
+                  }
+                }
+              }
+            }
+          ]
+        },
+
+        ]
+    },
+
+    resolve: {
+      modules: ["node_modules", __dirname],
+      extensions: [".js", ".json", ".jsx", ".css", ".styl"]
+    },
+
+    plugins: isDev ? [
+      new CopyWebpackPlugin([{
+        from: "./static",
+        to: path.resolve(__dirname, "../priv/static")
+      }])
+    ] : [
+      new CopyWebpackPlugin([{
+        from: "./static",
+        to: path.resolve(__dirname, "../priv/static")
+      }]),
+
+      new ExtractTextPlugin({
+        filename: "css/[name].css",
+        allChunks: true
+      }),
+
+      new webpack.optimize.UglifyJsPlugin({ 
+        sourceMap: true,
+        beautify: false,
+        comments: false,
+        extractComments: false,
+        compress: {
+          warnings: false,
+          drop_console: true
+        },
+        mangle: {
+          except: ['$'],
+          screw_ie8 : true,
+          keep_fnames: true,
+        }
+      })
+    ]
+  };
 };

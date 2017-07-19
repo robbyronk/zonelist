@@ -5,8 +5,6 @@ import configureStore, {sagaMiddleware} from "./store";
 import Root from "./root";
 import rootSaga from "./sagas";
 
-import '../assets/css/application.scss'
-
 const store = configureStore();
 sagaMiddleware.run(rootSaga)
 
