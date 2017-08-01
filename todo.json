@@ -3,31 +3,14 @@
     "id": "root",
     "title": "ZoneList MVP",
     "children": [
-      1491212665839,
-      1495911186858,
-      1495911390903,
-      1496557363855,
-      1496557639300,
       1496558200368,
-      1496559057116,
-      1496559645089,
       1497075086097,
-      1497696090670,
-      1497957057831,
-      1498036955536,
-      1498161616646,
-      1498162049867,
-      1498162197719,
-      1498255876426
-    ]
-  },
-  "1491212665839": {
-    "id": 1491212665839,
-    "title": "Deploy somewhere on the internet",
-    "children": [
-      1491212686534,
-      1491212803401,
-      1491212707451
+      1501546559515,
+      1501546648548,
+      1501547104797,
+      1501547139814,
+      1501547173291,
+      1501547203157
     ]
   },
   "1491212686534": {
@@ -48,14 +31,6 @@
     "children": [],
     "status": "waiting"
   },
-  "1495911186858": {
-    "id": 1495911186858,
-    "title": "Add a welcome message",
-    "children": [
-      1495911231176,
-      1495911198048
-    ]
-  },
   "1495911198048": {
     "id": 1495911198048,
     "title": "Write a short \"how to use\"",
@@ -67,27 +42,6 @@
     "title": "Make a modal pop up on first start",
     "children": [],
     "status": "done"
-  },
-  "1495911390903": {
-    "id": 1495911390903,
-    "title": "Add \"how to use\" links to Outline and Focus",
-    "children": [],
-    "status": "waiting"
-  },
-  "1496557363855": {
-    "id": 1496557363855,
-    "title": "Maybe have the starting items' titles disappear on first click",
-    "children": [],
-    "status": "waiting"
-  },
-  "1496557639300": {
-    "id": 1496557639300,
-    "title": "Design problems",
-    "children": [
-      1496558119436,
-      1496558137222,
-      1496558164436
-    ]
   },
   "1496558119436": {
     "id": 1496558119436,
@@ -112,27 +66,8 @@
   "1496558200368": {
     "id": 1496558200368,
     "title": "Add a way to filter tasks",
-    "children": [
-      1496559112545
-    ]
-  },
-  "1496559057116": {
-    "id": 1496559057116,
-    "title": "Make the status button on the list page able to change the status",
-    "children": [],
-    "status": "done"
-  },
-  "1496559112545": {
-    "id": 1496559112545,
-    "title": "This might be a later enhancement",
     "children": [],
     "status": "waiting"
-  },
-  "1496559645089": {
-    "id": 1496559645089,
-    "title": "Name pages \"Outline\" and \"Focus\"",
-    "children": [],
-    "status": "done"
   },
   "1496562622997": {
     "id": 1496562622997,
@@ -152,38 +87,11 @@
     "children": [],
     "status": "waiting"
   },
-  "1497696090670": {
-    "id": 1497696090670,
-    "title": "Use narrow coloured tab on the far left of tasks to differentiate status",
-    "children": [
-      1497696132023
-    ],
-    "status": "done"
-  },
   "1497696132023": {
     "id": 1497696132023,
     "title": "The narrow coloured tab makes a small indent very noticable",
     "children": [],
     "status": "done"
-  },
-  "1497957057831": {
-    "id": 1497957057831,
-    "title": "Use new mockups",
-    "children": [
-      1498036439744,
-      1497957116744
-    ]
-  },
-  "1497957116744": {
-    "id": 1497957116744,
-    "title": "Use old interface and new interface together",
-    "children": [
-      1497957228225,
-      1497957300317,
-      1497957262557,
-      1497957366127,
-      1497957466004
-    ]
   },
   "1497957228225": {
     "id": 1497957228225,
@@ -234,8 +142,7 @@
     "children": [
       1498036451825,
       1498036473992,
-      1498036526552,
-      1498036536623
+      1498036526552
     ],
     "status": "done"
   },
@@ -267,15 +174,6 @@
     ],
     "status": "done"
   },
-  "1498036536623": {
-    "id": 1498036536623,
-    "title": "Wire up actions into the new components",
-    "children": [
-      1498088847311,
-      1498088893182
-    ],
-    "status": "done"
-  },
   "1498036648594": {
     "id": 1498036648594,
     "title": "Make component for the new outline mode",
@@ -292,14 +190,6 @@
     "id": 1498036696502,
     "title": "Make component for footer",
     "children": [],
-    "status": "done"
-  },
-  "1498036955536": {
-    "id": 1498036955536,
-    "title": "Update state shape",
-    "children": [
-      1498036967900
-    ],
     "status": "done"
   },
   "1498036967900": {
@@ -492,28 +382,83 @@
     "children": [],
     "status": "done"
   },
-  "1498161616646": {
-    "id": 1498161616646,
-    "title": "Change the coloured bar to be the status icon",
+  "1501546559515": {
+    "id": 1501546559515,
+    "title": "Add rearranging mode",
     "children": [],
-    "status": "done"
+    "status": "waiting"
   },
-  "1498162049867": {
-    "id": 1498162049867,
-    "title": "Increase the size of the titles that are right under root in the hierarchy",
-    "children": [],
-    "status": "done"
+  "1501546648548": {
+    "id": 1501546648548,
+    "title": "Login, auth and session management",
+    "children": [
+      1501546716487,
+      1501546747009,
+      1501546809193,
+      1501546819981,
+      1501546890060,
+      1501546909264
+    ],
+    "status": "toDo"
   },
-  "1498162197719": {
-    "id": 1498162197719,
-    "title": "Make main focus icon a yellow star",
+  "1501546716487": {
+    "id": 1501546716487,
+    "title": "Try to create a session when starting react app",
     "children": [],
-    "status": "done"
+    "status": "inProgress"
   },
-  "1498255876426": {
-    "id": 1498255876426,
-    "title": "Add text to each view describing what to do in 5 words",
+  "1501546747009": {
+    "id": 1501546747009,
+    "title": "Make endpoint to create session",
     "children": [],
-    "status": "done"
+    "status": "toDo"
+  },
+  "1501546809193": {
+    "id": 1501546809193,
+    "title": "Write session to the database",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501546819981": {
+    "id": 1501546819981,
+    "title": "Return a session id",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501546890060": {
+    "id": 1501546890060,
+    "title": "Create an endpoint to log out, destroy a session",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501546909264": {
+    "id": 1501546909264,
+    "title": "Remove id_token and invalidate session in database",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501547104797": {
+    "id": 1501547104797,
+    "title": "Make tasks overflow: scroll",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501547139814": {
+    "id": 1501547139814,
+    "title": "Make the helpful message at the top of the modes go away permanently when dismissing them",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501547173291": {
+    "id": 1501547173291,
+    "title": "Rearrange toolbars according to UI prioritization sheet",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501547203157": {
+    "id": 1501547203157,
+    "title": "Catch Ctrl-S",
+    "children": [],
+    "status": "toDo"
   }
 }
