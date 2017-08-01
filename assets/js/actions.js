@@ -20,6 +20,8 @@ const ActionTypes = {
   SHOW_FOCUS: 'SHOW_FOCUS',
   SELECT_TASK: 'SELECT_TASK',
   UNSELECT_TASK: 'UNSELECT_TASK',
+  START_SESSION: 'START_SESSION',
+  END_SESSION: 'END_SESSION',
 };
 
 export default ActionTypes;
@@ -151,9 +153,21 @@ export function selectTask(id) {
   }
 }
 
-
 export function unselectTask() {
   return {
     type: ActionTypes.UNSELECT_TASK,
+  }
+}
+
+export function startSession(session) {
+  return {
+    type: ActionTypes.START_SESSION,
+    session
+  }
+}
+
+export function endSession() {
+  return {
+    type: ActionTypes.END_SESSION,
   }
 }

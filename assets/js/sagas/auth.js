@@ -1,6 +1,6 @@
 import {takeEvery} from "redux-saga";
 import {fork, put, call} from "redux-saga/effects";
-import ActionTypes from '../actions'
+import ActionTypes, {startSession} from '../actions'
 
 import auth0 from 'auth0-js';
 import {AUTH_CONFIG} from '../auth0-variables';
@@ -64,25 +64,29 @@ class Auth {
   }
 }
 
+function postSession(data) {
+  return fetch(
+    '/api/session',
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
+      },
+      method: 'POST',
+      body: JSON.stringify(data)
+    }
+  )
+    .then(response => response.json())
+    .catch(e => e)
+}
 
 function* createSession() {
-  console.log('create session')
   if (Auth.isAuthenticated()) {
-    console.log('post /session')
     const data = {id_token: localStorage.getItem('id_token')}
-    fetch(
-      '/api/session',
-      {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        method: 'POST',
-        body: JSON.stringify(data)
-      }
-    )
+    const session = yield call(postSession, data)
+    yield put(startSession(session))
   } else {
-    console.log('need to auth')
     const auth = new Auth()
     auth.login()
   }
