@@ -404,25 +404,34 @@
   "1501546716487": {
     "id": 1501546716487,
     "title": "Try to create a session when starting react app",
-    "children": [],
-    "status": "inProgress"
+    "children": [
+      1501548606567
+    ],
+    "status": "done"
   },
   "1501546747009": {
     "id": 1501546747009,
     "title": "Make endpoint to create session",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1501546809193": {
     "id": 1501546809193,
     "title": "Write session to the database",
-    "children": [],
-    "status": "toDo"
+    "children": [
+      1501609989129,
+      1501610202695
+    ],
+    "status": "done"
   },
   "1501546819981": {
     "id": 1501546819981,
     "title": "Return a session id",
-    "children": [],
+    "children": [
+      1501652583167,
+      1501652606826,
+      1501652627120
+    ],
     "status": "toDo"
   },
   "1501546890060": {
@@ -458,6 +467,42 @@
   "1501547203157": {
     "id": 1501547203157,
     "title": "Catch Ctrl-S",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501548606567": {
+    "id": 1501548606567,
+    "title": "Save returned output (session id) to key",
+    "children": [],
+    "status": "done"
+  },
+  "1501609989129": {
+    "id": 1501609989129,
+    "title": "Generate Ecto schema",
+    "children": [],
+    "status": "done"
+  },
+  "1501610202695": {
+    "id": 1501610202695,
+    "title": "Test schema in iex",
+    "children": [],
+    "status": "done"
+  },
+  "1501652583167": {
+    "id": 1501652583167,
+    "title": "Get jwt claims using serializer",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501652606826": {
+    "id": 1501652606826,
+    "title": "Get user from auth0 using claim?",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501652627120": {
+    "id": 1501652627120,
+    "title": "Create session id",
     "children": [],
     "status": "toDo"
   }
