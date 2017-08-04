@@ -4,8 +4,9 @@ defmodule Zone.Web.SessionController do
   alias Zone.Session
 
   def index(conn, %{"id_token" => jwt}) do
-    Logger.debug("jwt #{inspect(jwt)}")
-    Zone.Repo.insert(%Session{jwt: jwt})
-    json conn, %{hello: "there"}
+    session_id = Ecto.UUID.generate()
+    user = Guardian.Plug.current_resource(conn)
+    Zone.Repo.insert(%Session{jwt: jwt, session_hash: session_id, auth0_user: user})
+    json conn, %{user: user, session: session_id}
   end
 end

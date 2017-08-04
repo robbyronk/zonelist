@@ -5,6 +5,7 @@ defmodule Zone.Session do
 
 
   schema "sessions" do
+    field :auth0_user, :string
     field :jwt, :string
     field :session_hash, :string
 

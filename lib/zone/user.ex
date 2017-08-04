@@ -5,6 +5,7 @@ defmodule Zone.User do
 
 
   schema "users" do
+    field :auth0_user, :string
     field :auth0_token, :string
     field :email, :string
 
