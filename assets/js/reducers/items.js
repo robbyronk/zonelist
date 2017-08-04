@@ -9,31 +9,6 @@ import {get, isEmpty, some, isPlainObject, trimStart} from 'lodash'
 import ActionTypes from '../actions'
 
 const initialState = {
-  'root': {
-    id: 'root',
-    title: 'Big Project',
-    children: ['2', '3']
-  },
-  '2': {
-    id: '2',
-    title: 'Task One',
-    children: []
-  },
-  '3': {
-    id: '3',
-    title: 'Task Two',
-    children: ['4', '5']
-  },
-  '4': {
-    id: '4',
-    title: 'Smaller Task',
-    children: []
-  },
-  '5': {
-    id: '5',
-    title: 'Another Smaller Task',
-    children: []
-  },
 }
 
 function findParent(items, id) {
