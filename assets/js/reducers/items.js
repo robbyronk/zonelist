@@ -5,7 +5,7 @@ import uniqueId from 'lodash/uniqueId'
 import omit from 'lodash/omit'
 import without from 'lodash/without'
 import mapValues from 'lodash/mapValues'
-import {get, isEmpty, some, isPlainObject, trimStart} from 'lodash'
+import {get, isEmpty, some, isPlainObject, trimStart, isArray, every, keyBy} from 'lodash'
 import ActionTypes from '../actions'
 
 const initialState = {
@@ -125,6 +125,9 @@ function setItems(state, {items}) {
   // todo check items and make sure that it's correct
   if(isPlainObject(items)) {
     return items
+  }
+  if (isArray(items) && every(items, isPlainObject)) {
+    return keyBy(items, 'id')
   }
   return state
 }
