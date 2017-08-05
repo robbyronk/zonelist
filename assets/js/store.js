@@ -1,7 +1,6 @@
 import {createStore, applyMiddleware, compose} from "redux";
 import createLogger from "redux-logger";
 import createSagaMiddleware from "redux-saga";
-import persistState from 'redux-localstorage'
 import reducers from "./reducers";
 
 const loggerMiddleware = createLogger({
@@ -17,7 +16,6 @@ export default function configureStore() {
 
   const store = createStore(reducers, composeEnhancers(
     applyMiddleware(sagaMiddleware, loggerMiddleware),
-    persistState(['items', 'view', 'is'])
   ));
 
   if (module.hot) {
