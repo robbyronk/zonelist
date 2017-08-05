@@ -20,7 +20,6 @@ function getTasks() {
     {
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
       },
     }
