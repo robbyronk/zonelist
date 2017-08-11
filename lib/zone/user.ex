@@ -10,6 +10,8 @@ defmodule Zone.User do
     field :auth0_token, :string
     field :email, :string
 
+    has_many :tasks, Zone.Task
+
     timestamps()
   end
 

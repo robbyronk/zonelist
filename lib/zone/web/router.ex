@@ -30,7 +30,7 @@ defmodule Zone.Web.Router do
 
     post "/session", SessionController, :index
 
-    get "/tasks", TasksController, :index
+    resources "/tasks", TasksController, only: [:index, :create, :update, :delete]
   end
 
   scope "/", Zone.Web do
