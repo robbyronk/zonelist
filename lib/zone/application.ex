@@ -11,7 +11,7 @@ defmodule Zone.Application do
       # Start the Ecto repository
       supervisor(Zone.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(Zone.Web.Endpoint, []),
+      supervisor(ZoneWeb.Endpoint, []),
       # Start your own worker by calling: Zone.Worker.start_link(arg1, arg2, arg3)
       # worker(Zone.Worker, [arg1, arg2, arg3]),
     ]

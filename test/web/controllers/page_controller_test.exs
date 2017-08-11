@@ -1,5 +1,5 @@
-defmodule Zone.Web.PageControllerTest do
-  use Zone.Web.ConnCase
+defmodule ZoneWeb.PageControllerTest do
+  use ZoneWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

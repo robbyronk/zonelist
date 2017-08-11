@@ -1,5 +1,5 @@
-defmodule Zone.Web.PageController do
-  use Zone.Web, :controller
+defmodule ZoneWeb.PageController do
+  use ZoneWeb, :controller
 
   def index(conn, _params) do
     render conn, "index.html"

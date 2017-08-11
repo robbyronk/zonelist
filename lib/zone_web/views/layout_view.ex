@@ -1,5 +1,5 @@
-defmodule Zone.Web.LayoutView do
-  use Zone.Web, :view
+defmodule ZoneWeb.LayoutView do
+  use ZoneWeb, :view
 
   def js_script_tag do
     if Mix.env == :prod do

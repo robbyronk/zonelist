@@ -1,5 +1,5 @@
-defmodule Zone.Web.ErrorView do
-  use Zone.Web, :view
+defmodule ZoneWeb.ErrorView do
+  use ZoneWeb, :view
 
   def render("404.html", _assigns) do
     "Page not found"

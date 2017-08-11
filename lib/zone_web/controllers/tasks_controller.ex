@@ -1,5 +1,5 @@
-defmodule Zone.Web.TasksController do
-  use Zone.Web, :controller
+defmodule ZoneWeb.TasksController do
+  use ZoneWeb, :controller
   require Logger
   import Ecto
 

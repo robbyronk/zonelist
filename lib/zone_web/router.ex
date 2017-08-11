@@ -1,5 +1,5 @@
-defmodule Zone.Web.Router do
-  use Zone.Web, :router
+defmodule ZoneWeb.Router do
+  use ZoneWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -25,7 +25,7 @@ defmodule Zone.Web.Router do
 
 
   # Other scopes may use custom stacks.
-  scope "/api", Zone.Web do
+  scope "/api", ZoneWeb do
     pipe_through [:api, :verify_if_token, :ensure_auth]
 
     post "/session", SessionController, :index
@@ -33,7 +33,7 @@ defmodule Zone.Web.Router do
     resources "/tasks", TasksController, only: [:index, :create, :update, :delete]
   end
 
-  scope "/", Zone.Web do
+  scope "/", ZoneWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/auth_callback", PageController, :auth_callback

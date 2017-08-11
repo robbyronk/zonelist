@@ -1,7 +1,7 @@
-defmodule Zone.Web.Endpoint do
+defmodule ZoneWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :zone
 
-  socket "/socket", Zone.Web.UserSocket
+  socket "/socket", ZoneWeb.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -38,7 +38,7 @@ defmodule Zone.Web.Endpoint do
     key: "_zone_key",
     signing_salt: "3YeizWAb"
 
-  plug Zone.Web.Router
+  plug ZoneWeb.Router
 
   @doc """
   Dynamically loads configuration from the system environment

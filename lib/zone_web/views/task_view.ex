@@ -1,6 +1,6 @@
-defmodule Zone.Web.TasksView do
-  use Zone.Web, :view
-  alias Zone.Web.TasksView
+defmodule ZoneWeb.TasksView do
+  use ZoneWeb, :view
+  alias ZoneWeb.TasksView
 
   def render("index.json", %{tasks: tasks}) do
     %{data: render_many(tasks, TasksView, "task.json")}

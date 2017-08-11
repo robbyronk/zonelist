@@ -10,10 +10,10 @@ config :zone,
   ecto_repos: [Zone.Repo]
 
 # Configures the endpoint
-config :zone, Zone.Web.Endpoint,
+config :zone, ZoneWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "KTQKp0DVQOGhrnTMeCCN6JR7Dh1F5Kde08JfSkgW3Zcp0aCxacccbLJa2RZPGHQK",
-  render_errors: [view: Zone.Web.ErrorView, accepts: ~w(html json)],
+  render_errors: [view: ZoneWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Zone.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

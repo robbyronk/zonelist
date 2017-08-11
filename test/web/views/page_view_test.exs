@@ -1,3 +1,3 @@
-defmodule Zone.Web.PageViewTest do
-  use Zone.Web.ConnCase, async: true
+defmodule ZoneWeb.PageViewTest do
+  use ZoneWeb.ConnCase, async: true
 end

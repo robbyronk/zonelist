@@ -1,5 +1,5 @@
-defmodule Zone.Web.SessionController do
-  use Zone.Web, :controller
+defmodule ZoneWeb.SessionController do
+  use ZoneWeb, :controller
   require Logger
   alias Zone.Session
   alias Zone.User

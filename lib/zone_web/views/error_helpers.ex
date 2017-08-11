@@ -1,4 +1,4 @@
-defmodule Zone.Web.ErrorHelpers do
+defmodule ZoneWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule Zone.Web.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(Zone.Web.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(ZoneWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(Zone.Web.Gettext, "errors", msg, opts)
+      Gettext.dgettext(ZoneWeb.Gettext, "errors", msg, opts)
     end
   end
 end

@@ -1,3 +1,3 @@
-defmodule Zone.Web.LayoutViewTest do
-  use Zone.Web.ConnCase, async: true
+defmodule ZoneWeb.LayoutViewTest do
+  use ZoneWeb.ConnCase, async: true
 end
