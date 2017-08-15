@@ -43,7 +43,7 @@ function Outline({tasks, selectedTask, unindentItem, indentItem, newItemAfter}) 
       </div>
       <div className="row mt-1">
         <div className="col-12">
-          <RootTaskTitle id="root"/>
+          <RootTaskTitle/>
         </div>
       </div>
       {tail(tasks).map(t => (
