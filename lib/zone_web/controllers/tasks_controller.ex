@@ -2,6 +2,10 @@ defmodule ZoneWeb.TasksController do
   use ZoneWeb, :controller
   require Logger
   import Ecto
+  alias Zone.List
+  alias Zone.List.Task
+
+  action_fallback ZoneWeb.FallbackController
 
   defp user_tasks(user) do
     assoc(user, :tasks)
@@ -21,9 +25,12 @@ defmodule ZoneWeb.TasksController do
     json conn, %{}
   end
 
-  def update(conn, _) do
-    # todo write update to database
-    json conn, %{}
+  def update(conn, %{"id" => id, "task" => task_params}) do
+    task = List.get_task!(id)
+
+    with {:ok, %Task{} = task} <- List.update_task(task, task_params) do
+      render(conn, "show.json", task: task)
+    end
   end
 
   def delete(conn, _) do
