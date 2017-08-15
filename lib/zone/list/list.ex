@@ -1,5 +1,8 @@
 defmodule Zone.List do
-  @moduledoc false
+  @moduledoc """
+  The List context. Contains Tasks and Task related functions.
+  """
+
   alias Zone.List.Task
   alias Zone.Repo
 
