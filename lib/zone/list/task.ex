@@ -2,6 +2,7 @@ defmodule Zone.List.Task do
   use Ecto.Schema
   import Ecto.Changeset
   alias Zone.List.Task
+  alias Zone.Auth.User
 
 
   schema "tasks" do
@@ -10,7 +11,7 @@ defmodule Zone.List.Task do
     field :title, :string
     field :root, :boolean
 
-    belongs_to :user, Zone.User
+    belongs_to :user, User
 
     timestamps()
   end
