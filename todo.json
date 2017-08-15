@@ -6,7 +6,7 @@
       1496558200368,
       1497075086097,
       1501546559515,
-      1501546648548,
+      1501903316322,
       1501547104797,
       1501547139814,
       1501547173291,
@@ -388,19 +388,6 @@
     "children": [],
     "status": "waiting"
   },
-  "1501546648548": {
-    "id": 1501546648548,
-    "title": "Login, auth and session management",
-    "children": [
-      1501546716487,
-      1501546747009,
-      1501546809193,
-      1501546819981,
-      1501546890060,
-      1501546909264
-    ],
-    "status": "toDo"
-  },
   "1501546716487": {
     "id": 1501546716487,
     "title": "Try to create a session when starting react app",
@@ -432,17 +419,11 @@
       1501652606826,
       1501652627120
     ],
-    "status": "toDo"
-  },
-  "1501546890060": {
-    "id": 1501546890060,
-    "title": "Create an endpoint to log out, destroy a session",
-    "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1501546909264": {
     "id": 1501546909264,
-    "title": "Remove id_token and invalidate session in database",
+    "title": "Remove localStorage and session data in redux store when logging out",
     "children": [],
     "status": "toDo"
   },
@@ -492,18 +473,112 @@
     "id": 1501652583167,
     "title": "Get jwt claims using serializer",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1501652606826": {
     "id": 1501652606826,
     "title": "Get user from auth0 using claim?",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1501652627120": {
     "id": 1501652627120,
     "title": "Create session id",
     "children": [],
+    "status": "done"
+  },
+  "1501903316322": {
+    "id": 1501903316322,
+    "title": "Server side tasks",
+    "children": [
+      1501903346647,
+      1501903433650,
+      1501903575329,
+      1501903583015
+    ],
     "status": "toDo"
+  },
+  "1501903346647": {
+    "id": 1501903346647,
+    "title": "Get tasks from server on startup",
+    "children": [
+      1501903416275,
+      1501908797780,
+      1501903428390
+    ],
+    "status": "toDo"
+  },
+  "1501903416275": {
+    "id": 1501903416275,
+    "title": "Mock out server response",
+    "children": [],
+    "status": "done"
+  },
+  "1501903428390": {
+    "id": 1501903428390,
+    "title": "Get tasks from database",
+    "children": [
+      1501903635594
+    ],
+    "status": "toDo"
+  },
+  "1501903433650": {
+    "id": 1501903433650,
+    "title": "Create endpoint to take in updates of tasks",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501903575329": {
+    "id": 1501903575329,
+    "title": "Create endpoint to create new tasks",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501903583015": {
+    "id": 1501903583015,
+    "title": "Create endpoint to delete tasks",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501903635594": {
+    "id": 1501903635594,
+    "title": "Create tasks for user when they have none on session creation",
+    "children": [],
+    "status": "toDo"
+  },
+  "1501908797780": {
+    "id": 1501908797780,
+    "title": "Create task model",
+    "children": [
+      1501908804135,
+      1501908873199,
+      1501908878599,
+      1501908885479
+    ],
+    "status": "done"
+  },
+  "1501908804135": {
+    "id": 1501908804135,
+    "title": "Find out how to associate many tasks to one user",
+    "children": [],
+    "status": "done"
+  },
+  "1501908873199": {
+    "id": 1501908873199,
+    "title": "Reverse the migration",
+    "children": [],
+    "status": "done"
+  },
+  "1501908878599": {
+    "id": 1501908878599,
+    "title": "Update the migration script",
+    "children": [],
+    "status": "done"
+  },
+  "1501908885479": {
+    "id": 1501908885479,
+    "title": "Run migration again",
+    "children": [],
+    "status": "done"
   }
 }
