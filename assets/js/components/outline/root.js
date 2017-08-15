@@ -2,6 +2,7 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {get} from "lodash"
 import {selectTask, updateTitle} from '../../actions'
+import {rootTask} from "../../selectors/board";
 
 class RootTaskTitle extends React.Component {
   _onEnter = (e) => {
@@ -21,12 +22,12 @@ class RootTaskTitle extends React.Component {
       <input
         className="root-task-title"
         type="text"
-        onChange={({target: {value}}) => this.props.updateTitle(this.props.id, value)}
+        onChange={({target: {value}}) => this.props.updateTitle(this.props.task.id, value)}
         onFocus={() => this.props.selectTask(null)}
         onKeyDown={this._onKeyDown}
         onKeyPress={this._onKeyPress}
         ref={input => this.textInput = input}
-        value={this.props.title}
+        value={this.props.task.title}
       />
     )
   }
@@ -36,8 +37,8 @@ RootTaskTitle.propTypes = {
   newItemBefore: React.PropTypes.func,
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  title: get(state, `items.${ownProps.id}.title`),
+const mapStateToProps = (state) => ({
+  task: rootTask(state),
 })
 
 export default connect(mapStateToProps, {updateTitle, selectTask})(RootTaskTitle)
