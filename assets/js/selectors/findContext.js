@@ -9,11 +9,11 @@
 
 // todo make this with lodash
 function findContext(items, toFind) {
-  console.log(arguments)
+  // console.log(arguments)
   let target = toFind
   let acc = [target]
   let limit = 100
-  while (target !== 'root' && limit > 0) { // loop until we are trying to find the parent of root
+  while (!items[target].root && limit > 0) { // loop until we are trying to find the parent of root
     for(let item of Object.values(items)) { // loop through all tasks
       let indexOf = item.children.indexOf(target)
       if(indexOf !== -1) { // found a task that has the target in its children
