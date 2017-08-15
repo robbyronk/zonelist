@@ -1,8 +1,7 @@
-defmodule Zone.Session do
+defmodule Zone.Auth.Session do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Zone.Session
-
+  alias Zone.Auth.Session
 
   schema "sessions" do
     field :auth0_user, :string

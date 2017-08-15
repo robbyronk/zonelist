@@ -37,7 +37,7 @@ config :guardian, Guardian,
     "kid" => "RUJCQjE5MkFDQTIxQkE5ODRFMjcwODFERjFENUFCMjM0NDNERUVFMA",
     "x5t" => "RUJCQjE5MkFDQTIxQkE5ODRFMjcwODFERjFENUFCMjM0NDNERUVFMA"
   },
-  serializer: Zone.GuardianSerializer
+  serializer: Zone.Auth.GuardianSerializer
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

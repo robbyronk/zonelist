@@ -1,7 +1,7 @@
-defmodule Zone.Task do
+defmodule Zone.List.Task do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Zone.Task
+  alias Zone.List.Task
 
 
   schema "tasks" do
