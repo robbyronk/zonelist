@@ -7,6 +7,7 @@ import without from 'lodash/without'
 import mapValues from 'lodash/mapValues'
 import {get, isEmpty, some, isPlainObject, trimStart, isArray, every, keyBy} from 'lodash'
 import ActionTypes from '../actions'
+import {rootTask} from "../selectors/board";
 
 const initialState = {
 }
@@ -28,8 +29,8 @@ function updateTitle(state, {id, newTitle}) {
 
 function newItemAfter(state, action) {
   const {afterId, item} = action
-  if (afterId === 'root') {
-    return newItemUnder(state, {underId: 'root', item})
+  if (state[afterId].root) {
+    return newItemUnder(state, {underId: afterId, item})
   }
   const parent = findParent(state, afterId)
   const insertIndex = parent.children.indexOf(afterId) + 1 // +1 to put it after `afterId`
@@ -51,7 +52,8 @@ function removeItem(state, action) {
   const {id} = action
 
   // hack
-  if(state.root.children.length === 1 && id === state.root.children[0]) {
+  const root = rootTask({items: state})
+  if(root.children.length === 1 && id === root.children[0]) {
     return update(state, {
       [id]: {
         title: {$set: ''},
@@ -64,7 +66,7 @@ function removeItem(state, action) {
 }
 
 function moveItem(state, {id, afterId, parent}) {
-  if (id === 'root') {
+  if (state[id].root) {
     return state
   }
   if(!parent || isChild(id, parent)) {
@@ -85,7 +87,7 @@ function moveItem(state, {id, afterId, parent}) {
 }
 
 function indentItem(state, {id}) {
-  if (id === 'root') {
+  if (state[id].root) {
     return state
   }
   const {children} = findParent(state, id)
@@ -103,7 +105,7 @@ function indentItem(state, {id}) {
 
 function unindentItem(state, {id}) {
   const parent = findParent(state, id)
-  if (parent.id === 'root') {
+  if (parent.root) {
     return state
   }
   const {children} = parent
