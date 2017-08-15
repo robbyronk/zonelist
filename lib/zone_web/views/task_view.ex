@@ -13,6 +13,7 @@ defmodule ZoneWeb.TasksView do
   def render("task.json", %{tasks: task}) do
     %{id: task.id,
       title: task.title,
+      root: task.root,
       status: task.status}
   end
 end

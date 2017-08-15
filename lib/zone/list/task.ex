@@ -8,6 +8,7 @@ defmodule Zone.Task do
     field :children, {:array, :integer}
     field :status, :string
     field :title, :string
+    field :root, :boolean
 
     belongs_to :user, Zone.User
 
