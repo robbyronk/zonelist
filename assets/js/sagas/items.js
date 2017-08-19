@@ -34,8 +34,7 @@ function* fetchTasks() {
   yield put(setItems(tasks))
 }
 
-function putTaskTitle({id, newTitle}) {
-  const data = {task: {title: newTitle}}
+function patchTask(id, data) {
   return fetch(
     `/api/tasks/${id}`,
     {
@@ -50,6 +49,11 @@ function putTaskTitle({id, newTitle}) {
   )
     .then(response => response.json())
     .catch(e => e)
+}
+
+function putTaskTitle({id, newTitle}) {
+  const data = {task: {title: newTitle}}
+  return patchTask(id, data);
 }
 
 function* handleUpdateTitle(action) {
@@ -68,8 +72,13 @@ function* watchTaskUpdates() {
   }
 }
 
+function* setStatus({id, status}) {
+  yield call(patchTask, id, {task: {status}})
+}
+
 export default function* sagas() {
   yield fork(watchTaskUpdates)
+  yield fork(takeEvery, ActionTypes.SET_STATUS, setStatus)
   yield fork(takeEvery, ActionTypes.NEW_ITEM_AFTER, createNewItem)
   yield fork(takeEvery, ActionTypes.START_SESSION, fetchTasks)
 }
