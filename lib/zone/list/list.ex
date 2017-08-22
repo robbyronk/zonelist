@@ -8,6 +8,10 @@ defmodule Zone.List do
   alias Zone.List.Task
   alias Zone.Repo
 
+  defp user_tasks(user) do
+    assoc(user, :tasks)
+  end
+
   @doc """
   Gets a single task.
 
@@ -23,6 +27,8 @@ defmodule Zone.List do
 
   """
   def get_task!(id), do: Repo.get!(Task, id)
+
+  def get_user_task!(user, id), do: Repo.get!(user_tasks(user), id)
 
   @doc """
   Updates a task.
@@ -90,5 +96,25 @@ defmodule Zone.List do
     query = from t in Task,
                  where: t.root == true
     Repo.one(query)
+  end
+
+  @doc """
+  Deletes a Task.
+
+  ## Examples
+
+      iex> delete_task(task)
+      {:ok, %Task{}}
+
+      iex> delete_task(task)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_task(%Task{} = task) do
+    parent = find_parent(task)
+    update_task(parent, %{children: List.delete(parent.children, task.id)})
+
+    Repo.delete(task)
+
   end
 end

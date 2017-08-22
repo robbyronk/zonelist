@@ -57,6 +57,21 @@ function postTask(data) {
     .catch(e => e)
 }
 
+function deleteTask(id) {
+  return fetch(
+    `/api/tasks/${id}`,
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
+      },
+      method: 'DELETE',
+    }
+  )
+    .catch(e => e)
+}
+
 function putTaskTitle({id, newTitle}) {
   const data = {task: {title: newTitle}}
   return patchTask(id, data);
@@ -87,9 +102,14 @@ function* createTask({id: afterId}) {
   yield put({type: ActionTypes.NEW_ITEM, item: task, afterId})
 }
 
+function* removeTask({id}) {
+  yield call(deleteTask, id)
+}
+
 export default function* sagas() {
   yield fork(watchTaskUpdates)
   yield fork(takeEvery, ActionTypes.NEW_ITEM_AFTER, createTask)
+  yield fork(takeEvery, ActionTypes.REMOVE_ITEM, removeTask)
   yield fork(takeEvery, ActionTypes.SET_STATUS, setStatus)
   yield fork(takeEvery, ActionTypes.START_SESSION, fetchTasks)
 }
