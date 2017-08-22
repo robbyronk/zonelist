@@ -3,6 +3,7 @@ defmodule Zone.List.Task do
   import Ecto.Changeset
   alias Zone.List.Task
   alias Zone.Auth.User
+  alias Zone.Repo
 
 
   schema "tasks" do
@@ -20,6 +21,6 @@ defmodule Zone.List.Task do
   def changeset(%Task{} = task, attrs) do
     task
     |> cast(attrs, [:title, :status, :children])
-    |> validate_required([:title, :status, :children])
+    |> validate_required([])
   end
 end

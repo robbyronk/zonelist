@@ -20,9 +20,13 @@ defmodule ZoneWeb.TasksController do
     render(conn, "index.json", tasks: tasks)
   end
 
-  def create(conn, _) do
-    # todo write new task to database, return it
-    json conn, %{}
+  def create(conn, %{"task" => %{"afterId" => afterId}}) do
+    user = Guardian.Plug.current_resource(conn)
+    with {:ok, %Task{} = task} <- List.create_task(%{}, afterId, user) do
+      conn
+      |> put_status(:created)
+      |> render("show.json", task: task)
+    end
   end
 
   def update(conn, %{"id" => id, "task" => task_params}) do

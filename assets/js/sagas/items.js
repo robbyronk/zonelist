@@ -2,18 +2,6 @@ import {takeEvery, delay} from "redux-saga";
 import {fork, put, call, take, cancel} from "redux-saga/effects";
 import ActionTypes, {setItems} from '../actions'
 
-
-function* createNewItem(action) {
-  const afterId = action.id
-  const item = {
-    id: (new Date().getTime()),
-    title: '',
-    children: [],
-    status: 'toDo'
-  }
-  yield put({type: ActionTypes.NEW_ITEM, item, afterId})
-}
-
 function getTasks() {
   return fetch(
     '/api/tasks',
@@ -51,6 +39,24 @@ function patchTask(id, data) {
     .catch(e => e)
 }
 
+function postTask(data) {
+  return fetch(
+    '/api/tasks',
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
+      },
+      method: 'POST',
+      body: JSON.stringify(data)
+    }
+  )
+    .then(response => response.json())
+    .then(json => json.data)
+    .catch(e => e)
+}
+
 function putTaskTitle({id, newTitle}) {
   const data = {task: {title: newTitle}}
   return patchTask(id, data);
@@ -76,9 +82,14 @@ function* setStatus({id, status}) {
   yield call(patchTask, id, {task: {status}})
 }
 
+function* createTask({id: afterId}) {
+  const task = yield call(postTask, {task: {afterId}})
+  yield put({type: ActionTypes.NEW_ITEM, item: task, afterId})
+}
+
 export default function* sagas() {
   yield fork(watchTaskUpdates)
+  yield fork(takeEvery, ActionTypes.NEW_ITEM_AFTER, createTask)
   yield fork(takeEvery, ActionTypes.SET_STATUS, setStatus)
-  yield fork(takeEvery, ActionTypes.NEW_ITEM_AFTER, createNewItem)
   yield fork(takeEvery, ActionTypes.START_SESSION, fetchTasks)
 }
