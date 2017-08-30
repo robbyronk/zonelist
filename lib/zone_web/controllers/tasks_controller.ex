@@ -42,6 +42,10 @@ defmodule ZoneWeb.TasksController do
     task = List.get_task!(id)
 
     with {:ok, %Task{} = task} <- List.update_task(task, task_params) do
+      ZoneWeb.Endpoint.broadcast(
+        "users:#{task.user_id}",
+        "task_update",
+        %{title: task.title, id: task.id, children: task.children, status: task.status})
       render(conn, "show.json", task: task)
     end
   end

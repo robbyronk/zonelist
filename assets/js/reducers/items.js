@@ -158,6 +158,8 @@ export default function reducer(state = initialState, action = {}) {
       return setItems(state, action)
     case ActionTypes.SET_STATUS:
       return setStatus(state, action)
+    case ActionTypes.UPDATE_TASK:
+      return update(state, {[action.task.id]: {$merge: action.task}})
     default:
       return state;
   }

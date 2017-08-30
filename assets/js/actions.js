@@ -1,4 +1,5 @@
 const ActionTypes = {
+  UPDATE_TASK: 'UPDATE_TASK',
   UPDATE_TITLE: 'UPDATE_TITLE',
   NEW_ITEM_AFTER: 'NEW_ITEM_AFTER',
   NEW_ITEM: 'NEW_ITEM',
@@ -25,6 +26,13 @@ const ActionTypes = {
 };
 
 export default ActionTypes;
+
+export function updateTask(task) {
+  return {
+    type: ActionTypes.UPDATE_TASK,
+    task
+  }
+}
 
 export function updateTitle(id, newTitle) {
   return {
