@@ -10,7 +10,8 @@
       1501547104797,
       1501547139814,
       1501547173291,
-      1501547203157
+      1501547203157,
+      1504440861143
     ]
   },
   "1491212686534": {
@@ -494,9 +495,10 @@
       1501903346647,
       1501903433650,
       1501903575329,
-      1501903583015
+      1501903583015,
+      1504438549776
     ],
-    "status": "toDo"
+    "status": "done"
   },
   "1501903346647": {
     "id": 1501903346647,
@@ -504,9 +506,10 @@
     "children": [
       1501903416275,
       1501908797780,
-      1501903428390
+      1501903428390,
+      1501903635594
     ],
-    "status": "toDo"
+    "status": "done"
   },
   "1501903416275": {
     "id": 1501903416275,
@@ -517,34 +520,36 @@
   "1501903428390": {
     "id": 1501903428390,
     "title": "Get tasks from database",
-    "children": [
-      1501903635594
-    ],
-    "status": "toDo"
+    "children": [],
+    "status": "done"
   },
   "1501903433650": {
     "id": 1501903433650,
     "title": "Create endpoint to take in updates of tasks",
-    "children": [],
-    "status": "toDo"
+    "children": [
+      1502776655694,
+      1502776665195,
+      1502776690530
+    ],
+    "status": "done"
   },
   "1501903575329": {
     "id": 1501903575329,
     "title": "Create endpoint to create new tasks",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1501903583015": {
     "id": 1501903583015,
     "title": "Create endpoint to delete tasks",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1501903635594": {
     "id": 1501903635594,
     "title": "Create tasks for user when they have none on session creation",
     "children": [],
-    "status": "toDo"
+    "status": "done"
   },
   "1501908797780": {
     "id": 1501908797780,
@@ -580,5 +585,57 @@
     "title": "Run migration again",
     "children": [],
     "status": "done"
+  },
+  "1502776655694": {
+    "id": 1502776655694,
+    "title": "Write Elixir for endpoint",
+    "children": [],
+    "status": "done"
+  },
+  "1502776665195": {
+    "id": 1502776665195,
+    "title": "Test the endpoint with curl or whatever",
+    "children": [],
+    "status": "done"
+  },
+  "1502776690530": {
+    "id": 1502776690530,
+    "title": "Have saga send updates to server",
+    "children": [],
+    "status": "done"
+  },
+  "1504438549776": {
+    "id": 1504438549776,
+    "title": "Send updates to clients via channels",
+    "children": [
+      1504438564548,
+      1504438570308,
+      1504438575121
+    ],
+    "status": "done"
+  },
+  "1504438564548": {
+    "id": 1504438564548,
+    "title": "Send updates to tasks",
+    "children": [],
+    "status": "done"
+  },
+  "1504438570308": {
+    "id": 1504438570308,
+    "title": "Send created tasks",
+    "children": [],
+    "status": "done"
+  },
+  "1504438575121": {
+    "id": 1504438575121,
+    "title": "Send deleted tasks",
+    "children": [],
+    "status": "done"
+  },
+  "1504440861143": {
+    "id": 1504440861143,
+    "title": "Create higher contrast colour scheme",
+    "children": [],
+    "status": "toDo"
   }
 }
