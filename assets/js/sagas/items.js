@@ -1,5 +1,5 @@
-import {takeEvery, delay} from "redux-saga";
-import {fork, put, call, take, cancel} from "redux-saga/effects";
+import {delay, takeEvery} from "redux-saga";
+import {call, cancel, fork, put, take} from "redux-saga/effects";
 import ActionTypes, {setItems} from '../actions'
 
 function getTasks() {
@@ -17,7 +17,7 @@ function getTasks() {
     .catch(e => e)
 }
 
-function* fetchTasks() {
+export function* fetchTasks() {
   const tasks = yield call(getTasks)
   yield put(setItems(tasks))
 }

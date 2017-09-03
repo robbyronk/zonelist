@@ -1,9 +1,10 @@
 import {Socket} from 'phoenix';
 
 import {eventChannel, takeLatest} from "redux-saga";
-import {fork, call, take, put} from "redux-saga/effects";
+import {call, fork, put, take} from "redux-saga/effects";
 
-import ActionTypes, {updateTask} from '../actions'
+import ActionTypes, {removeItem, updateTask} from '../actions'
+import {fetchTasks} from "./items";
 
 function* connectToSocket(url) {
   const socket = new Socket(url, {
@@ -26,16 +27,26 @@ function* joinPhoenixChannel(socket, channel_name) {
   return channel;
 }
 
-function createEventChannel(channel) {
+function createEventChannel(phoenixChannel) {
   return eventChannel(emit => {
-    const emitTaskUpdate = (event) => {
-      emit(event)
+    const emitTaskCreate = () => {
+      emit({type: 'task_create'})
+    }
+    const emitTaskUpdate = (task) => {
+      emit({type: 'task_update', task})
+    }
+    const emitTaskDelete = (task) => {
+      emit({type: 'task_delete', task})
     }
 
-    channel.on('task_update', emitTaskUpdate);
+    phoenixChannel.on('task_create', emitTaskCreate);
+    phoenixChannel.on('task_update', emitTaskUpdate);
+    phoenixChannel.on('task_delete', emitTaskDelete);
 
     return () => {
-      channel.off('task_update', emitTaskUpdate)
+      phoenixChannel.off('task_create', emitTaskCreate)
+      phoenixChannel.off('task_update', emitTaskUpdate)
+      phoenixChannel.off('task_delete', emitTaskDelete)
     };
   });
 }
@@ -50,8 +61,18 @@ function* startSocket(action) {
   const sagaChannel = yield call(createEventChannel, phoenixChannel);
 
   while (true) {
-    const task = yield take(sagaChannel)
-    yield put(updateTask(task));
+    const event = yield take(sagaChannel)
+    switch (event.type) {
+      case 'task_create':
+        yield call(fetchTasks)
+        break
+      case 'task_update':
+        yield put(updateTask(event.task));
+        break
+      case 'task_delete':
+        yield put(removeItem(event.task.id))
+        break
+    }
   }
 }
 
