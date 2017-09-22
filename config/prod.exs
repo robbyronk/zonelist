@@ -58,7 +58,14 @@ config :logger, level: :info
 #
 #     config :zone, ZoneWeb.Endpoint, server: true
 #
+config :zone, ZoneWeb.Endpoint,
+       http: [port: {:system, "PORT"}],
+       server: true,
+       secret_key_base: "${SECRET_KEY_BASE}"
 
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
+config :zone, ZoneWeb.Repo,
+       adapter: Ecto.Adapters.Postgres,
+       url: {:system, "DATABASE_URL"},
+       database: "",
+       ssl: true,
+       pool_size: 10

@@ -36,6 +36,7 @@ defmodule Zone.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:guardian, "~> 0.14"},
      {:gettext, "~> 0.11"},
+     {:distillery, "~> 1.0.0"},
      {:cowboy, "~> 1.0"}]
   end
 
