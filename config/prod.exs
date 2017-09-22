@@ -63,7 +63,7 @@ config :zone, ZoneWeb.Endpoint,
        server: true,
        secret_key_base: "${SECRET_KEY_BASE}"
 
-config :zone, ZoneWeb.Repo,
+config :zone, Zone.Repo,
        adapter: Ecto.Adapters.Postgres,
        url: {:system, "DATABASE_URL"},
        database: "",
