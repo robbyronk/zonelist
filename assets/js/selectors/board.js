@@ -1,5 +1,5 @@
 import {createSelector} from 'reselect'
-import {concat, every, filter, flatMap, includes, find} from 'lodash'
+import {concat, every, filter, find, flatMap, includes} from 'lodash'
 
 const items = state => state.items
 
@@ -17,7 +17,7 @@ export const listOrderSelector = createSelector(
   (items, rootTask) => listOrder(items, rootTask.id)
 )
 
-export const toDoLane = createSelector(
+export const toDoTasks = createSelector(
   items,
   listOrderSelector,
   (items, order) => filter(

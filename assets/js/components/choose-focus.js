@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {toDoLane} from '../selectors/board'
+import {toDoTasks} from '../selectors/board'
 import StatusIcon from './status-icon'
 import ItemContext from './item-context'
 import {setStatus} from '../actions'
@@ -40,7 +40,7 @@ class FocusChoice extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    toDo: toDoLane(state),
+    toDo: toDoTasks(state),
   }
 )
 

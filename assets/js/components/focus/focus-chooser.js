@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import FocusChoice from './focus-choice'
-import {toDoLane} from '../../selectors/board'
+import {toDoTasks} from '../../selectors/board'
 import {UncontrolledAlert} from 'reactstrap'
 import StatusIcon from '../status-icon'
 
@@ -24,7 +24,7 @@ function FocusChooser({toDo}) {
 }
 
 const mapStateToProps = state => ({
-    toDo: toDoLane(state),
+    toDo: toDoTasks(state),
   }
 )
 
