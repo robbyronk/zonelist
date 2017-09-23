@@ -1,9 +1,9 @@
-import {takeEvery} from "redux-saga";
-import {fork, put, call} from "redux-saga/effects";
-import ActionTypes, {startSession} from '../actions'
-
+import {call, put} from "redux-saga/effects";
 import auth0 from 'auth0-js';
+
+import {startSession} from '../actions'
 import {AUTH_CONFIG} from '../auth0-variables';
+import {apiCreateSession} from "../api";
 
 class Auth {
   auth0 = new auth0.WebAuth({
@@ -64,27 +64,10 @@ class Auth {
   }
 }
 
-function postSession(data) {
-  return fetch(
-    '/api/session',
-    {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
-      },
-      method: 'POST',
-      body: JSON.stringify(data)
-    }
-  )
-    .then(response => response.json())
-    .catch(e => e)
-}
-
 function* createSession() {
   if (Auth.isAuthenticated()) {
     const data = {id_token: localStorage.getItem('id_token')}
-    const session = yield call(postSession, data)
+    const session = yield call(apiCreateSession, data)
     yield put(startSession(session))
   } else {
     const auth = new Auth()

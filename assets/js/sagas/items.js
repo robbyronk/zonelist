@@ -1,85 +1,17 @@
 import {delay, takeEvery} from "redux-saga";
 import {call, cancel, fork, put, take} from "redux-saga/effects";
-import ActionTypes, {setItems} from '../actions'
 
-function getTasks() {
-  return fetch(
-    '/api/tasks',
-    {
-      headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
-      },
-    }
-  )
-    .then(response => response.json())
-    .then(responseJson => responseJson.data)
-    .catch(e => e)
-}
+import ActionTypes, {setItems} from '../actions'
+import {apiDeleteTask, apiGetTasks, apiPatchTask, apiPostTask} from "../api";
 
 export function* fetchTasks() {
-  const tasks = yield call(getTasks)
+  const tasks = yield call(apiGetTasks)
   yield put(setItems(tasks))
 }
 
-function patchTask(id, data) {
-  return fetch(
-    `/api/tasks/${id}`,
-    {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
-      },
-      method: 'PATCH',
-      body: JSON.stringify(data)
-    }
-  )
-    .then(response => response.json())
-    .catch(e => e)
-}
-
-function postTask(data) {
-  return fetch(
-    '/api/tasks',
-    {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
-      },
-      method: 'POST',
-      body: JSON.stringify(data)
-    }
-  )
-    .then(response => response.json())
-    .then(json => json.data)
-    .catch(e => e)
-}
-
-function deleteTask(id) {
-  return fetch(
-    `/api/tasks/${id}`,
-    {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
-      },
-      method: 'DELETE',
-    }
-  )
-    .catch(e => e)
-}
-
-function putTaskTitle({id, newTitle}) {
-  const data = {task: {title: newTitle}}
-  return patchTask(id, data);
-}
-
-function* handleUpdateTitle(action) {
+function* handleUpdateTitle({id, newTitle}) {
   yield call(delay, 1000)
-  yield call(putTaskTitle, action)
+  yield call(apiPatchTask, id, {task: {title: newTitle}})
 }
 
 function* watchTaskUpdates() {
@@ -94,17 +26,17 @@ function* watchTaskUpdates() {
 }
 
 function* setStatus({id, status}) {
-  yield call(patchTask, id, {task: {status}})
+  yield call(apiPatchTask, id, {task: {status}})
 }
 
 function* createTask({id: afterId}) {
-  const task = yield call(postTask, {task: {afterId}})
+  const task = yield call(apiPostTask, {task: {afterId}})
   yield put({type: ActionTypes.NEW_ITEM, item: task, afterId})
 }
 
 function* removeTask({id, fromPeer}) {
   if (!fromPeer) {
-    yield call(deleteTask, id)
+    yield call(apiDeleteTask, id)
   }
 }
 
