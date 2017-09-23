@@ -49,10 +49,11 @@ export function newItemAfter(id) {
   }
 }
 
-export function removeItem(id) {
+export function removeItem(id, fromPeer = false) {
   return {
     type: ActionTypes.REMOVE_ITEM,
-    id
+    fromPeer,
+    id,
   }
 }
 

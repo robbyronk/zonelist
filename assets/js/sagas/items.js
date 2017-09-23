@@ -102,8 +102,10 @@ function* createTask({id: afterId}) {
   yield put({type: ActionTypes.NEW_ITEM, item: task, afterId})
 }
 
-function* removeTask({id}) {
-  yield call(deleteTask, id)
+function* removeTask({id, fromPeer}) {
+  if (!fromPeer) {
+    yield call(deleteTask, id)
+  }
 }
 
 export default function* sagas() {
