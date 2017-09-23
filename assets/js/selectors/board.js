@@ -25,11 +25,7 @@ export const toDoTasks = createSelector(
     i => every(i.children, c => items[c].status === 'done') && !includes(['inProgress', 'waiting', 'done'], i.status))
 )
 
-const statusSelector = status => createSelector(
+export const inProgressLane = createSelector(
   listOrderSelector,
-  items => filter(items, i => i.status === status)
+  items => filter(items, i => i.status === 'inProgress')
 )
-
-export const inProgressLane = statusSelector('inProgress')
-export const waitingLane = statusSelector('waiting')
-export const doneLane = statusSelector('done')

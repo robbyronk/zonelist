@@ -1,17 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {hideBoard, openExportModal, openImportModal, reset, showBoard, showFocus, showOutline} from '../actions'
-import ImportModal from './import-modal'
-import ExportModal from './export-modal'
-import {Dropdown, DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown} from 'reactstrap'
+import {showFocus, showOutline} from '../actions'
+import {Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap'
 import IntroModal from './intro-modal'
 
 const mapDispatchToProps = {
-  openExportModal,
-  openImportModal,
-  reset,
-  showBoard,
-  hideBoard,
   showOutline,
   showFocus,
 }
@@ -57,18 +50,9 @@ export default class Header extends React.Component {
                   <i className="fa fa-crosshairs" aria-hidden="true"/> Focus
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem onClick={this.props.openExportModal}>
-                  <i className="fa fa-download" aria-hidden="true"/> Export Code
-                </DropdownItem>
-                <DropdownItem onClick={this.props.openImportModal}>
-                  <i className="fa fa-upload" aria-hidden="true"/> Import Code
-                </DropdownItem>
-                <DropdownItem divider />
                 <DropdownItem header>v0.0.2-chocolate-teapot</DropdownItem>
               </DropdownMenu>
             </Dropdown>
-            <ImportModal/>
-            <ExportModal/>
             <IntroModal/>
           </li>
         </ul>
