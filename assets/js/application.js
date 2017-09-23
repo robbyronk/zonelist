@@ -3,8 +3,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Raven from 'raven-js'
 import configureStore, {sagaMiddleware} from "./store";
-import Root from "./root";
 import rootSaga from "./sagas";
+import {Provider} from "react-redux";
+import MainLayout from './components/main'
+
 
 if (process.env.NODE_ENV === 'production') {
   Raven.config('https://4b8dc207376b44d3a8dd047e56cf03e3@sentry.io/221104').install()
@@ -13,7 +15,9 @@ if (process.env.NODE_ENV === 'production') {
 const store = configureStore();
 sagaMiddleware.run(rootSaga)
 
-const target = document.getElementById('main_container');
-const node = <Root store={store}/>;
-
-ReactDOM.render(node, target);
+ReactDOM.render(
+  <Provider store={store}>
+    <MainLayout/>
+  </Provider>,
+  document.getElementById('main_container')
+);
