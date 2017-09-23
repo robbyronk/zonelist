@@ -18,7 +18,7 @@
     </main>
 
     <script src="https://cdn.auth0.com/js/auth0/8.8/auth0.min.js"></script>
-    <script src='<%= static_path(@conn, "/auth_callback.js") %>'></script>
+    <script src='/auth_callback.js'></script>
 
   </body>
 </html>
