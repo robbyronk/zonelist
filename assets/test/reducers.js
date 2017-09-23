@@ -1,7 +1,6 @@
 import 'babel-polyfill'
 import expect from 'expect'
-import reducers from '../js/reducers/items'
-import {isChild} from '../js/reducers/items'
+import reducers, {isChild} from '../js/reducers/items'
 
 describe('reducers', () => {
   it('simple update title test', () => {
@@ -39,6 +38,12 @@ describe('reducers', () => {
     const state = reducers({ '2': {id: '2', title: 'two', children: []}, '3': {id: '3', title: 'three', children: ['4', '5']}, '4': {id: '4', title: 'four', children: []}, '5': {id: '5', title: 'five', children: []}, root: {id: 'root', title: 'one', children: ['2', '3']}}, {type: 'UNINDENT_ITEM', id: '4'})
     expect(state).toEqual({ '2': {id: '2', title: 'two', children: []}, '3': {id: '3', title: 'three', children: []}, '4': {id: '4', title: 'four', children: ['5']}, '5': {id: '5', title: 'five', children: []}, root: {id: 'root', title: 'one', children: ['2', '3', '4']}})
   })
+
+  it('should delete', () => {
+    let state;
+    state = reducers({'1': {title: 'Your Zone', status: 'toDo', root: true, id: 1, children: [2, 3, 7]}, '2': {title: 'Make an outline', status: 'done', root: false, id: 2, children: []}, '3': {title: 'Focus on one task at a time', status: 'done', root: false, id: 3, children: []}, '7': {title: 'Testing', status: null, root: false, id: 7, children: []}}, {type: 'REMOVE_ITEM', fromPeer: true, id: 7});
+    expect(state).toEqual({'1': {title: 'Your Zone', status: 'toDo', root: true, id: 1, children: [2, 3]}, '2': {title: 'Make an outline', status: 'done', root: false, id: 2, children: []}, '3': {title: 'Focus on one task at a time', status: 'done', root: false, id: 3, children: []},});
+  });
 })
 
 describe('items reducers utils', () => {
