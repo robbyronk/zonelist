@@ -1,13 +1,11 @@
 import update from 'immutability-helper';
 import find from 'lodash/find'
 import includes from 'lodash/includes'
-import uniqueId from 'lodash/uniqueId'
 import omit from 'lodash/omit'
 import without from 'lodash/without'
 import mapValues from 'lodash/mapValues'
-import {get, isEmpty, some, isPlainObject, trimStart, isArray, every, keyBy} from 'lodash'
+import {every, get, isArray, isEmpty, isPlainObject, keyBy, some, trimStart} from 'lodash'
 import ActionTypes from '../actions'
-import {rootTask} from "../selectors/board";
 
 const initialState = {
 }
@@ -48,20 +46,7 @@ function newItemUnder(state, action) {
   })
 }
 
-function removeItem(state, action) {
-  const {id} = action
-
-  // hack
-  const root = rootTask({items: state})
-  if(root.children.length === 1 && id === root.children[0]) {
-    return update(state, {
-      [id]: {
-        title: {$set: ''},
-        children: {$set: []},
-      }
-    })
-  }
-
+function removeItem(state, {id}) {
   return mapValues(omit(state, [id]), item => Object.assign({}, item, {children: without(item.children, id)}))
 }
 
