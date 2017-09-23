@@ -15,6 +15,8 @@ module.exports = (env) => {
   const isDev = !(env && env.prod);
   const devtool = isDev ? "eval" : "source-map";
 
+  const devPath = 'http://localhost:8080/';
+  const prodPath = 'https://positive-bountiful-italiangreyhound.gigalixirapp.com/';
   return {
     devtool: devtool,
 
@@ -30,7 +32,7 @@ module.exports = (env) => {
     output: {
       path: path.resolve(__dirname, "../priv/static"),
       filename: 'js/[name].js',
-      publicPath: 'http://localhost:8080/'
+      publicPath: isDev ? devPath : prodPath
     },
 
     devServer: {
@@ -112,7 +114,7 @@ module.exports = (env) => {
         allChunks: true
       }),
 
-      new webpack.optimize.UglifyJsPlugin({ 
+      new webpack.optimize.UglifyJsPlugin({
         sourceMap: true,
         beautify: false,
         comments: false,
