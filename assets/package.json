@@ -13,6 +13,7 @@
     "auth0-js": "^8.8.0",
     "bootstrap": "4.0.0-alpha.6",
     "classnames": "^2.2.5",
+    "deep-diff": "^0.3.8",
     "es6-promise": "^3.0.2",
     "font-awesome": "^4.7.0",
     "immutability-helper": "^2.1.2",
