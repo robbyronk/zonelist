@@ -19,108 +19,32 @@ const ActionTypes = {
 
 export default ActionTypes;
 
-export function updateTask(task) {
-  return {
-    type: ActionTypes.UPDATE_TASK,
-    task
-  }
-}
+export const updateTask = task => ( {type: ActionTypes.UPDATE_TASK, task} )
 
-export function updateTitle(id, newTitle) {
-  return {
-    type: ActionTypes.UPDATE_TITLE,
-    id,
-    newTitle,
-  }
-}
+export const updateTitle = (id, newTitle) => ( {type: ActionTypes.UPDATE_TITLE, id, newTitle} )
 
-export function newItemAfter(id) {
-  return {
-    type: ActionTypes.NEW_ITEM_AFTER,
-    id
-  }
-}
+export const newItemAfter = id => ( {type: ActionTypes.NEW_ITEM_AFTER, id} )
 
-export function removeItem(id, fromPeer = false) {
-  return {
-    type: ActionTypes.REMOVE_ITEM,
-    fromPeer,
-    id,
-  }
-}
+export const removeItem = (id, fromPeer = false) => ( {type: ActionTypes.REMOVE_ITEM, fromPeer, id} )
 
-export function indentItem(id) {
-  return {
-    type: ActionTypes.INDENT_ITEM,
-    id
-  }
-}
+export const indentItem = id => ( {type: ActionTypes.INDENT_ITEM, id} )
 
-export function unindentItem(id) {
-  return {
-    type: ActionTypes.UNINDENT_ITEM,
-    id
-  }
-}
+export const unindentItem = id => ( {type: ActionTypes.UNINDENT_ITEM, id} )
 
-export function moveItem(id, afterId, parent) {
-  return {
-    type: ActionTypes.MOVE_ITEM,
-    id,
-    afterId,
-    parent
-  }
-}
+export const moveItem = (id, afterId, parent) => ( {type: ActionTypes.MOVE_ITEM, id, afterId, parent} )
 
-export function setItems(items) {
-  return {
-    type: ActionTypes.SET_ITEMS,
-    items
-  }
-}
+export const setItems = items => ( {type: ActionTypes.SET_ITEMS, items} )
 
-export function setStatus(id, status) {
-  return {
-    type: ActionTypes.SET_STATUS,
-    id,
-    status
-  }
-}
+export const setStatus = (id, status) => ( {type: ActionTypes.SET_STATUS, id, status} )
 
-export function showFocus() {
-  return {
-    type: ActionTypes.SHOW_FOCUS,
-  }
-}
+export const showFocus = () => ( {type: ActionTypes.SHOW_FOCUS} )
 
-export function showOutline() {
-  return {
-    type: ActionTypes.SHOW_OUTLINE,
-  }
-}
+export const showOutline = () => ( {type: ActionTypes.SHOW_OUTLINE} )
 
-export function hideIntro() {
-  return {
-    type: ActionTypes.HIDE_INTRO,
-  }
-}
+export const hideIntro = () => ( {type: ActionTypes.HIDE_INTRO} )
 
-export function selectTask(id) {
-  return {
-    type: ActionTypes.SELECT_TASK,
-    id
-  }
-}
+export const selectTask = id => ( {type: ActionTypes.SELECT_TASK, id} )
 
-export function unselectTask() {
-  return {
-    type: ActionTypes.UNSELECT_TASK,
-  }
-}
+export const unselectTask = () => ( {type: ActionTypes.UNSELECT_TASK} )
 
-export function startSession(session) {
-  return {
-    type: ActionTypes.START_SESSION,
-    session
-  }
-}
+export const startSession = session => ( {type: ActionTypes.START_SESSION, session} )
