@@ -13,7 +13,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const store = configureStore();
-sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga).done.catch((e) => {
+  console.error(e.message)
+  if (process.env.NODE_ENV === 'production') {
+    Raven.captureException(e)
+    alert('Sorry, we hit a fatal error. Restarting...')
+    location.reload();
+  }
+})
 
 ReactDOM.render(
   <Provider store={store}>
