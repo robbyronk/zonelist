@@ -2,10 +2,10 @@ import {createSelector} from 'reselect'
 import {map} from 'lodash'
 import findContext from './findContext'
 
-const items = state => state.items;
+const tasks = state => state.items;
 
-export const itemsSelector = createSelector(
-  items,
+export const tasksSelector = createSelector(
+  tasks,
   i => i
 )
 
@@ -14,14 +14,14 @@ const itemFromProps = (state, props) => props.item
 
 export const makeGetContext = () => (
   createSelector(
-    [items, idFromProps],
-    (items, target) => map(findContext(items, target), id => items[id])
+    [tasks, idFromProps],
+    (tasks, target) => map(findContext(tasks, target), id => tasks[id])
   )
 )
 
 export const makeOldGetContext = () => (
   createSelector(
-    [items, itemFromProps],
-    (items, target) => map(findContext(items, target), id => items[id])
+    [tasks, itemFromProps],
+    (tasks, target) => map(findContext(tasks, target), id => tasks[id])
   )
 )
