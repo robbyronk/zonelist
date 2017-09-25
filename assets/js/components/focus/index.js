@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import MainFocus from './main-focus'
 import FocusChooser from './focus-chooser'
-import {inProgressLane} from '../../selectors/board'
+import {inProgressTasks} from '../../selectors/board'
 
 function Focus({inProgress}) {
   if(inProgress.length) {
@@ -12,7 +12,7 @@ function Focus({inProgress}) {
 }
 
 const mapStateToProps = state => ({
-    inProgress: inProgressLane(state),
+    inProgress: inProgressTasks(state),
   }
 )
 

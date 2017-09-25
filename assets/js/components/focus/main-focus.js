@@ -1,7 +1,7 @@
 import React from 'react'
 import {setStatus} from '../../actions'
 import {head} from 'lodash'
-import {inProgressLane} from '../../selectors/board'
+import {inProgressTasks} from '../../selectors/board'
 import {connect} from 'react-redux'
 import TaskContext from './task-context'
 import StatusIcon from '../status-icon'
@@ -41,7 +41,7 @@ function MainFocus({task, setStatus}) {
   )
 }
 const mapStateToProps = state => ({
-    task: head(inProgressLane(state)),
+    task: head(inProgressTasks(state)),
   }
 )
 

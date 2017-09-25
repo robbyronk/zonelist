@@ -1,13 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {inProgressLane} from '../selectors/board'
+import {inProgressTasks} from '../selectors/board'
 import StatusIcon from './status-icon'
 import ItemContext from './item-context'
 import {head} from 'lodash'
 import {setStatus} from '../actions'
 
 const mapStateToProps = state => ({
-    inProgress: inProgressLane(state),
+    inProgress: inProgressTasks(state),
   }
 )
 
