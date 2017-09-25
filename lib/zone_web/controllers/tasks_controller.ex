@@ -40,14 +40,14 @@ defmodule ZoneWeb.TasksController do
     end
   end
 
-  def update(conn, %{"id" => id, "task" => task_params}) do
+  def update(conn, %{"id" => id, "task" => task_params, "sessionId" => session_id}) do
     task = List.get_task!(id)
 
     with {:ok, %Task{} = task} <- List.update_task(task, task_params) do
       ZoneWeb.Endpoint.broadcast(
         "users:#{task.user_id}",
         "task_update",
-        %{title: task.title, id: task.id, children: task.children, status: task.status})
+        %{title: task.title, id: task.id, children: task.children, status: task.status, sessionId: session_id})
       render(conn, "show.json", task: task)
     end
   end

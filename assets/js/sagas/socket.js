@@ -1,10 +1,11 @@
 import {Socket} from 'phoenix';
 
 import {eventChannel, takeLatest} from "redux-saga";
-import {call, fork, put, take} from "redux-saga/effects";
+import {call, fork, put, select, take} from "redux-saga/effects";
 
 import ActionTypes, {removeItem, updateTask} from '../actions'
 import {fetchTasks} from "./items";
+import {sessionId} from "../selectors/index";
 
 function createEventChannel(phoenixChannel, phoenixEventName) {
   return eventChannel(emit => {
@@ -28,7 +29,10 @@ function *watchTaskUpdate(phoenixChannel){
   const channel = createEventChannel(phoenixChannel, 'task_update')
   while (true) {
     const event = yield take(channel)
-    yield put(updateTask(event.payload));
+    const mySessionId = yield select(sessionId)
+    if (mySessionId !== event.payload.sessionId) {
+      yield put(updateTask(event.payload));
+    }
   }
 }
 

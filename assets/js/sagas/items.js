@@ -1,8 +1,9 @@
 import {delay, takeEvery} from "redux-saga";
-import {call, cancel, fork, put, take} from "redux-saga/effects";
+import {call, cancel, fork, put, select, take} from "redux-saga/effects";
 
 import ActionTypes, {setItems} from '../actions'
 import {apiDeleteTask, apiGetTasks, apiPatchTask, apiPostTask} from "../api";
+import {sessionId} from "../selectors/index";
 
 export function* fetchTasks() {
   const tasks = yield call(apiGetTasks)
@@ -11,7 +12,8 @@ export function* fetchTasks() {
 
 function* handleUpdateTitle({id, newTitle}) {
   yield call(delay, 1000)
-  yield call(apiPatchTask, id, {task: {title: newTitle}})
+  const mySessionId = yield select(sessionId)
+  yield call(apiPatchTask, id, {sessionId: mySessionId, task: {title: newTitle}})
 }
 
 function* watchTaskUpdates() {
@@ -26,7 +28,8 @@ function* watchTaskUpdates() {
 }
 
 function* setStatus({id, status}) {
-  yield call(apiPatchTask, id, {task: {status}})
+  const mySessionId = yield select(sessionId)
+  yield call(apiPatchTask, id, {sessionId: mySessionId, task: {status}})
 }
 
 function* createTask({id: afterId}) {
