@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import RootTaskTitle from './root'
 import TaskTitle from './task-title'
 import {listOrderSelector} from '../../selectors/board'
-import {tail, get} from 'lodash'
+import {get, tail} from 'lodash'
 import {indentItem, newItemAfter, unindentItem} from '../../actions'
 import classnames from 'classnames'
 import ItemStatusDropdown from '../item-status-dropdown'
@@ -18,7 +18,7 @@ function Outline({tasks, selectedTask, unindentItem, indentItem, newItemAfter}) 
       <div className={classnames('row sticky-top sub-menu bg-faded d-flex justify-content-around', {'invisible': !selectedTask.id})}>
         <button className="btn btn-secondary" onClick={() => unindentItem(selectedTask.id)}>
           <i className="fa fa-outdent"/>
-          <span className="hidden-sm-down"> Outdent</span>
+          <span className="hidden-sm-down"> Unindent</span>
         </button>
         <button className="btn nav-item btn-secondary" onClick={() => indentItem(selectedTask.id)}>
           <i className="fa fa-indent"/>
