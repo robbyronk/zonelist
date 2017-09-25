@@ -1,10 +1,10 @@
 import {find, includes} from 'lodash'
 
-const findContext = (items, toFind, acc = []) => {
+const findContext = (tasks, toFind, acc = []) => {
   acc.unshift(toFind)
-  if (items[toFind].root) {
+  if (tasks[toFind].root) {
     return acc
   }
-  return findContext(items, find(items, i => includes(i.children, toFind)).id, acc)
+  return findContext(tasks, find(tasks, i => includes(i.children, toFind)).id, acc)
 }
 export default findContext

@@ -1,9 +1,9 @@
 import {createSelector} from "reselect";
 import {isEmpty} from 'lodash'
 
-const items = state => state.items
+const tasks = state => state.items
 
 export const isLoading = createSelector(
-  items,
+  tasks,
   items => isEmpty(items)
 )

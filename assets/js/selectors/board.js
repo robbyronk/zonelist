@@ -5,7 +5,7 @@ const tasks = state => state.items
 
 export const rootTask = createSelector(
   tasks,
-  items => find(items, 'root')
+  tasks => find(tasks, 'root')
 )
 
 const listOrder = (tasks, parent = 'root', level = 0) =>
@@ -14,18 +14,18 @@ const listOrder = (tasks, parent = 'root', level = 0) =>
 export const listOrderSelector = createSelector(
   tasks,
   rootTask,
-  (items, rootTask) => listOrder(items, rootTask.id)
+  (tasks, rootTask) => listOrder(tasks, rootTask.id)
 )
 
 export const toDoTasks = createSelector(
   tasks,
   listOrderSelector,
-  (items, order) => filter(
+  (tasks, order) => filter(
     order,
-    i => every(i.children, c => items[c].status === 'done') && !includes(['inProgress', 'waiting', 'done'], i.status))
+    i => every(i.children, c => tasks[c].status === 'done') && !includes(['inProgress', 'waiting', 'done'], i.status))
 )
 
 export const inProgressTasks = createSelector(
   listOrderSelector,
-  items => filter(items, i => i.status === 'inProgress')
+  tasks => filter(tasks, {status: 'inProgress'})
 )
