@@ -27,9 +27,9 @@ export const newItemAfter = id => ( {type: ActionTypes.NEW_ITEM_AFTER, id} )
 
 export const removeItem = (id, fromPeer = false) => ( {type: ActionTypes.REMOVE_ITEM, fromPeer, id} )
 
-export const indentItem = id => ( {type: ActionTypes.INDENT_ITEM, id} )
+export const indentItem = (id, fromPeer = false) => ( {type: ActionTypes.INDENT_ITEM, fromPeer, id} )
 
-export const unindentItem = id => ( {type: ActionTypes.UNINDENT_ITEM, id} )
+export const unindentItem = (id, fromPeer = false) => ( {type: ActionTypes.UNINDENT_ITEM, fromPeer, id} )
 
 export const moveItem = (id, afterId, parent) => ( {type: ActionTypes.MOVE_ITEM, id, afterId, parent} )
 

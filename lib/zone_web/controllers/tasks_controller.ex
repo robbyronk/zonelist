@@ -63,4 +63,30 @@ defmodule ZoneWeb.TasksController do
       send_resp(conn, :no_content, "")
     end
   end
+
+  def indent(conn, %{"id" => id, "sessionId" => session_id}) do
+    task = conn
+           |> Guardian.Plug.current_resource()
+           |> List.get_user_task!(id)
+    case List.indent_task(task) do
+      {:ok, %Task{}} ->
+        ZoneWeb.Endpoint.broadcast("users:#{task.user_id}", "task_indent", %{id: task.id, sessionId: session_id})
+        send_resp(conn, :no_content, "")
+      {:error, reason} ->
+        send_resp(conn, 400, "{error: \"#{reason}}\"")
+    end
+  end
+
+  def unindent(conn, %{"id" => id, "sessionId" => session_id}) do
+    task = conn
+           |> Guardian.Plug.current_resource()
+           |> List.get_user_task!(id)
+    case List.unindent_task(task) do
+      {:ok, %Task{}} ->
+        ZoneWeb.Endpoint.broadcast("users:#{task.user_id}", "task_unindent", %{id: task.id, sessionId: session_id})
+        send_resp(conn, :no_content, "")
+      {:error, reason} ->
+        send_resp(conn, 400, "{error: \"#{reason}}\"")
+    end
+  end
 end

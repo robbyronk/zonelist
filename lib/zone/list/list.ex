@@ -115,6 +115,36 @@ defmodule Zone.List do
     update_task(parent, %{children: List.delete(parent.children, task.id)})
 
     Repo.delete(task)
+  end
 
+  def move_task(%Task{} = task, %Task{} = new_parent, new_index) do
+    old_parent = find_parent(task)
+    update_task(old_parent, %{children: List.delete(old_parent.children, task.id)})
+    update_task(new_parent, %{children: List.insert_at(new_parent.children, new_index, task.id)})
+  end
+
+  def previous_sibling(%Task{id: task_id} = task) do
+    %Task{children: siblings} = find_parent(task)
+
+    case Enum.find_index(siblings, &match?(^task_id, &1)) do
+      0 -> {:error, "the index of the task to indent was zero"}
+      i -> get_task!(Enum.fetch!(siblings, i - 1))
+    end
+  end
+
+  def indent_task(%Task{} = task) do
+    case previous_sibling(task) do
+      sibling = %Task{} -> move_task(task, sibling, -1)
+      {:error, reason} -> {:error, reason}
+    end
+  end
+
+  def unindent_task(%Task{} = task) do
+    with %Task{id: parent_id} = parent <- find_parent(task),
+         %Task{children: parent_siblings} = grand_parent <- find_parent(parent) do
+      move_task(task, grand_parent, Enum.find_index(parent_siblings, &match?(^parent_id, &1)) + 1)
+    else
+      nil -> {:error, "could not unindent #{task.id}"}
+    end
   end
 end

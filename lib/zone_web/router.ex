@@ -31,6 +31,8 @@ defmodule ZoneWeb.Router do
     post "/session", SessionController, :index
 
     resources "/tasks", TasksController, only: [:index, :create, :update, :delete]
+    post "/tasks/:id/indent", TasksController, :indent
+    post "/tasks/:id/unindent", TasksController, :unindent
   end
 
   scope "/", ZoneWeb do

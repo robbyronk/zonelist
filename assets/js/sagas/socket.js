@@ -3,7 +3,7 @@ import {Socket} from 'phoenix';
 import {eventChannel, takeLatest} from "redux-saga";
 import {call, fork, put, select, take} from "redux-saga/effects";
 
-import ActionTypes, {removeItem, updateTask} from '../actions'
+import ActionTypes, {indentItem, removeItem, unindentItem, updateTask} from '../actions'
 import {fetchTasks} from "./items";
 import {sessionId} from "../selectors/index";
 
@@ -36,6 +36,28 @@ function *watchTaskUpdate(phoenixChannel){
   }
 }
 
+function *watchTaskIndent(phoenixChannel){
+  const channel = createEventChannel(phoenixChannel, 'task_indent')
+  while (true) {
+    const event = yield take(channel)
+    const mySessionId = yield select(sessionId)
+    if (mySessionId !== event.payload.sessionId) {
+      yield put(indentItem(event.payload.id, true));
+    }
+  }
+}
+
+function *watchTaskUnindent(phoenixChannel){
+  const channel = createEventChannel(phoenixChannel, 'task_unindent')
+  while (true) {
+    const event = yield take(channel)
+    const mySessionId = yield select(sessionId)
+    if (mySessionId !== event.payload.sessionId) {
+      yield put(unindentItem(event.payload.id, true));
+    }
+  }
+}
+
 function *watchTaskDelete(phoenixChannel){
   const channel = createEventChannel(phoenixChannel, 'task_delete')
   while (true) {
@@ -60,6 +82,8 @@ function* startSocket(action) {
   yield fork(watchTaskCreate, phoenixChannel)
   yield fork(watchTaskUpdate, phoenixChannel)
   yield fork(watchTaskDelete, phoenixChannel)
+  yield fork(watchTaskIndent, phoenixChannel)
+  yield fork(watchTaskUnindent, phoenixChannel)
 }
 
 export default function* getWatcher() {

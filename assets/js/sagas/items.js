@@ -2,7 +2,7 @@ import {delay, takeEvery} from "redux-saga";
 import {call, cancel, fork, put, select, take} from "redux-saga/effects";
 
 import ActionTypes, {setItems} from '../actions'
-import {apiDeleteTask, apiGetTasks, apiPatchTask, apiPostTask} from "../api";
+import {apiDeleteTask, apiGetTasks, apiIndentTask, apiPatchTask, apiPostTask, apiUnindentTask} from "../api";
 import {sessionId} from "../selectors/index";
 
 export function* fetchTasks() {
@@ -43,10 +43,26 @@ function* removeTask({id, fromPeer}) {
   }
 }
 
+function* indentTask({id, fromPeer}) {
+  if (!fromPeer) {
+    const mySessionId = yield select(sessionId)
+    yield call(apiIndentTask, id, {sessionId: mySessionId})
+  }
+}
+
+function* unindentTask({id, fromPeer}) {
+  if (!fromPeer) {
+    const mySessionId = yield select(sessionId)
+    yield call(apiUnindentTask, id, {sessionId: mySessionId})
+  }
+}
+
 export default function* sagas() {
   yield fork(watchTaskUpdates)
   yield fork(takeEvery, ActionTypes.NEW_ITEM_AFTER, createTask)
   yield fork(takeEvery, ActionTypes.REMOVE_ITEM, removeTask)
   yield fork(takeEvery, ActionTypes.SET_STATUS, setStatus)
   yield fork(takeEvery, ActionTypes.START_SESSION, fetchTasks)
+  yield fork(takeEvery, ActionTypes.INDENT_ITEM, indentTask)
+  yield fork(takeEvery, ActionTypes.UNINDENT_ITEM, unindentTask)
 }
