@@ -41,7 +41,9 @@ defmodule ZoneWeb.TasksController do
   end
 
   def update(conn, %{"id" => id, "task" => task_params, "sessionId" => session_id}) do
-    task = List.get_task!(id)
+    task = conn
+           |> Guardian.Plug.current_resource()
+           |> List.get_user_task!(id)
 
     with {:ok, %Task{} = task} <- List.update_task(task, task_params) do
       ZoneWeb.Endpoint.broadcast(
