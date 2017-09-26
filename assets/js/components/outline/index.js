@@ -7,14 +7,10 @@ import {get, tail} from 'lodash'
 import {indentItem, newItemAfter, unindentItem} from '../../actions'
 import classnames from 'classnames'
 import ItemStatusDropdown from '../item-status-dropdown'
-import {UncontrolledAlert} from 'reactstrap'
 
 function Outline({tasks, selectedTask, unindentItem, indentItem, newItemAfter}) {
   return (
     <div className="container outline">
-      <UncontrolledAlert color="info">
-        Make an outline out of your plan here. Turn your big challenges into tiny tasks.
-      </UncontrolledAlert>
       <div className={classnames('row sticky-top sub-menu bg-faded d-flex justify-content-around', {'invisible': !selectedTask.id})}>
         <button className="btn btn-secondary" onClick={() => unindentItem(selectedTask.id)}>
           <i className="fa fa-outdent"/>

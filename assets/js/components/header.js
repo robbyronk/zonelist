@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {showFocus, showOutline} from '../actions'
 import {Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap'
-import IntroModal from './intro-modal'
 
 const mapDispatchToProps = {
   showOutline,
@@ -53,7 +52,7 @@ export default class Header extends React.Component {
                 <DropdownItem header>v0.0.2-chocolate-teapot</DropdownItem>
               </DropdownMenu>
             </Dropdown>
-            <IntroModal/>
+            {/*<IntroModal/>*/}
           </li>
         </ul>
       </nav>
