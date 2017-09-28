@@ -26,9 +26,11 @@ export default class MainLayout extends React.Component {
       )
     }
     return (
-      <div className="container">
+      <div style={{height: '100vh'}} className="d-flex flex-column">
         <Header/>
-        {this._component(this.props.view)}
+        <div style={{flex: '1', overflow: 'auto'}}>
+          {this._component(this.props.view)}
+        </div>
         <Footer/>
       </div>
     );

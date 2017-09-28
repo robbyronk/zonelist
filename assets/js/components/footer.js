@@ -8,13 +8,11 @@ const Footer = ({view, showFocus, showOutline}) => {
   const focusMode = (
     <span onClick={showOutline}> Outline Mode <i className="fa fa-toggle-on fa-lg text-success"/> Focus Mode </span> )
   return (
-    <footer className="footer mt-4 bg-faded fixed-bottom">
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-md-auto">
-            {view === 'outline' ? outlineMode : null}
-            {view === 'focus' ? focusMode : null}
-          </div>
+    <footer className="footer bg-faded">
+      <div className="row justify-content-center">
+        <div className="col-md-auto">
+          {view === 'outline' ? outlineMode : null}
+          {view === 'focus' ? focusMode : null}
         </div>
       </div>
     </footer>

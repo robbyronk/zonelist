@@ -10,8 +10,8 @@ import ItemStatusDropdown from '../item-status-dropdown'
 
 function Outline({tasks, selectedTask, unindentItem, indentItem, newItemAfter}) {
   return (
-    <div className="container outline">
-      <div className={classnames('row sticky-top sub-menu bg-faded d-flex justify-content-around', {'invisible': !selectedTask.id})}>
+    <div className="container">
+      <div className={classnames('row bg-faded d-flex justify-content-around', {'invisible': !selectedTask.id})}>
         <button className="btn btn-secondary" onClick={() => unindentItem(selectedTask.id)}>
           <i className="fa fa-outdent"/>
           <span className="hidden-sm-down"> Unindent</span>
