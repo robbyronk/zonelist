@@ -1,8 +1,13 @@
 import {createSelector} from 'reselect'
-import {map} from 'lodash'
+import {get, map} from 'lodash'
 import findContext from './findContext'
+import {selectedId, tasks} from "./index";
 
-const tasks = state => state.items;
+export const selectedTask = createSelector(
+  tasks,
+  selectedId,
+  (tasks, selectedId) => get(tasks, selectedId, {})
+)
 
 export const tasksSelector = createSelector(
   tasks,

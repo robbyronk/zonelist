@@ -5,38 +5,10 @@ import TaskTitle from './task-title'
 import {listOrderSelector} from '../../selectors/board'
 import {get, tail} from 'lodash'
 import {indentItem, newItemAfter, unindentItem} from '../../actions'
-import classnames from 'classnames'
-import ItemStatusDropdown from '../item-status-dropdown'
 
 function Outline({tasks, selectedTask, unindentItem, indentItem, newItemAfter}) {
   return (
     <div className="container">
-      <div className={classnames('row bg-faded d-flex justify-content-around', {'invisible': !selectedTask.id})}>
-        <button className="btn btn-secondary" onClick={() => unindentItem(selectedTask.id)}>
-          <i className="fa fa-outdent"/>
-          <span className="hidden-sm-down"> Unindent</span>
-        </button>
-        <button className="btn nav-item btn-secondary" onClick={() => indentItem(selectedTask.id)}>
-          <i className="fa fa-indent"/>
-          <span className="hidden-sm-down"> Indent</span>
-        </button>
-        <button className="btn nav-item btn-secondary" onClick={() => newItemAfter(selectedTask.id)}>
-          <i className="fa fa-plus"/>
-          <span className="hidden-sm-down"> New Task</span>
-        </button>
-        {/*<button className="btn nav-item">*/}
-          {/*<i className="fa fa-code-fork fa-flip-vertical"/>*/}
-          {/*<span className="hidden-sm-down">New Sub Task</span>*/}
-        {/*</button>*/}
-        <ItemStatusDropdown
-          className={classnames('btn', {
-            'btn-info': selectedTask.status === 'toDo' || selectedTask.status === undefined,
-            'btn-warning': selectedTask.status === 'waiting',
-            'btn-success': selectedTask.status === 'inProgress',
-            'btn-secondary': selectedTask.status === 'done',
-          })}
-          item={selectedTask}/>
-      </div>
       <div className="row mt-1">
         <div className="col-12">
           <RootTaskTitle/>
