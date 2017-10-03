@@ -12,8 +12,14 @@ const Footer = ({view, showFocus, showOutline}) => {
       'text-success': view === 'focus',
     }
   );
+  const style = {
+    position: 'fixed',
+    left: 0,
+    right: 0,
+    bottom: 0,
+  }
   return (
-    <footer className="footer bg-faded d-flex flex-row justify-content-center">
+    <footer style={style} className="footer bg-faded d-flex flex-row justify-content-center">
       <div onClick={view === 'outline' ? showFocus : showOutline}>
         Outline Mode <i className={iconClassName}/> Focus Mode
       </div>
