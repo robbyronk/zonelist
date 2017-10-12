@@ -99,8 +99,7 @@ class TaskTitle extends React.Component {
     }
     return (
       <div className={classnames('d-flex', 'align-items-baseline', {'selected-title': this.props.selected === task.id})}>
-        {/*<StatusIcon status={task.status} style={iconStyle}/>*/}
-        <ItemStatusDropdown {...this.props}/>
+        <ItemStatusDropdown {...this.props} style={iconStyle}/>
         <textarea
           rows={1}
           className={classnames(

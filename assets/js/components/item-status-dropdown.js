@@ -17,10 +17,10 @@ const Item = ({name, status, click, task}) => {
   )
 }
 
-const ItemStatusDropdown = ({task, click, className, removeItem}) => (
+const ItemStatusDropdown = ({task, click, className, removeItem, style}) => (
   <UncontrolledDropdown>
-    <DropdownToggle className={classnames(className, 'mr-1')} tag="span">
-      <StatusIcon status={task.status}/>
+    <DropdownToggle className={classnames(className)} tag="span">
+      <StatusIcon status={task.status} style={style}/>
     </DropdownToggle>
     <DropdownMenu>
       <Item name="To Do" status={'toDo'} {...{task, click}}/>
