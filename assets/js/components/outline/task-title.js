@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {indentItem, newItemAfter, removeItem, selectTask, unindentItem, unselectTask, updateTitle} from '../../actions'
 import classnames from 'classnames'
-import StatusIcon from '../status-icon'
+import ItemStatusDropdown from "../item-status-dropdown";
 
 class TaskTitle extends React.Component {
   constructor(props) {
@@ -99,7 +99,8 @@ class TaskTitle extends React.Component {
     }
     return (
       <div className={classnames('d-flex', 'align-items-baseline', {'selected-title': this.props.selected === task.id})}>
-        <StatusIcon status={task.status} style={iconStyle}/>
+        {/*<StatusIcon status={task.status} style={iconStyle}/>*/}
+        <ItemStatusDropdown {...this.props}/>
         <textarea
           rows={1}
           className={classnames(
