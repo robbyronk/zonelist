@@ -1,4 +1,4 @@
-import React, {PropTypes} from "react";
+import React from "react";
 import {connect} from "react-redux";
 import {indentItem, newItemAfter, removeItem, selectTask, unindentItem, unselectTask, updateTitle} from '../../actions'
 import classnames from 'classnames'
@@ -102,7 +102,13 @@ class TaskTitle extends React.Component {
         <StatusIcon status={task.status} style={iconStyle}/>
         <textarea
           rows={1}
-          className={classnames('item-title','flex-grow', {'first-level-title': task.level === 1})}
+          className={classnames(
+            'item-title', 'flex-grow',
+            {'first-level-title': task.level === 1},
+            {'text-success': task.status === 'done'},
+            {'text-warning': task.status === 'inProgress'},
+            {'text-muted': task.status === 'waiting'},
+          )}
           type="text"
           onChange={this._handleChange}
           onKeyDown={this._onKeyDown}
@@ -126,4 +132,5 @@ const mapStateToProps = (state, ownProps) => ({
   selected: state.outline.selectedItem
 })
 
-export default connect(mapStateToProps, {indentItem, newItemAfter, removeItem, unindentItem, updateTitle, selectTask, unselectTask})(TaskTitle)
+const actions = {indentItem, newItemAfter, removeItem, unindentItem, updateTitle, selectTask, unselectTask};
+export default connect(mapStateToProps, actions)(TaskTitle)
