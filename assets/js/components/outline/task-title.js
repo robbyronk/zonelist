@@ -108,10 +108,11 @@ class TaskTitle extends React.Component {
         className={classnames('d-flex', 'align-items-baseline', {'selected-title': this.props.selected === task.id})}>
         <ItemStatusDropdown {...this.props} style={iconStyle}/>
         <UncontrolledContentEditable
-          editable={true}
+          editable={this.props.task.id === this.props.selected}
           text={task.title || ''}
           onChange={this._handleChange}
           onEnter={this._onEnter}
+          onClick={() => this.props.selectTask(task.id)}
         />
         {/*<textarea*/}
           {/*rows={1}*/}

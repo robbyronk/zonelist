@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 class UncontrolledContentEditable extends React.Component {
   // take text on initialisation
@@ -8,6 +9,13 @@ class UncontrolledContentEditable extends React.Component {
     super(props)
     this.state = {
       initialText: this.props.text
+    }
+  }
+
+  // need this for when a new item is created
+  componentDidMount() {
+    if (this.props.editable) {
+      this.textInput.focus()
     }
   }
 
@@ -23,7 +31,14 @@ class UncontrolledContentEditable extends React.Component {
   // update the dom if the control is becoming not editable
   componentWillUpdate(nextProps) {
     if (!nextProps.editable && this.props.editable) {
-      this.getDOMNode().innerHTML = (this.state.initialText);
+      this.textInput.innerHTML = (this.state.initialText);
+    }
+  }
+
+  // need this for putting focus into the contenteditable on click
+  componentDidUpdate(prevProps) {
+    if (!prevProps.editable && this.props.editable) {
+      this.textInput.focus()
     }
   }
 
@@ -47,16 +62,26 @@ class UncontrolledContentEditable extends React.Component {
   render() {
     // render state (presumably from props) when editible
     var html = (this.props.editable ?
-      this.state.initialText :
-      this.props.text
+        this.state.initialText :
+        this.props.text
     );
 
     return (
-      <div onInput={this.handleChange}
-           onKeyPress={this.keyPress}
-                            onBlur={this.handleChange}
-                            contentEditable={this.props.editable}
-                            dangerouslySetInnerHTML={{__html: html}}/>
+      <div
+        ref={input => this.textInput = input}
+        style={{
+          border: 0,
+        }}
+        className={classnames(
+          'flex-grow',
+          'item-title',
+        )}
+        onInput={this.handleChange}
+        onKeyPress={this.keyPress}
+        onBlur={this.handleChange}
+        onClick={this.props.onClick}
+        contentEditable={this.props.editable}
+        dangerouslySetInnerHTML={{__html: html}}/>
     );
   }
 }

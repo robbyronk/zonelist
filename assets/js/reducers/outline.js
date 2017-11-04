@@ -7,6 +7,8 @@ const initialState = {
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
+    case ActionTypes.NEW_ITEM:
+      return update(state, {selectedItem: {$set: action.item.id}})
     case ActionTypes.SELECT_TASK:
       return update(state, {selectedItem: {$set: action.id}})
     // TODO will need to unselect tasks sometimes?

@@ -123,8 +123,13 @@ $fa-font-path: "~font-awesome/fonts";
 .item-title {
   flex: auto;
   border: none;
+  min-height: 1rem;
   background-color: $body-bg;
   color: $body-color;
+}
+
+[contenteditable]:focus {
+  outline: 0 solid transparent;
 }
 
 .selected-title {
