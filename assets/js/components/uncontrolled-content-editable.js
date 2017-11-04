@@ -79,9 +79,6 @@ class UncontrolledContentEditable extends React.Component {
     return (
       <div
         ref={input => this.textInput = input}
-        style={{
-          border: 0,
-        }}
         className={classnames(
           'flex-grow',
           'item-title',
