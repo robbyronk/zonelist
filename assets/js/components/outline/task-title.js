@@ -33,7 +33,9 @@ class TaskTitle extends React.Component {
   //   }
   // }
 
-  _handleChange({target: {value}}) {
+  _handleChange(e) {
+    const {target: {textContent: value }} = e
+    console.log(e, e.target.textContent)
     this.props.updateTitle(this.props.task.id, value)
   }
 
@@ -109,6 +111,7 @@ class TaskTitle extends React.Component {
           editable={true}
           text={task.title || ''}
           onChange={this._handleChange}
+          onEnter={this._onEnter}
         />
         {/*<textarea*/}
           {/*rows={1}*/}

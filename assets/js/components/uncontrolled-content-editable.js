@@ -36,6 +36,14 @@ class UncontrolledContentEditable extends React.Component {
     this.props.onChange(e);
   }
 
+  keyPress = (e) => {
+    console.log(e.key, e.shiftKey)
+    if (e.key === 'Enter') {
+      this.props.onEnter(e)
+      return
+    }
+  }
+
   render() {
     // render state (presumably from props) when editible
     var html = (this.props.editable ?
@@ -45,6 +53,7 @@ class UncontrolledContentEditable extends React.Component {
 
     return (
       <div onInput={this.handleChange}
+           onKeyPress={this.keyPress}
                             onBlur={this.handleChange}
                             contentEditable={this.props.editable}
                             dangerouslySetInnerHTML={{__html: html}}/>
@@ -55,6 +64,7 @@ class UncontrolledContentEditable extends React.Component {
 UncontrolledContentEditable.propTypes = {
   component: PropTypes.func,
   onChange: PropTypes.func.isRequired,
+  onEnter: PropTypes.func,
   text: PropTypes.string,
   placeholder: PropTypes.string,
   editable: PropTypes.bool
