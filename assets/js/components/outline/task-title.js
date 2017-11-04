@@ -5,6 +5,7 @@ import classnames from 'classnames'
 
 import {indentItem, newItemAfter, removeItem, selectTask, unindentItem, unselectTask, updateTitle} from '../../actions'
 import ItemStatusDropdown from "../item-status-dropdown";
+import UncontrolledContentEditable from "../uncontrolled-content-editable";
 
 class TaskTitle extends React.Component {
   constructor(props) {
@@ -17,20 +18,20 @@ class TaskTitle extends React.Component {
     this._onKeyPress = this._onKeyPress.bind(this)
   }
 
-  componentDidMount() {
-    if (this.props.task.id === this.props.focus) {
-      this.textInput.focus();
-    }
-    this.textInput.style.height = 'auto'
-    this.textInput.style.height = this.textInput.scrollHeight + 'px'
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.task.title !== this.props.task.title) {
-      this.textInput.style.height = 'auto'
-      this.textInput.style.height = this.textInput.scrollHeight + 'px'
-    }
-  }
+  // componentDidMount() {
+  //   if (this.props.task.id === this.props.focus) {
+  //     this.textInput.focus();
+  //   }
+  //   this.textInput.style.height = 'auto'
+  //   this.textInput.style.height = this.textInput.scrollHeight + 'px'
+  // }
+  //
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.task.title !== this.props.task.title) {
+  //     this.textInput.style.height = 'auto'
+  //     this.textInput.style.height = this.textInput.scrollHeight + 'px'
+  //   }
+  // }
 
   _handleChange({target: {value}}) {
     this.props.updateTitle(this.props.task.id, value)
@@ -104,27 +105,32 @@ class TaskTitle extends React.Component {
       <div
         className={classnames('d-flex', 'align-items-baseline', {'selected-title': this.props.selected === task.id})}>
         <ItemStatusDropdown {...this.props} style={iconStyle}/>
-        <textarea
-          rows={1}
-          style={{
-            transition: '0.1s',
-          }}
-          className={classnames(
-            'item-title', 'flex-grow',
-            {'first-level-title': task.level === 1},
-            {'text-success': task.status === 'done'},
-            {'text-warning': task.status === 'inProgress'},
-            {'text-muted': task.status === 'waiting'},
-          )}
-          type="text"
+        <UncontrolledContentEditable
+          editable={true}
+          text={task.title || ''}
           onChange={this._handleChange}
-          onKeyDown={this._onKeyDown}
-          onKeyPress={this._onKeyPress}
-          onFocus={() => this.props.selectTask(task.id)}
-          onBlur={() => this.props.unselectTask()}
-          ref={input => this.textInput = input}
-          value={task.title || ''}
         />
+        {/*<textarea*/}
+          {/*rows={1}*/}
+          {/*style={{*/}
+            {/*transition: '0.1s',*/}
+          {/*}}*/}
+          {/*className={classnames(*/}
+            {/*'item-title', 'flex-grow',*/}
+            {/*{'first-level-title': task.level === 1},*/}
+            {/*{'text-success': task.status === 'done'},*/}
+            {/*{'text-warning': task.status === 'inProgress'},*/}
+            {/*{'text-muted': task.status === 'waiting'},*/}
+          {/*)}*/}
+          {/*type="text"*/}
+          {/*onChange={this._handleChange}*/}
+          {/*onKeyDown={this._onKeyDown}*/}
+          {/*onKeyPress={this._onKeyPress}*/}
+          {/*onFocus={() => this.props.selectTask(task.id)}*/}
+          {/*onBlur={() => this.props.unselectTask()}*/}
+          {/*ref={input => this.textInput = input}*/}
+          {/*value={task.title || ''}*/}
+        {/*/>*/}
       </div>
     )
   }
