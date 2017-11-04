@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 import {connect} from "react-redux";
 import classnames from 'classnames'
 
@@ -130,7 +131,7 @@ class TaskTitle extends React.Component {
 }
 
 TaskTitle.propTypes = {
-  newItemBefore: React.PropTypes.func,
+  newItemBefore: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => ({
