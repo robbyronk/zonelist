@@ -105,9 +105,15 @@ class TaskTitle extends React.Component {
     }
     return (
       <div
-        className={classnames('d-flex', 'align-items-baseline', {'selected-title': this.props.selected === task.id})}>
+        className={classnames('d-flex', 'align-items-baseline', (this.props.selected === task.id ? 'selected-title' : 'title'))}>
         <ItemStatusDropdown {...this.props} style={iconStyle}/>
         <UncontrolledContentEditable
+          className={classnames(
+            {'first-level-title': task.level === 1},
+            {'text-success': task.status === 'done'},
+            {'text-warning': task.status === 'inProgress'},
+            {'text-muted': task.status === 'waiting'},
+          )}
           editable={this.props.task.id === this.props.selected}
           text={task.title || ''}
           onChange={this._handleChange}

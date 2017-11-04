@@ -85,6 +85,7 @@ class UncontrolledContentEditable extends React.Component {
         className={classnames(
           'flex-grow',
           'item-title',
+          this.props.className,
         )}
         onInput={this.handleChange}
         onKeyPress={this.keyPress}
@@ -105,7 +106,8 @@ UncontrolledContentEditable.propTypes = {
   onShiftTab: PropTypes.func,
   text: PropTypes.string,
   placeholder: PropTypes.string,
-  editable: PropTypes.bool
+  editable: PropTypes.bool,
+  className: PropTypes.string,
 }
 
 UncontrolledContentEditable.defaultProps = {

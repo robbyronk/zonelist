@@ -132,8 +132,13 @@ $fa-font-path: "~font-awesome/fonts";
   outline: 0 solid transparent;
 }
 
+.title {
+  border: solid rgba(0,0,0,0) 1px;
+}
+
 .selected-title {
   border: solid lighter-shade($brand-primary, 12%) 1px;
+  transition: 100ms;
 }
 
 .sub-menu {
