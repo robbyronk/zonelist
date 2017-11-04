@@ -10,7 +10,6 @@ import UncontrolledContentEditable from "../uncontrolled-content-editable";
 class TaskTitle extends React.Component {
   _handleChange = (e) => {
     const {target: {textContent: value }} = e
-    console.log(e, e.target.textContent)
     this.props.updateTitle(this.props.task.id, value)
   }
 
