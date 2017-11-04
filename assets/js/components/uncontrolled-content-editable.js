@@ -59,6 +59,16 @@ class UncontrolledContentEditable extends React.Component {
     }
   }
 
+  keyDown = (e) => {
+    if (e.key === 'Tab') {
+      if (e.shiftKey) {
+        this.props.onShiftTab(e)
+      } else {
+        this.props.onTab(e)
+      }
+    }
+  }
+
   render() {
     // render state (presumably from props) when editible
     var html = (this.props.editable ?
@@ -78,6 +88,7 @@ class UncontrolledContentEditable extends React.Component {
         )}
         onInput={this.handleChange}
         onKeyPress={this.keyPress}
+        onKeyDown={this.keyDown}
         onBlur={this.handleChange}
         onClick={this.props.onClick}
         contentEditable={this.props.editable}
@@ -90,6 +101,8 @@ UncontrolledContentEditable.propTypes = {
   component: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onEnter: PropTypes.func,
+  onTab: PropTypes.func,
+  onShiftTab: PropTypes.func,
   text: PropTypes.string,
   placeholder: PropTypes.string,
   editable: PropTypes.bool

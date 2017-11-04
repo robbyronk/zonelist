@@ -112,6 +112,8 @@ class TaskTitle extends React.Component {
           text={task.title || ''}
           onChange={this._handleChange}
           onEnter={this._onEnter}
+          onTab={this._onTab}
+          onShiftTab={this._onShiftTab}
           onClick={() => this.props.selectTask(task.id)}
         />
         {/*<textarea*/}
