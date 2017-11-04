@@ -10,17 +10,17 @@ export default function configureStore() {
 
   const middlewares = [sagaMiddleware]
 
-  if (process.env.NODE_ENV !== 'production') {
-    const createLogger = require('redux-logger').createLogger
-
-    const loggerMiddleware = createLogger({
-      level: 'info',
-      collapsed: true,
-      duration: true,
-    });
-
-    middlewares.push(loggerMiddleware);
-  }
+  // if (process.env.NODE_ENV !== 'production') {
+  //   const createLogger = require('redux-logger').createLogger
+  //
+  //   const loggerMiddleware = createLogger({
+  //     level: 'info',
+  //     collapsed: true,
+  //     duration: true,
+  //   });
+  //
+  //   middlewares.push(loggerMiddleware);
+  // }
 
   const store = createStore(reducers, composeEnhancers(
     applyMiddleware(...middlewares),
