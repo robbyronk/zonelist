@@ -8,48 +8,13 @@ import ItemStatusDropdown from "../item-status-dropdown";
 import UncontrolledContentEditable from "../uncontrolled-content-editable";
 
 class TaskTitle extends React.Component {
-  constructor(props) {
-    super(props)
-    this._handleChange = this._handleChange.bind(this)
-    this._onBackspace = this._onBackspace.bind(this)
-    this._onCtrlAltEnter = this._onCtrlAltEnter.bind(this)
-    this._onEnter = this._onEnter.bind(this)
-    this._onKeyDown = this._onKeyDown.bind(this)
-    this._onKeyPress = this._onKeyPress.bind(this)
-  }
-
-  // componentDidMount() {
-  //   if (this.props.task.id === this.props.focus) {
-  //     this.textInput.focus();
-  //   }
-  //   this.textInput.style.height = 'auto'
-  //   this.textInput.style.height = this.textInput.scrollHeight + 'px'
-  // }
-  //
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.task.title !== this.props.task.title) {
-  //     this.textInput.style.height = 'auto'
-  //     this.textInput.style.height = this.textInput.scrollHeight + 'px'
-  //   }
-  // }
-
-  _handleChange(e) {
+  _handleChange = (e) => {
     const {target: {textContent: value }} = e
     console.log(e, e.target.textContent)
     this.props.updateTitle(this.props.task.id, value)
   }
 
-  _onBackspace(e) {
-  }
-
-  _onCtrlAltEnter(e) {
-    console.log('creating item before')
-    if (this.props.newItemBefore) {
-      this.props.newItemBefore()
-    }
-  }
-
-  _onEnter(e) {
+  _onEnter = (e) => {
     e.preventDefault()
     if (this.props.newItemAfter) {
       this.props.newItemAfter(this.props.task.id)
@@ -64,37 +29,6 @@ class TaskTitle extends React.Component {
   _onShiftTab = (e) => {
     e.preventDefault()
     this.props.unindentItem(this.props.task.id)
-  }
-
-  _onKeyDown(e) {
-    // console.log(e.key, e.keyCode, e.altKey, e.ctrlKey, e.shiftKey, e.metaKey, e.which, e.charCode, e.location)
-    switch (e.key) {
-      case 'Enter':
-        if (e.altKey && e.ctrlKey) {
-          this._onCtrlAltEnter(e)
-        }
-        return
-      case 'Backspace':
-        this._onBackspace(e)
-        return
-      case 'Tab':
-        if (e.shiftKey) {
-          this._onShiftTab(e)
-        } else {
-          this._onTab(e)
-        }
-        return
-    }
-
-  }
-
-  _onKeyPress(e) {
-    // console.log(e.key, e.keyCode, e.altKey, e.ctrlKey, e.shiftKey, e.metaKey, e.which, e.charCode, e.location)
-    switch (e.key) {
-      case 'Enter':
-        this._onEnter(e)
-        return
-    }
   }
 
   render() {
@@ -122,27 +56,6 @@ class TaskTitle extends React.Component {
           onShiftTab={this._onShiftTab}
           onClick={() => this.props.selectTask(task.id)}
         />
-        {/*<textarea*/}
-          {/*rows={1}*/}
-          {/*style={{*/}
-            {/*transition: '0.1s',*/}
-          {/*}}*/}
-          {/*className={classnames(*/}
-            {/*'item-title', 'flex-grow',*/}
-            {/*{'first-level-title': task.level === 1},*/}
-            {/*{'text-success': task.status === 'done'},*/}
-            {/*{'text-warning': task.status === 'inProgress'},*/}
-            {/*{'text-muted': task.status === 'waiting'},*/}
-          {/*)}*/}
-          {/*type="text"*/}
-          {/*onChange={this._handleChange}*/}
-          {/*onKeyDown={this._onKeyDown}*/}
-          {/*onKeyPress={this._onKeyPress}*/}
-          {/*onFocus={() => this.props.selectTask(task.id)}*/}
-          {/*onBlur={() => this.props.unselectTask()}*/}
-          {/*ref={input => this.textInput = input}*/}
-          {/*value={task.title || ''}*/}
-        {/*/>*/}
       </div>
     )
   }
