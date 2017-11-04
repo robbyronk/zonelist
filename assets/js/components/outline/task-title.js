@@ -1,7 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
-import {indentItem, newItemAfter, removeItem, selectTask, unindentItem, unselectTask, updateTitle} from '../../actions'
 import classnames from 'classnames'
+
+import {indentItem, newItemAfter, removeItem, selectTask, unindentItem, unselectTask, updateTitle} from '../../actions'
 import ItemStatusDropdown from "../item-status-dropdown";
 
 class TaskTitle extends React.Component {
@@ -95,13 +96,18 @@ class TaskTitle extends React.Component {
   render() {
     const {task} = this.props
     let iconStyle = {
-      marginLeft: task.level * 1 + 'em'
+      marginLeft: task.level * 1 + 'em',
+      transition: '0.1s',
     }
     return (
-      <div className={classnames('d-flex', 'align-items-baseline', {'selected-title': this.props.selected === task.id})}>
+      <div
+        className={classnames('d-flex', 'align-items-baseline', {'selected-title': this.props.selected === task.id})}>
         <ItemStatusDropdown {...this.props} style={iconStyle}/>
         <textarea
           rows={1}
+          style={{
+            transition: '0.1s',
+          }}
           className={classnames(
             'item-title', 'flex-grow',
             {'first-level-title': task.level === 1},
@@ -116,7 +122,7 @@ class TaskTitle extends React.Component {
           onFocus={() => this.props.selectTask(task.id)}
           onBlur={() => this.props.unselectTask()}
           ref={input => this.textInput = input}
-          value={task.title}
+          value={task.title || ''}
         />
       </div>
     )

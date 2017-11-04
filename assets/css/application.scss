@@ -12,13 +12,6 @@ $fa-font-path: "~font-awesome/fonts";
 // danger: ff459e
 
 
-.list-item-children {
-  list-style-type: none;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  padding-left: 2.5em;
-}
-
 .list {
   margin-top: 1em;
 }
@@ -140,4 +133,26 @@ $fa-font-path: "~font-awesome/fonts";
 
 .sub-menu {
   top: 54px;
+}
+
+.example-enter {
+  opacity: 0.01;
+  height: 0px;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  height: 41px;
+  transition: 200ms;
+}
+
+.example-leave {
+  opacity: 1;
+  height: 41px;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  height: 0px;
+  transition: 200ms;
 }

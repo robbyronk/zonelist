@@ -1,5 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 import RootTaskTitle from './root'
 import TaskTitle from './task-title'
 import {listOrderSelector} from '../../selectors/board'
@@ -14,13 +16,15 @@ function Outline({tasks, selectedTask, unindentItem, indentItem, newItemAfter}) 
           <RootTaskTitle/>
         </div>
       </div>
-      {tail(tasks).map(t => (
-        <div key={t.id} className="row">
-          <div className="col-12">
-            <TaskTitle task={t}/>
+      <ReactCSSTransitionGroup transitionName={'example'} transitionEnterTimeout={200} transitionLeaveTimeout={200}>
+        {tail(tasks).map(t => (
+          <div key={t.id} className="row">
+            <div className="col-12">
+              <TaskTitle task={t}/>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </ReactCSSTransitionGroup>
     </div>
   )
 }
