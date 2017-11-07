@@ -1,6 +1,9 @@
 import React from "react";
-import Header from './header'
 import {connect} from 'react-redux'
+import {DragDropContext} from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
+
+import Header from './header'
 import Outline from './outline'
 import Focus from './focus/index'
 import Footer from './footer'
@@ -8,8 +11,7 @@ import {isLoading} from "../selectors/isLoading";
 
 // todo use react router
 
-@connect(state => ({isLoading: isLoading(state),view: state.view}))
-export default class MainLayout extends React.Component {
+class MainLayout extends React.Component {
   _component = (view) => {
     if (view === 'focus') {
       return (<Focus/>)
@@ -38,3 +40,11 @@ export default class MainLayout extends React.Component {
     );
   }
 }
+
+const mapState = state => ({isLoading: isLoading(state), view: state.view})
+
+const connected = connect(mapState)(MainLayout)
+
+const contexted = DragDropContext(HTML5Backend)(connected)
+
+export default contexted
