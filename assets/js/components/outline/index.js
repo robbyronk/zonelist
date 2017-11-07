@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import RootTaskTitle from './root'
-import TaskTitle from './task-title'
+import Task from './task'
 import {listOrderSelector} from '../../selectors/board'
 import {get, tail} from 'lodash'
 import {indentItem, newItemAfter, unindentItem} from '../../actions'
@@ -17,13 +17,7 @@ function Outline({tasks, selectedTask, unindentItem, indentItem, newItemAfter}) 
         </div>
       </div>
       <ReactCSSTransitionGroup transitionName={'example'} transitionEnterTimeout={200} transitionLeaveTimeout={200}>
-        {tail(tasks).map(t => (
-          <div key={t.id} className="row">
-            <div className="col-12">
-              <TaskTitle task={t}/>
-            </div>
-          </div>
-        ))}
+        {tail(tasks).map(t => <Task key={t.id} task={t} />)}
       </ReactCSSTransitionGroup>
     </div>
   )
