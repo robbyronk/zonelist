@@ -8,6 +8,7 @@ import {moveItemBefore} from "../../actions";
 
 const target = {
   canDrop(props, monitor) {
+    console.log(monitor.getClientOffset()) // mouse location
     const {taskId: draggedTaskId} = monitor.getItem()
     const targetId = props.task.id;
     if (targetId === draggedTaskId) {
@@ -21,6 +22,10 @@ const target = {
     console.log('dropped', draggedTaskId, 'on', props.task.id)
     return props.task
   },
+  hover(props, monitor, component) {
+    console.log('hover', component)
+    console.log(component.node.getBoundingClientRect()); // location of this drop zone
+  }
 };
 
 function collect(connect, monitor) {
@@ -30,12 +35,18 @@ function collect(connect, monitor) {
   };
 }
 
-const Task = ({task, connectDropTarget, isOver}) => (
-  connectDropTarget(
-    <div className={classnames("col-12", {'is-over': isOver})}>
-      <TaskTitle task={task}/>
-    </div>
-  ))
+class Task extends React.Component {
+  render() {
+    const {task, connectDropTarget, isOver} = this.props;
+    return connectDropTarget(
+      <div
+        ref={node => (this.node = node)}
+        className={classnames("col-12", {'is-over': isOver})}>
+        <TaskTitle task={task}/>
+      </div>
+    )
+  }
+}
 
 
 const DropTask = DropTarget('task', target, collect)(Task);

@@ -1,9 +1,9 @@
 import {Socket} from 'phoenix';
 
-import {eventChannel, takeLatest} from "redux-saga";
+import {eventChannel} from "redux-saga";
 import {call, fork, put, select, take} from "redux-saga/effects";
 
-import ActionTypes, {indentItem, removeItem, unindentItem, updateTask} from '../actions'
+import {indentItem, removeItem, unindentItem, updateTask} from '../actions'
 import {fetchTasks} from "./items";
 import {sessionId} from "../selectors/index";
 
@@ -87,5 +87,6 @@ function* startSocket(action) {
 }
 
 export default function* getWatcher() {
-  yield fork(takeLatest, ActionTypes.START_SESSION, startSocket);
+  // TODO re-enable this
+  // yield fork(takeLatest, ActionTypes.START_SESSION, startSocket);
 }
