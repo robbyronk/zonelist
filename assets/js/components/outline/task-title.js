@@ -2,10 +2,36 @@ import React from "react";
 import PropTypes from 'prop-types'
 import {connect} from "react-redux";
 import classnames from 'classnames'
+import {DragSource} from 'react-dnd';
 
 import {indentItem, newItemAfter, removeItem, selectTask, unindentItem, unselectTask, updateTitle} from '../../actions'
 import ItemStatusDropdown from "../item-status-dropdown";
 import UncontrolledContentEditable from "../uncontrolled-content-editable";
+import {TaskPropType} from '../../prop-types'
+
+const taskSource = {
+  beginDrag(props) {
+    return {
+      taskId: props.task.id
+    };
+  },
+  endDrag(props, monitor) {
+    if (monitor.didDrop()) {
+      const result = monitor.getDropResult()
+      console.log(result)
+    }
+  },
+  isDragging(props, monitor) {
+    return props.task.id === monitor.getItem().id
+  }
+};
+
+const collect = (connect, monitor) => {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  }
+}
 
 class TaskTitle extends React.Component {
   _handleChange = (e) => {
@@ -39,7 +65,7 @@ class TaskTitle extends React.Component {
     return (
       <div
         className={classnames('d-flex', 'align-items-baseline', (this.props.selected === task.id ? 'selected-title' : 'title'))}>
-        <ItemStatusDropdown {...this.props} style={iconStyle}/>
+        {this.props.connectDragSource(<div><ItemStatusDropdown {...this.props} style={iconStyle}/></div>)}
         <UncontrolledContentEditable
           className={classnames(
             {'first-level-title': task.level === 1},
@@ -48,7 +74,7 @@ class TaskTitle extends React.Component {
             {'text-muted': task.status === 'waiting'},
           )}
           editable={this.props.task.id === this.props.selected}
-          text={task.title || ''}
+          text={task.title}
           onChange={this._handleChange}
           onEnter={this._onEnter}
           onTab={this._onTab}
@@ -61,6 +87,7 @@ class TaskTitle extends React.Component {
 }
 
 TaskTitle.propTypes = {
+  task: TaskPropType.isRequired,
   newItemBefore: PropTypes.func,
 }
 
@@ -69,5 +96,7 @@ const mapStateToProps = (state, ownProps) => ({
   selected: state.outline.selectedItem
 })
 
+const DragTaskTitle = DragSource('task', taskSource, collect)(TaskTitle)
+
 const actions = {indentItem, newItemAfter, removeItem, unindentItem, updateTitle, selectTask, unselectTask};
-export default connect(mapStateToProps, actions)(TaskTitle)
+export default connect(mapStateToProps, actions)(DragTaskTitle)

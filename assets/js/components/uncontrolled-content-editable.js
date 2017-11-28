@@ -107,7 +107,8 @@ UncontrolledContentEditable.propTypes = {
 
 UncontrolledContentEditable.defaultProps = {
   component: ReactDOM.div,
-  editable: false
+  editable: false,
+  text: '',
 }
 
 export default UncontrolledContentEditable

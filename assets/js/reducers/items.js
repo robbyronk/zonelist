@@ -4,11 +4,13 @@ import includes from 'lodash/includes'
 import omit from 'lodash/omit'
 import without from 'lodash/without'
 import mapValues from 'lodash/mapValues'
-import {every, get, isArray, isEmpty, isPlainObject, keyBy, some, trimStart} from 'lodash'
+import {every, get, isArray, isEmpty, isEqual, isPlainObject, keyBy, some, trimStart} from 'lodash'
 import ActionTypes from '../actions'
 
 const initialState = {
 }
+
+const insertAt = (index, insert, arr) => ([...arr.slice(0, index), insert, ...arr.slice(index)])
 
 function findParent(items, id) {
   return find(items, i => includes(i.children, id))
@@ -69,6 +71,42 @@ function moveTask(state, {id, afterId, parent}) {
     }
     return {...task, children: withoutId}
   })
+}
+
+function moveTaskBefore(state, {moveId, targetId}) {
+  console.log('moveTaskBefore args', {moveId, targetId})
+  if (moveId === targetId) {
+    return state
+  }
+  if (state[targetId].root || state[moveId].root) {
+    return state
+  }
+  const targetParent = findParent(state, targetId)
+  const moveParent = findParent(state, moveId)
+  if (!targetParent || !moveParent) {
+    return state
+  }
+
+  if (isEqual(targetParent, moveParent)) {
+    const newChildren = without(moveParent.children, moveId)
+    const newTargetIndex = newChildren.indexOf(targetId);
+    return update(state, {[targetParent.id]: {children: {$set: insertAt(newTargetIndex, moveId, newChildren)}}})
+  }
+
+  return update(
+    state,
+    {
+      [targetParent.id]: {
+        children: {$splice: [
+          [targetParent.children.indexOf(targetId), 0, moveId]
+        ]}
+      },
+      [moveParent.id]: {
+        children: {$apply: children => without(children, moveId)}
+      }
+    }
+  )
+
 }
 
 function indentTask(state, {id}) {
@@ -137,6 +175,8 @@ export default function reducer(state = initialState, action = {}) {
       return removeTask(state, action)
     case ActionTypes.MOVE_ITEM:
       return moveTask(state, action)
+    case ActionTypes.MOVE_ITEM_BEFORE:
+      return moveTaskBefore(state, action)
     case ActionTypes.RESET:
       return initialState
     case ActionTypes.SET_ITEMS:

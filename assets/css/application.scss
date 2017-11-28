@@ -59,10 +59,6 @@ $fa-font-path: "~font-awesome/fonts";
   margin-left: auto;
 }
 
-.dragging {
-  opacity: 0.5;
-}
-
 .board-item {
   background: #d0d0d0;
   min-height: 4em;
@@ -165,4 +161,12 @@ $fa-font-path: "~font-awesome/fonts";
   opacity: 0.01;
   height: 0px;
   transition: 200ms;
+}
+
+.is-dragging {
+  background-color: lighter-shade($body-bg, 10%);
+}
+
+.is-over {
+  background-color: lighter-shade(#4c2d7b, 10%);
 }

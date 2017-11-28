@@ -7,6 +7,7 @@ const ActionTypes = {
   INDENT_ITEM: 'INDENT_ITEM',
   UNINDENT_ITEM: 'UNINDENT_ITEM',
   MOVE_ITEM: 'MOVE_ITEM',
+  MOVE_ITEM_BEFORE: 'MOVE_ITEM_BEFORE',
   SET_ITEMS: 'SET_ITEMS',
   SET_STATUS: 'SET_STATUS',
   HIDE_INTRO: 'HIDE_INTRO',
@@ -32,6 +33,8 @@ export const indentItem = (id, fromPeer = false) => ( {type: ActionTypes.INDENT_
 export const unindentItem = (id, fromPeer = false) => ( {type: ActionTypes.UNINDENT_ITEM, fromPeer, id} )
 
 export const moveItem = (id, afterId, parent) => ( {type: ActionTypes.MOVE_ITEM, id, afterId, parent} )
+
+export const moveItemBefore = (moveId, targetId) => ( {type: ActionTypes.MOVE_ITEM_BEFORE, moveId, targetId})
 
 export const setItems = items => ( {type: ActionTypes.SET_ITEMS, items} )
 

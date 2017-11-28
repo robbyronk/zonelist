@@ -44,6 +44,50 @@ describe('reducers', () => {
     state = reducers({'1': {title: 'Your Zone', status: 'toDo', root: true, id: 1, children: [2, 3, 7]}, '2': {title: 'Make an outline', status: 'done', root: false, id: 2, children: []}, '3': {title: 'Focus on one task at a time', status: 'done', root: false, id: 3, children: []}, '7': {title: 'Testing', status: null, root: false, id: 7, children: []}}, {type: 'REMOVE_ITEM', fromPeer: true, id: 7});
     expect(state).toEqual({'1': {title: 'Your Zone', status: 'toDo', root: true, id: 1, children: [2, 3]}, '2': {title: 'Make an outline', status: 'done', root: false, id: 2, children: []}, '3': {title: 'Focus on one task at a time', status: 'done', root: false, id: 3, children: []},});
   });
+
+  it('should move before', () => {
+    let state;
+    state = reducers({
+      '1': {title: 'Your Zone', status: 'toDo', root: true, id: 1, children: [2, 77, 76, 21, 60, 22]},
+      '2': {title: 'Make an outline', status: 'done', root: false, id: 2, children: [18, 3]},
+      '3': {title: 'Focus on one task at a time', status: 'toDo', root: false, id: 3, children: [28, 74, 75]},
+      '18': {title: 'aohuhuhunth', status: 'done', root: false, id: 18, children: []},
+      '21': {title: 'a', status: 'toDo', root: false, id: 21, children: []},
+      '22': {
+        title: 'what if this is pretty long is it still readable',
+        status: 'waiting',
+        root: false,
+        id: 22,
+        children: []
+      },
+      '28': {title: 'aoeu wow', status: 'waiting', root: false, id: 28, children: []},
+      '60': {title: null, status: null, root: false, id: 60, children: []},
+      '74': {title: 'is there anything weird?', status: null, root: false, id: 74, children: []},
+      '75': {title: null, status: null, root: false, id: 75, children: []},
+      '76': {title: null, status: null, root: false, id: 76, children: []},
+      '77': {title: 'aoeu', status: null, root: false, id: 77, children: []}
+    }, {type: 'MOVE_ITEM_BEFORE', moveId: 21, targetId: 76});
+    expect(state).toEqual({
+      '1': {title: 'Your Zone', status: 'toDo', root: true, id: 1, children: [2, 77, 21, 76, 60, 22]},
+      '2': {title: 'Make an outline', status: 'done', root: false, id: 2, children: [18, 3]},
+      '3': {title: 'Focus on one task at a time', status: 'toDo', root: false, id: 3, children: [28, 74, 75]},
+      '18': {title: 'aohuhuhunth', status: 'done', root: false, id: 18, children: []},
+      '21': {title: 'a', status: 'toDo', root: false, id: 21, children: []},
+      '22': {
+        title: 'what if this is pretty long is it still readable',
+        status: 'waiting',
+        root: false,
+        id: 22,
+        children: []
+      },
+      '28': {title: 'aoeu wow', status: 'waiting', root: false, id: 28, children: []},
+      '60': {title: null, status: null, root: false, id: 60, children: []},
+      '74': {title: 'is there anything weird?', status: null, root: false, id: 74, children: []},
+      '75': {title: null, status: null, root: false, id: 75, children: []},
+      '76': {title: null, status: null, root: false, id: 76, children: []},
+      '77': {title: 'aoeu', status: null, root: false, id: 77, children: []}
+    });
+  });
 })
 
 describe('items reducers utils', () => {

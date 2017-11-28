@@ -16,8 +16,10 @@ function Outline({tasks, selectedTask, unindentItem, indentItem, newItemAfter}) 
           <RootTaskTitle/>
         </div>
       </div>
-      <ReactCSSTransitionGroup transitionName={'example'} transitionEnterTimeout={200} transitionLeaveTimeout={200}>
-        {tail(tasks).map(t => <Task key={t.id} task={t} />)}
+      <ReactCSSTransitionGroup component={'div'} transitionName={'example'} transitionEnterTimeout={200} transitionLeaveTimeout={200}>
+        <div className="row">
+          {tail(tasks).map(t => <Task key={t.id} task={t} />)}
+        </div>
       </ReactCSSTransitionGroup>
     </div>
   )
