@@ -4,27 +4,27 @@ import {DropTarget} from 'react-dnd';
 import {connect} from 'react-redux'
 
 import TaskTitle from './task-title'
-import {moveItemBefore} from "../../actions";
+import {moveItemAfter, moveItemBefore} from "../../actions";
 
 const target = {
-  canDrop(props, monitor) {
-    console.log(monitor.getClientOffset()) // mouse location
-    const {taskId: draggedTaskId} = monitor.getItem()
-    const targetId = props.task.id;
-    if (targetId === draggedTaskId) {
-      return false
-    }
-    props.dispatch(moveItemBefore(draggedTaskId, targetId))
-    return true
-  },
   drop(props, monitor) {
-    const {taskId: draggedTaskId} = monitor.getItem()
-    console.log('dropped', draggedTaskId, 'on', props.task.id)
     return props.task
   },
   hover(props, monitor, component) {
-    console.log('hover', component)
-    console.log(component.node.getBoundingClientRect()); // location of this drop zone
+    const {taskId: draggedTaskId} = monitor.getItem()
+    const targetId = props.task.id;
+    if (targetId === draggedTaskId) {
+      return
+    }
+
+    const {y: mouseY} = monitor.getClientOffset();
+    const dropZone = component.node.getBoundingClientRect();
+    const componentMiddle = (dropZone.top + dropZone.bottom) / 2;
+    if (mouseY < componentMiddle) {
+      props.dispatch(moveItemBefore(draggedTaskId, targetId))
+    } else {
+      props.dispatch(moveItemAfter(draggedTaskId, targetId))
+    }
   }
 };
 

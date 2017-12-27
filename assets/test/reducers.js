@@ -1,6 +1,7 @@
 import 'babel-polyfill'
 import expect from 'expect'
 import reducers, {isChild} from '../js/reducers/items'
+import {moveItemAfter} from "../js/actions";
 
 describe('reducers', () => {
   it('simple update title test', () => {
@@ -87,6 +88,24 @@ describe('reducers', () => {
       '76': {title: null, status: null, root: false, id: 76, children: []},
       '77': {title: 'aoeu', status: null, root: false, id: 77, children: []}
     });
+  })
+  it('should move after', () => {
+    const prevState = {
+      '1': {id: '1', children: ['2', '3']},
+      '2': {id: '2', children: []},
+      '3': {id: '3', children: ['4', '5']},
+      '4': {id: '4', children: []},
+      '5': {id: '5', children: []},
+    }
+    const action = moveItemAfter('5', '2');
+    const nextState = {
+      '1': {id: '1', children: ['2', '5', '3']},
+      '2': {id: '2', children: []},
+      '3': {id: '3', children: ['4']},
+      '4': {id: '4', children: []},
+      '5': {id: '5', children: []},
+    }
+    expect(reducers(prevState, action)).toEqual(nextState);
   });
 })
 

@@ -81,6 +81,9 @@ function moveTaskBefore(state, {moveId, targetId}) {
   if (state[targetId].root || state[moveId].root) {
     return state
   }
+  if (isChild(state, moveId, targetId)) {
+    return state
+  }
   const targetParent = findParent(state, targetId)
   const moveParent = findParent(state, moveId)
   if (!targetParent || !moveParent) {
@@ -100,6 +103,44 @@ function moveTaskBefore(state, {moveId, targetId}) {
         children: {$splice: [
           [targetParent.children.indexOf(targetId), 0, moveId]
         ]}
+      },
+      [moveParent.id]: {
+        children: {$apply: children => without(children, moveId)}
+      }
+    }
+  )
+
+}
+
+function moveTaskAfter(state, {moveId, targetId}) {
+  if (moveId === targetId) {
+    return state
+  }
+  if (state[targetId].root || state[moveId].root) {
+    return state
+  }
+  if (isChild(state, moveId, targetId)) {
+    return state
+  }
+  const targetParent = findParent(state, targetId)
+  const moveParent = findParent(state, moveId)
+  if (!targetParent || !moveParent) {
+    return state
+  }
+
+  if (isEqual(targetParent, moveParent)) {
+    const newChildren = without(moveParent.children, moveId)
+    const newTargetIndex = newChildren.indexOf(targetId) + 1;
+    return update(state, {[targetParent.id]: {children: {$set: insertAt(newTargetIndex, moveId, newChildren)}}})
+  }
+
+  return update(
+    state,
+    {
+      [targetParent.id]: {
+        children: {$splice: [
+            [targetParent.children.indexOf(targetId) + 1, 0, moveId]
+          ]}
       },
       [moveParent.id]: {
         children: {$apply: children => without(children, moveId)}
@@ -177,6 +218,8 @@ export default function reducer(state = initialState, action = {}) {
       return moveTask(state, action)
     case ActionTypes.MOVE_ITEM_BEFORE:
       return moveTaskBefore(state, action)
+    case ActionTypes.MOVE_ITEM_AFTER:
+      return moveTaskAfter(state, action)
     case ActionTypes.RESET:
       return initialState
     case ActionTypes.SET_ITEMS:
