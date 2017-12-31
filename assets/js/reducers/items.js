@@ -74,7 +74,6 @@ function moveTask(state, {id, afterId, parent}) {
 }
 
 function moveTaskBefore(state, {moveId, targetId}) {
-  console.log('moveTaskBefore args', {moveId, targetId})
   if (moveId === targetId) {
     return state
   }
