@@ -17,6 +17,8 @@ const ActionTypes = {
   SELECT_TASK: 'SELECT_TASK',
   UNSELECT_TASK: 'UNSELECT_TASK',
   START_SESSION: 'START_SESSION',
+  START_DRAG: 'START_DRAG',
+  FINISH_DRAG: 'FINISH_DRAG',
 };
 
 export default ActionTypes;
@@ -54,3 +56,7 @@ export const selectTask = id => ( {type: ActionTypes.SELECT_TASK, id} )
 export const unselectTask = () => ( {type: ActionTypes.UNSELECT_TASK} )
 
 export const startSession = session => ( {type: ActionTypes.START_SESSION, session} )
+
+export const startDrag = id => ({type: ActionTypes.START_DRAG, id})
+
+export const finishDrag = () => ({type: ActionTypes.FINISH_DRAG})

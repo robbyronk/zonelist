@@ -5,6 +5,7 @@ import is from './is'
 import view from './view'
 import outline from './outline'
 import session from "./session";
+import dnd from "./dnd";
 
 export default combineReducers({
   focus,
@@ -13,4 +14,5 @@ export default combineReducers({
   outline,
   session,
   view,
+  dnd,
 });

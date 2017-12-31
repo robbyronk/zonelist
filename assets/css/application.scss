@@ -120,7 +120,6 @@ $fa-font-path: "~font-awesome/fonts";
   flex: auto;
   border: none;
   min-height: 16px;
-  background-color: $body-bg;
   color: $body-color;
 }
 
@@ -164,9 +163,5 @@ $fa-font-path: "~font-awesome/fonts";
 }
 
 .is-dragging {
-  background-color: lighter-shade($body-bg, 10%);
-}
-
-.is-over {
   background-color: lighter-shade(#4c2d7b, 10%);
 }

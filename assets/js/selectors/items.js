@@ -9,6 +9,12 @@ export const selectedTask = createSelector(
   (tasks, selectedId) => get(tasks, selectedId, {})
 )
 
+export const isDragging = createSelector(
+  state => get(state, 'dnd.dragging'),
+  (state, props) => props.task,
+  (draggingId, {id}) => draggingId === id
+)
+
 export const tasksSelector = createSelector(
   tasks,
   i => i

@@ -2,9 +2,11 @@ import React from 'react'
 import classnames from 'classnames'
 import {DropTarget} from 'react-dnd';
 import {connect} from 'react-redux'
+import {createStructuredSelector} from 'reselect'
 
 import TaskTitle from './task-title'
 import {moveItemAfter, moveItemBefore} from "../../actions";
+import {isDragging} from "../../selectors/items";
 
 const target = {
   drop(props, monitor) {
@@ -37,17 +39,20 @@ function collect(connect, monitor) {
 
 class Task extends React.Component {
   render() {
-    const {task, connectDropTarget, isOver} = this.props;
+    const {task, connectDropTarget, isDragging} = this.props;
     return connectDropTarget(
       <div
         ref={node => (this.node = node)}
-        className={classnames("col-12", {'is-over': isOver})}>
+        className={classnames("col-12", {'is-dragging': isDragging})}>
         <TaskTitle task={task}/>
       </div>
     )
   }
 }
 
+const mapStateToProps = createStructuredSelector({
+  isDragging,
+});
 
 const DropTask = DropTarget('task', target, collect)(Task);
-export default connect()(DropTask);
+export default connect(mapStateToProps)(DropTask);

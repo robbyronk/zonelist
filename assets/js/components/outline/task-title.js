@@ -4,22 +4,23 @@ import {connect} from "react-redux";
 import classnames from 'classnames'
 import {DragSource} from 'react-dnd';
 
-import {indentItem, newItemAfter, removeItem, selectTask, unindentItem, unselectTask, updateTitle} from '../../actions'
+import {
+  finishDrag, indentItem, newItemAfter, removeItem, selectTask, startDrag, unindentItem, unselectTask,
+  updateTitle
+} from '../../actions'
 import ItemStatusDropdown from "../item-status-dropdown";
 import UncontrolledContentEditable from "../uncontrolled-content-editable";
 import {TaskPropType} from '../../prop-types'
 
 const taskSource = {
   beginDrag(props) {
+    props.startDrag(props.task.id)
     return {
       taskId: props.task.id
     };
   },
   endDrag(props, monitor) {
-    if (monitor.didDrop()) {
-      const result = monitor.getDropResult()
-      console.log(result)
-    }
+    props.finishDrag()
   },
   isDragging(props, monitor) {
     return props.task.id === monitor.getItem().id
@@ -98,5 +99,5 @@ const mapStateToProps = (state, ownProps) => ({
 
 const DragTaskTitle = DragSource('task', taskSource, collect)(TaskTitle)
 
-const actions = {indentItem, newItemAfter, removeItem, unindentItem, updateTitle, selectTask, unselectTask};
+const actions = {indentItem, newItemAfter, removeItem, unindentItem, updateTitle, selectTask, unselectTask, startDrag, finishDrag};
 export default connect(mapStateToProps, actions)(DragTaskTitle)
