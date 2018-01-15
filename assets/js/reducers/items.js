@@ -174,10 +174,11 @@ function unindentTask(state, {id}) {
   const {children} = parent
   const indexId = children.indexOf(id)
   const obj = state[id];
+  const taskChildren = obj.children || []; // hack to get around the children being null on creation
   const newState = {
     ...state,
     [parent.id]: {...parent, children: children.slice(0, indexId)},
-    [id]: {...obj, children: [...obj.children, ...children.slice(indexId + 1)]}
+    [id]: {...obj, children: [...taskChildren, ...children.slice(indexId + 1)]}
   }
   return moveTask(newState, {
     id,
