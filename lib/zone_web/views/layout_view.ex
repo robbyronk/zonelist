@@ -5,7 +5,7 @@ defmodule ZoneWeb.LayoutView do
     if System.get_env("production") == "true" do
       ~s(<script src="/js/app.js"></script>)
     else
-      ~s(<script src="http://localhost:8080/js/app.js"></script>)
+      ~s(<script src="http://localhost:4001/js/app.js"></script>)
     end
   end
 

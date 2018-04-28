@@ -7,14 +7,15 @@ const autoprefixer = require("autoprefixer");
 var merge = require('webpack-merge');
 const common = require('./webpack.config.js');
 
-const devPath = 'http://localhost:8080/';
+const devPath = 'http://localhost:4001/';
 
 module.exports = merge(common, {
   devtool: 'inline-source-map',
   devServer: {
     headers: {
       "Access-Control-Allow-Origin": "*",
-    }
+    },
+    port: 4001,
   },
   output: {
     publicPath: devPath

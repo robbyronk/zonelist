@@ -4,8 +4,9 @@
   },
   "scripts": {
     "test": "mocha --reporter spec --compilers js:babel-core/register",
+    "test_watch": "mocha --watch --reporter spec --compilers js:babel-core/register",
     "start": "npm run watch",
-    "watch": "MIX_ENV=dev webpack-dev-server --config webpack.dev.js --inline --hot --stdin --colors --public localhost:8080",
+    "watch": "MIX_ENV=dev webpack-dev-server --config webpack.dev.js --inline --hot --stdin --colors --public localhost:4001",
     "deploy": "MIX_ENV=prod webpack -p --config webpack.prod.js"
   },
   "license": "MIT",
