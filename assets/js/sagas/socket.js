@@ -1,9 +1,9 @@
 import {Socket} from 'phoenix';
 
-import {eventChannel} from "redux-saga";
+import {eventChannel, takeLatest} from "redux-saga";
 import {call, fork, put, select, take} from "redux-saga/effects";
 
-import {indentItem, removeItem, unindentItem, updateTask} from '../actions'
+import ActionTypes, {indentItem, moveItemAfter, moveItemBefore, removeItem, unindentItem, updateTask} from '../actions'
 import {fetchTasks} from "./items";
 import {sessionId} from "../selectors/index";
 
@@ -66,13 +66,35 @@ function *watchTaskDelete(phoenixChannel){
   }
 }
 
+function *watchTaskMoveBefore(phoenixChannel){
+  const channel = createEventChannel(phoenixChannel, 'move_task_before')
+  while (true) {
+    const {payload} = yield take(channel);
+    const mySessionId = yield select(sessionId);
+    if (mySessionId !== payload.sessionId) {
+      yield put(moveItemBefore(payload.moveId, payload.targetId))
+    }
+  }
+}
+
+function *watchTaskMoveAfter(phoenixChannel){
+  const channel = createEventChannel(phoenixChannel, 'move_task_after')
+  while (true) {
+    const {payload} = yield take(channel);
+    const mySessionId = yield select(sessionId);
+    if (mySessionId !== payload.sessionId) {
+      yield put(moveItemAfter(payload.moveId, payload.targetId))
+    }
+  }
+}
+
 function* startSocket(action) {
   const {session} = action;
 
   const socket = new Socket('/socket', {
     params: {token: localStorage.getItem('id_token')},
     logger: (kind, msg, data) => {
-      console.log(`${kind}: ${msg}`, data)
+      // console.log(`${kind}: ${msg}`, data)
     },
   });
   socket.connect();
@@ -84,9 +106,11 @@ function* startSocket(action) {
   yield fork(watchTaskDelete, phoenixChannel)
   yield fork(watchTaskIndent, phoenixChannel)
   yield fork(watchTaskUnindent, phoenixChannel)
+  yield fork(watchTaskMoveBefore, phoenixChannel)
+  yield fork(watchTaskMoveAfter, phoenixChannel)
 }
 
 export default function* getWatcher() {
   // TODO re-enable this
-  // yield fork(takeLatest, ActionTypes.START_SESSION, startSocket);
+  yield fork(takeLatest, ActionTypes.START_SESSION, startSocket);
 }

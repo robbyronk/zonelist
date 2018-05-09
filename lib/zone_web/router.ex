@@ -33,6 +33,8 @@ defmodule ZoneWeb.Router do
     resources "/tasks", TasksController, only: [:index, :create, :update, :delete]
     post "/tasks/:id/indent", TasksController, :indent
     post "/tasks/:id/unindent", TasksController, :unindent
+    post "/tasks/:id/move-before/:targetId", TasksController, :move_before
+    post "/tasks/:id/move-after/:targetId", TasksController, :move_after
   end
 
   scope "/", ZoneWeb do

@@ -27,3 +27,9 @@ export const apiDeleteTask = id => doFetch(`/api/tasks/${id}`, {method: 'DELETE'
 export const apiIndentTask = (id, data) => doFetchBody(`/api/tasks/${id}/indent`, 'POST', data)
 
 export const apiUnindentTask = (id, data) => doFetchBody(`/api/tasks/${id}/unindent`, 'POST', data)
+
+export const apiMoveTaskBefore = (moveId, targetId, data) =>
+  doFetchBody(`/api/tasks/${moveId}/move-before/${targetId}`, 'POST', data)
+
+export const apiMoveTaskAfter = (moveId, targetId, data) =>
+  doFetchBody(`/api/tasks/${moveId}/move-after/${targetId}`, 'POST', data)

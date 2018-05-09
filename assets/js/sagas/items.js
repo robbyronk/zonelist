@@ -1,8 +1,17 @@
-import {delay, takeEvery} from "redux-saga";
-import {call, cancel, fork, put, select, take} from "redux-saga/effects";
+import {delay, takeEvery, takeLatest} from "redux-saga";
+import {call, cancel, fork, put, race, select, take} from "redux-saga/effects";
 
 import ActionTypes, {setItems} from '../actions'
-import {apiDeleteTask, apiGetTasks, apiIndentTask, apiPatchTask, apiPostTask, apiUnindentTask} from "../api";
+import {
+  apiDeleteTask,
+  apiGetTasks,
+  apiIndentTask,
+  apiMoveTaskAfter,
+  apiMoveTaskBefore,
+  apiPatchTask,
+  apiPostTask,
+  apiUnindentTask,
+} from "../api";
 import {sessionId} from "../selectors/index";
 
 export function* fetchTasks() {
@@ -57,6 +66,28 @@ function* unindentTask({id, fromPeer}) {
   }
 }
 
+function* watchTaskMoves() {
+  let isDragging = true;
+  let lastMove = null;
+  while (isDragging) {
+    const {finish, move} = yield race({
+      finish: take(ActionTypes.FINISH_DRAG),
+      move: take([ActionTypes.MOVE_ITEM_BEFORE, ActionTypes.MOVE_ITEM_AFTER]),
+    })
+    if (finish && lastMove) {
+      const mySessionId = yield select(sessionId)
+      if (lastMove.type === ActionTypes.MOVE_ITEM_BEFORE) {
+        yield call(apiMoveTaskBefore, lastMove.moveId, lastMove.targetId, {sessionId: mySessionId})
+      }
+      if (lastMove.type === ActionTypes.MOVE_ITEM_AFTER) {
+        yield call(apiMoveTaskAfter, lastMove.moveId, lastMove.targetId, {sessionId: mySessionId})
+      }
+      return;
+    }
+    lastMove = move
+  }
+}
+
 export default function* sagas() {
   yield fork(watchTaskUpdates)
   yield fork(takeEvery, ActionTypes.NEW_ITEM_AFTER, createTask)
@@ -65,4 +96,5 @@ export default function* sagas() {
   yield fork(takeEvery, ActionTypes.START_SESSION, fetchTasks)
   yield fork(takeEvery, ActionTypes.INDENT_ITEM, indentTask)
   yield fork(takeEvery, ActionTypes.UNINDENT_ITEM, unindentTask)
+  yield fork(takeLatest, ActionTypes.START_DRAG, watchTaskMoves)
 }

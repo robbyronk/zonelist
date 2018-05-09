@@ -120,7 +120,23 @@ defmodule Zone.List do
   def move_task(%Task{} = task, %Task{} = new_parent, new_index) do
     old_parent = find_parent(task)
     update_task(old_parent, %{children: List.delete(old_parent.children, task.id)})
-    update_task(new_parent, %{children: List.insert_at(new_parent.children, new_index, task.id)})
+    update_task(new_parent, %{children: List.insert_at(List.delete(new_parent.children, task.id), new_index, task.id)})
+  end
+
+  def move_task_before(%Task{} = task, %Task{id: before_id} = before_task) do
+    with %Task{children: parent_siblings} = new_parent <- find_parent(before_task) do
+      move_task(task, new_parent, Enum.find_index(List.delete(parent_siblings, task.id), &match?(^before_id, &1)))
+    else
+      nil -> {:error, "could not move #{task.id}"}
+    end
+  end
+
+  def move_task_after(%Task{} = task, %Task{id: after_id} = after_task) do
+    with %Task{children: parent_siblings} = new_parent <- find_parent(after_task) do
+      move_task(task, new_parent, Enum.find_index(List.delete(parent_siblings, task.id), &match?(^after_id, &1)) + 1)
+    else
+      nil -> {:error, "could not move #{task.id}"}
+    end
   end
 
   def previous_sibling(%Task{id: task_id} = task) do

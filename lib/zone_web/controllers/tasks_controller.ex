@@ -89,4 +89,44 @@ defmodule ZoneWeb.TasksController do
         send_resp(conn, 400, "{error: \"#{reason}}\"")
     end
   end
+
+  def move_before(conn, %{"id" => id, "targetId" => target_id, "sessionId" => session_id}) do
+    task = conn
+           |> Guardian.Plug.current_resource()
+           |> List.get_user_task!(id)
+    before_task = conn
+           |> Guardian.Plug.current_resource()
+           |> List.get_user_task!(target_id)
+    case List.move_task_before(task, before_task) do
+      {:ok, %Task{}} ->
+        ZoneWeb.Endpoint.broadcast(
+          "users:#{task.user_id}",
+          "move_task_before",
+          %{moveId: task.id, targetId: before_task.id, sessionId: session_id}
+        )
+        send_resp(conn, :no_content, "")
+      {:error, reason} ->
+        send_resp(conn, 400, "{error: \"#{reason}}\"")
+    end
+  end
+
+  def move_after(conn, %{"id" => id, "targetId" => target_id, "sessionId" => session_id}) do
+    task = conn
+           |> Guardian.Plug.current_resource()
+           |> List.get_user_task!(id)
+    after_task = conn
+           |> Guardian.Plug.current_resource()
+           |> List.get_user_task!(target_id)
+    case List.move_task_after(task, after_task) do
+      {:ok, %Task{}} ->
+        ZoneWeb.Endpoint.broadcast(
+          "users:#{task.user_id}",
+          "move_task_after",
+          %{moveId: task.id, targetId: after_task.id, sessionId: session_id}
+        )
+        send_resp(conn, :no_content, "")
+      {:error, reason} ->
+        send_resp(conn, 400, "{error: \"#{reason}}\"")
+    end
+  end
 end
