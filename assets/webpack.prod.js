@@ -7,7 +7,7 @@ const autoprefixer = require("autoprefixer");
 var merge = require('webpack-merge');
 const common = require('./webpack.config.js');
 
-const prodPath = 'https://app.thezonelist.com/';
+const prodPath = 'https://app.zonefocus.xyz/';
 
 
 module.exports = merge(common, {
