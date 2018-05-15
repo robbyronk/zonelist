@@ -53,8 +53,9 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :zone, Zone.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "zone_dev",
+  password: "zone_dev",
   database: "zone_dev",
   hostname: "localhost",
+  port: 15432,
   pool_size: 10
