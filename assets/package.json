@@ -11,7 +11,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "auth0-js": "^8.10.1",
+    "auth0-js": "^9.5.1",
     "bootstrap": "4.0.0-alpha.6",
     "classnames": "^2.2.5",
     "deep-diff": "^0.3.8",
