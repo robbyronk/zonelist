@@ -7,7 +7,7 @@ date > /etc/vagrant_provisioned_at
 SCRIPT
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "bento/ubuntu-18.04"
+  config.vm.box = "bento/ubuntu-16.04"
   config.vm.box_version = "201803.24.0"
   config.vm.provision "shell", inline: $script
 end
