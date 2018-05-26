@@ -63,6 +63,8 @@ fi
 apt-get update
 apt-get -y upgrade
 
+locale-gen en_US.UTF-8
+
 apt-get -y install "postgresql-$PG_VERSION" "postgresql-contrib-$PG_VERSION"
 
 PG_CONF="/etc/postgresql/$PG_VERSION/main/postgresql.conf"
@@ -84,6 +86,9 @@ service postgresql restart
 cat << EOF | su - postgres -c psql
 -- Create the database user:
 CREATE USER $APP_DB_USER WITH PASSWORD '$APP_DB_PASS';
+
+-- Allow the user to create databases:
+ALTER USER $APP_DB_USER CREATEDB;
 
 -- Create the database:
 CREATE DATABASE $APP_DB_NAME WITH OWNER=$APP_DB_USER
