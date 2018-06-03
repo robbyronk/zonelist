@@ -31,7 +31,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/,
+        exclude: /(node_modules|phoenix)/,
         query: {
           cacheDirectory: true,
           plugins: ['transform-decorators-legacy', "react-hot-loader/babel"],
